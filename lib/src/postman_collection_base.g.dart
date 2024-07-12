@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'postman_collection.dart';
+part of 'postman_collection_base.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

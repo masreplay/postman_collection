@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'postman_collection.freezed.dart';
-part 'postman_collection.g.dart';
+part 'postman_collection_base.freezed.dart';
+part 'postman_collection_base.g.dart';
 
 @freezed
 class PostmanCollection with _$PostmanCollection {

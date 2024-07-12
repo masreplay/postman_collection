@@ -1,5 +1,5 @@
-name: postman
-description: A starting point for Dart libraries or applications.
+name: postman_collection
+description: postman collection schema with freezed and json_serializable
 version: 1.0.0
 
 environment:
