@@ -6,7 +6,7 @@ targets:
           create_factory: true
           create_to_json: true
           explicit_to_json: true
-          include_if_null: true
+          include_if_null: false
       freezed:
         options:
           union_key: type

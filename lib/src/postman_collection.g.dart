@@ -33,15 +33,25 @@ _$PostmanCollectionImpl _$$PostmanCollectionImplFromJson(
     );
 
 Map<String, dynamic> _$$PostmanCollectionImplToJson(
-        _$PostmanCollectionImpl instance) =>
-    <String, dynamic>{
-      'info': instance.info.toJson(),
-      'item': instance.item.map((e) => e.toJson()).toList(),
-      'event': instance.event?.map((e) => e.toJson()).toList(),
-      'variable': instance.variable?.map((e) => e.toJson()).toList(),
-      'auth': instance.auth?.toJson(),
-      'protocolProfileBehavior': instance.protocolProfileBehavior?.toJson(),
-    };
+    _$PostmanCollectionImpl instance) {
+  final val = <String, dynamic>{
+    'info': instance.info.toJson(),
+    'item': instance.item.map((e) => e.toJson()).toList(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('event', instance.event?.map((e) => e.toJson()).toList());
+  writeNotNull('variable', instance.variable?.map((e) => e.toJson()).toList());
+  writeNotNull('auth', instance.auth?.toJson());
+  writeNotNull(
+      'protocolProfileBehavior', instance.protocolProfileBehavior?.toJson());
+  return val;
+}
 
 _$PostmanCollectionInfoImpl _$$PostmanCollectionInfoImplFromJson(
         Map<String, dynamic> json) =>
@@ -62,16 +72,24 @@ _$PostmanCollectionInfoImpl _$$PostmanCollectionInfoImplFromJson(
     );
 
 Map<String, dynamic> _$$PostmanCollectionInfoImplToJson(
-        _$PostmanCollectionInfoImpl instance) =>
-    <String, dynamic>{
-      '_postman_id': instance.postmanId,
-      'name': instance.name,
-      'schema': instance.schema,
-      'description': instance.description?.toJson(),
-      'version': instance.version?.toJson(),
-      '_exporter_id': instance.exporterId,
-      '_collection_link': instance.collectionLink,
-    };
+    _$PostmanCollectionInfoImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('_postman_id', instance.postmanId);
+  val['name'] = instance.name;
+  val['schema'] = instance.schema;
+  writeNotNull('description', instance.description?.toJson());
+  writeNotNull('version', instance.version?.toJson());
+  writeNotNull('_exporter_id', instance.exporterId);
+  writeNotNull('_collection_link', instance.collectionLink);
+  return val;
+}
 
 _$PostmanCollectionDescriptionObjectImpl
     _$$PostmanCollectionDescriptionObjectImplFromJson(
@@ -83,12 +101,20 @@ _$PostmanCollectionDescriptionObjectImpl
         );
 
 Map<String, dynamic> _$$PostmanCollectionDescriptionObjectImplToJson(
-        _$PostmanCollectionDescriptionObjectImpl instance) =>
-    <String, dynamic>{
-      'content': instance.content,
-      'type': instance.type,
-      'version': instance.version,
-    };
+    _$PostmanCollectionDescriptionObjectImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('content', instance.content);
+  writeNotNull('type', instance.type);
+  writeNotNull('version', instance.version);
+  return val;
+}
 
 _$PostmanCollectionDescriptionTextImpl
     _$$PostmanCollectionDescriptionTextImplFromJson(
@@ -129,14 +155,23 @@ _$PostmanCollectionVersionImpl _$$PostmanCollectionVersionImplFromJson(
     );
 
 Map<String, dynamic> _$$PostmanCollectionVersionImplToJson(
-        _$PostmanCollectionVersionImpl instance) =>
-    <String, dynamic>{
-      'major': instance.major,
-      'minor': instance.minor,
-      'patch': instance.patch,
-      'identifier': instance.identifier,
-      'meta': instance.meta,
-    };
+    _$PostmanCollectionVersionImpl instance) {
+  final val = <String, dynamic>{
+    'major': instance.major,
+    'minor': instance.minor,
+    'patch': instance.patch,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('identifier', instance.identifier);
+  writeNotNull('meta', instance.meta);
+  return val;
+}
 
 _$PostmanCollectionItemImpl _$$PostmanCollectionItemImplFromJson(
         Map<String, dynamic> json) =>
@@ -167,20 +202,34 @@ _$PostmanCollectionItemImpl _$$PostmanCollectionItemImplFromJson(
           ? null
           : PostmanCollectionProtocolProfileBehavior.fromJson(
               json['protocolProfileBehavior'] as Map<String, dynamic>),
+      item: (json['item'] as List<dynamic>?)
+          ?.map(
+              (e) => PostmanCollectionItem.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$PostmanCollectionItemImplToJson(
-        _$PostmanCollectionItemImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'description': instance.description?.toJson(),
-      'variable': instance.variable?.map((e) => e.toJson()).toList(),
-      'event': instance.event?.map((e) => e.toJson()).toList(),
-      'request': instance.request?.toJson(),
-      'response': instance.response?.map((e) => e.toJson()).toList(),
-      'protocolProfileBehavior': instance.protocolProfileBehavior?.toJson(),
-    };
+    _$PostmanCollectionItemImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  val['name'] = instance.name;
+  writeNotNull('description', instance.description?.toJson());
+  writeNotNull('variable', instance.variable?.map((e) => e.toJson()).toList());
+  writeNotNull('event', instance.event?.map((e) => e.toJson()).toList());
+  writeNotNull('request', instance.request?.toJson());
+  writeNotNull('response', instance.response?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      'protocolProfileBehavior', instance.protocolProfileBehavior?.toJson());
+  writeNotNull('item', instance.item?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 _$PostmanCollectionAuthImpl _$$PostmanCollectionAuthImplFromJson(
         Map<String, dynamic> json) =>
@@ -233,21 +282,30 @@ _$PostmanCollectionAuthImpl _$$PostmanCollectionAuthImplFromJson(
     );
 
 Map<String, dynamic> _$$PostmanCollectionAuthImplToJson(
-        _$PostmanCollectionAuthImpl instance) =>
-    <String, dynamic>{
-      'type': _$PostmanCollectionAuthTypeEnumMap[instance.type]!,
-      'noauth': instance.noauth?.map((e) => e.toJson()).toList(),
-      'apikey': instance.apikey?.map((e) => e.toJson()).toList(),
-      'awsv4': instance.awsv4?.map((e) => e.toJson()).toList(),
-      'basic': instance.basic?.map((e) => e.toJson()).toList(),
-      'bearer': instance.bearer?.map((e) => e.toJson()).toList(),
-      'digest': instance.digest?.map((e) => e.toJson()).toList(),
-      'edgegrid': instance.edgegrid?.map((e) => e.toJson()).toList(),
-      'hawk': instance.hawk?.map((e) => e.toJson()).toList(),
-      'ntlm': instance.ntlm?.map((e) => e.toJson()).toList(),
-      'oauth1': instance.oauth1?.map((e) => e.toJson()).toList(),
-      'oauth2': instance.oauth2?.map((e) => e.toJson()).toList(),
-    };
+    _$PostmanCollectionAuthImpl instance) {
+  final val = <String, dynamic>{
+    'type': _$PostmanCollectionAuthTypeEnumMap[instance.type]!,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('noauth', instance.noauth?.map((e) => e.toJson()).toList());
+  writeNotNull('apikey', instance.apikey?.map((e) => e.toJson()).toList());
+  writeNotNull('awsv4', instance.awsv4?.map((e) => e.toJson()).toList());
+  writeNotNull('basic', instance.basic?.map((e) => e.toJson()).toList());
+  writeNotNull('bearer', instance.bearer?.map((e) => e.toJson()).toList());
+  writeNotNull('digest', instance.digest?.map((e) => e.toJson()).toList());
+  writeNotNull('edgegrid', instance.edgegrid?.map((e) => e.toJson()).toList());
+  writeNotNull('hawk', instance.hawk?.map((e) => e.toJson()).toList());
+  writeNotNull('ntlm', instance.ntlm?.map((e) => e.toJson()).toList());
+  writeNotNull('oauth1', instance.oauth1?.map((e) => e.toJson()).toList());
+  writeNotNull('oauth2', instance.oauth2?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 const _$PostmanCollectionAuthTypeEnumMap = {
   PostmanCollectionAuthType.apikey: 'apikey',
@@ -272,12 +330,21 @@ _$PostmanCollectionAuthAttributeImpl
         );
 
 Map<String, dynamic> _$$PostmanCollectionAuthAttributeImplToJson(
-        _$PostmanCollectionAuthAttributeImpl instance) =>
-    <String, dynamic>{
-      'key': instance.key,
-      'value': instance.value,
-      'type': instance.type,
-    };
+    _$PostmanCollectionAuthAttributeImpl instance) {
+  final val = <String, dynamic>{
+    'key': instance.key,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('value', instance.value);
+  writeNotNull('type', instance.type);
+  return val;
+}
 
 _$PostmanCollectionProtocolProfileBehaviorImpl
     _$$PostmanCollectionProtocolProfileBehaviorImplFromJson(
@@ -319,17 +386,26 @@ _$PostmanCollectionRequestImpl _$$PostmanCollectionRequestImplFromJson(
     );
 
 Map<String, dynamic> _$$PostmanCollectionRequestImplToJson(
-        _$PostmanCollectionRequestImpl instance) =>
-    <String, dynamic>{
-      'method': instance.method,
-      'url': instance.url?.toJson(),
-      'auth': instance.auth?.toJson(),
-      'proxy': instance.proxy?.toJson(),
-      'certificate': instance.certificate?.toJson(),
-      'description': instance.description?.toJson(),
-      'header': instance.header?.map((e) => e.toJson()).toList(),
-      'body': instance.body,
-    };
+    _$PostmanCollectionRequestImpl instance) {
+  final val = <String, dynamic>{
+    'method': instance.method,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('url', instance.url?.toJson());
+  writeNotNull('auth', instance.auth?.toJson());
+  writeNotNull('proxy', instance.proxy?.toJson());
+  writeNotNull('certificate', instance.certificate?.toJson());
+  writeNotNull('description', instance.description?.toJson());
+  writeNotNull('header', instance.header?.map((e) => e.toJson()).toList());
+  writeNotNull('body', instance.body);
+  return val;
+}
 
 _$PostmanCollectionUrlImpl _$$PostmanCollectionUrlImplFromJson(
         Map<String, dynamic> json) =>
@@ -351,17 +427,25 @@ _$PostmanCollectionUrlImpl _$$PostmanCollectionUrlImplFromJson(
     );
 
 Map<String, dynamic> _$$PostmanCollectionUrlImplToJson(
-        _$PostmanCollectionUrlImpl instance) =>
-    <String, dynamic>{
-      'raw': instance.raw,
-      'protocol': instance.protocol,
-      'host': instance.host,
-      'path': instance.path,
-      'port': instance.port,
-      'query': instance.query?.map((e) => e.toJson()).toList(),
-      'hash': instance.hash,
-      'variable': instance.variable?.map((e) => e.toJson()).toList(),
-    };
+    _$PostmanCollectionUrlImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('raw', instance.raw);
+  writeNotNull('protocol', instance.protocol);
+  writeNotNull('host', instance.host);
+  writeNotNull('path', instance.path);
+  writeNotNull('port', instance.port);
+  writeNotNull('query', instance.query?.map((e) => e.toJson()).toList());
+  writeNotNull('hash', instance.hash);
+  writeNotNull('variable', instance.variable?.map((e) => e.toJson()).toList());
+  return val;
+}
 
 _$PostmanCollectionQueryParamImpl _$$PostmanCollectionQueryParamImplFromJson(
         Map<String, dynamic> json) =>
@@ -376,13 +460,21 @@ _$PostmanCollectionQueryParamImpl _$$PostmanCollectionQueryParamImplFromJson(
     );
 
 Map<String, dynamic> _$$PostmanCollectionQueryParamImplToJson(
-        _$PostmanCollectionQueryParamImpl instance) =>
-    <String, dynamic>{
-      'key': instance.key,
-      'value': instance.value,
-      'disabled': instance.disabled,
-      'description': instance.description?.toJson(),
-    };
+    _$PostmanCollectionQueryParamImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('value', instance.value);
+  writeNotNull('disabled', instance.disabled);
+  writeNotNull('description', instance.description?.toJson());
+  return val;
+}
 
 _$PostmanCollectionVariableImpl _$$PostmanCollectionVariableImplFromJson(
         Map<String, dynamic> json) =>
@@ -402,17 +494,25 @@ _$PostmanCollectionVariableImpl _$$PostmanCollectionVariableImplFromJson(
     );
 
 Map<String, dynamic> _$$PostmanCollectionVariableImplToJson(
-        _$PostmanCollectionVariableImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'key': instance.key,
-      'value': instance.value,
-      'type': _$PostmanCollectionVariableTypeEnumMap[instance.type],
-      'name': instance.name,
-      'description': instance.description?.toJson(),
-      'system': instance.system,
-      'disabled': instance.disabled,
-    };
+    _$PostmanCollectionVariableImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('key', instance.key);
+  writeNotNull('value', instance.value);
+  writeNotNull('type', _$PostmanCollectionVariableTypeEnumMap[instance.type]);
+  writeNotNull('name', instance.name);
+  writeNotNull('description', instance.description?.toJson());
+  writeNotNull('system', instance.system);
+  writeNotNull('disabled', instance.disabled);
+  return val;
+}
 
 const _$PostmanCollectionVariableTypeEnumMap = {
   PostmanCollectionVariableType.string: 'string',
@@ -434,13 +534,21 @@ _$PostmanCollectionEventImpl _$$PostmanCollectionEventImplFromJson(
     );
 
 Map<String, dynamic> _$$PostmanCollectionEventImplToJson(
-        _$PostmanCollectionEventImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'listen': instance.listen,
-      'script': instance.script?.toJson(),
-      'disabled': instance.disabled,
-    };
+    _$PostmanCollectionEventImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  val['listen'] = instance.listen;
+  writeNotNull('script', instance.script?.toJson());
+  writeNotNull('disabled', instance.disabled);
+  return val;
+}
 
 _$PostmanCollectionScriptImpl _$$PostmanCollectionScriptImplFromJson(
         Map<String, dynamic> json) =>
@@ -455,14 +563,22 @@ _$PostmanCollectionScriptImpl _$$PostmanCollectionScriptImplFromJson(
     );
 
 Map<String, dynamic> _$$PostmanCollectionScriptImplToJson(
-        _$PostmanCollectionScriptImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'type': instance.type,
-      'exec': instance.exec,
-      'src': instance.src?.toJson(),
-      'name': instance.name,
-    };
+    _$PostmanCollectionScriptImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('type', instance.type);
+  writeNotNull('exec', instance.exec);
+  writeNotNull('src', instance.src?.toJson());
+  writeNotNull('name', instance.name);
+  return val;
+}
 
 _$PostmanCollectionResponseImpl _$$PostmanCollectionResponseImplFromJson(
         Map<String, dynamic> json) =>
@@ -487,19 +603,27 @@ _$PostmanCollectionResponseImpl _$$PostmanCollectionResponseImplFromJson(
     );
 
 Map<String, dynamic> _$$PostmanCollectionResponseImplToJson(
-        _$PostmanCollectionResponseImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'originalPostmanCollectionRequest':
-          instance.originalPostmanCollectionRequest?.toJson(),
-      'responseTime': instance.responseTime,
-      'timings': instance.timings,
-      'header': instance.header,
-      'cookie': instance.cookie?.map((e) => e.toJson()).toList(),
-      'body': instance.body,
-      'status': instance.status,
-      'code': instance.code,
-    };
+    _$PostmanCollectionResponseImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('originalPostmanCollectionRequest',
+      instance.originalPostmanCollectionRequest?.toJson());
+  writeNotNull('responseTime', instance.responseTime);
+  writeNotNull('timings', instance.timings);
+  writeNotNull('header', instance.header);
+  writeNotNull('cookie', instance.cookie?.map((e) => e.toJson()).toList());
+  writeNotNull('body', instance.body);
+  writeNotNull('status', instance.status);
+  writeNotNull('code', instance.code);
+  return val;
+}
 
 _$PostmanCollectionCookieImpl _$$PostmanCollectionCookieImplFromJson(
         Map<String, dynamic> json) =>
@@ -518,20 +642,29 @@ _$PostmanCollectionCookieImpl _$$PostmanCollectionCookieImplFromJson(
     );
 
 Map<String, dynamic> _$$PostmanCollectionCookieImplToJson(
-        _$PostmanCollectionCookieImpl instance) =>
-    <String, dynamic>{
-      'domain': instance.domain,
-      'expires': instance.expires,
-      'maxAge': instance.maxAge,
-      'hostOnly': instance.hostOnly,
-      'httpOnly': instance.httpOnly,
-      'name': instance.name,
-      'path': instance.path,
-      'secure': instance.secure,
-      'session': instance.session,
-      'value': instance.value,
-      'extensions': instance.extensions,
-    };
+    _$PostmanCollectionCookieImpl instance) {
+  final val = <String, dynamic>{
+    'domain': instance.domain,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('expires', instance.expires);
+  writeNotNull('maxAge', instance.maxAge);
+  writeNotNull('hostOnly', instance.hostOnly);
+  writeNotNull('httpOnly', instance.httpOnly);
+  writeNotNull('name', instance.name);
+  writeNotNull('path', instance.path);
+  writeNotNull('secure', instance.secure);
+  writeNotNull('session', instance.session);
+  writeNotNull('value', instance.value);
+  writeNotNull('extensions', instance.extensions);
+  return val;
+}
 
 _$PostmanCollectionCertificateImpl _$$PostmanCollectionCertificateImplFromJson(
         Map<String, dynamic> json) =>
@@ -551,14 +684,22 @@ _$PostmanCollectionCertificateImpl _$$PostmanCollectionCertificateImplFromJson(
     );
 
 Map<String, dynamic> _$$PostmanCollectionCertificateImplToJson(
-        _$PostmanCollectionCertificateImpl instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'matches': instance.matches,
-      'key': instance.key?.toJson(),
-      'cert': instance.cert?.toJson(),
-      'passphrase': instance.passphrase,
-    };
+    _$PostmanCollectionCertificateImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('name', instance.name);
+  writeNotNull('matches', instance.matches);
+  writeNotNull('key', instance.key?.toJson());
+  writeNotNull('cert', instance.cert?.toJson());
+  writeNotNull('passphrase', instance.passphrase);
+  return val;
+}
 
 _$PostmanCollectionCertificateSrcImpl
     _$$PostmanCollectionCertificateSrcImplFromJson(Map<String, dynamic> json) =>
@@ -567,10 +708,18 @@ _$PostmanCollectionCertificateSrcImpl
         );
 
 Map<String, dynamic> _$$PostmanCollectionCertificateSrcImplToJson(
-        _$PostmanCollectionCertificateSrcImpl instance) =>
-    <String, dynamic>{
-      'src': instance.src,
-    };
+    _$PostmanCollectionCertificateSrcImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('src', instance.src);
+  return val;
+}
 
 _$PostmanCollectionProxyConfigImpl _$$PostmanCollectionProxyConfigImplFromJson(
         Map<String, dynamic> json) =>
@@ -583,14 +732,22 @@ _$PostmanCollectionProxyConfigImpl _$$PostmanCollectionProxyConfigImplFromJson(
     );
 
 Map<String, dynamic> _$$PostmanCollectionProxyConfigImplToJson(
-        _$PostmanCollectionProxyConfigImpl instance) =>
-    <String, dynamic>{
-      'match': instance.match,
-      'host': instance.host,
-      'port': instance.port,
-      'tunnel': instance.tunnel,
-      'disabled': instance.disabled,
-    };
+    _$PostmanCollectionProxyConfigImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('match', instance.match);
+  writeNotNull('host', instance.host);
+  writeNotNull('port', instance.port);
+  writeNotNull('tunnel', instance.tunnel);
+  writeNotNull('disabled', instance.disabled);
+  return val;
+}
 
 _$PostmanCollectionHeaderImpl _$$PostmanCollectionHeaderImplFromJson(
         Map<String, dynamic> json) =>
@@ -605,10 +762,19 @@ _$PostmanCollectionHeaderImpl _$$PostmanCollectionHeaderImplFromJson(
     );
 
 Map<String, dynamic> _$$PostmanCollectionHeaderImplToJson(
-        _$PostmanCollectionHeaderImpl instance) =>
-    <String, dynamic>{
-      'key': instance.key,
-      'value': instance.value,
-      'disabled': instance.disabled,
-      'description': instance.description?.toJson(),
-    };
+    _$PostmanCollectionHeaderImpl instance) {
+  final val = <String, dynamic>{
+    'key': instance.key,
+    'value': instance.value,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('disabled', instance.disabled);
+  writeNotNull('description', instance.description?.toJson());
+  return val;
+}

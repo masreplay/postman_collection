@@ -87,6 +87,7 @@ class PostmanCollectionItem with _$PostmanCollectionItem {
     PostmanCollectionRequest? request,
     List<PostmanCollectionResponse>? response,
     PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
+    List<PostmanCollectionItem>? item,
   }) = _PostmanCollectionItem;
 
   factory PostmanCollectionItem.fromJson(Map<String, dynamic> json) =>

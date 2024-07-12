@@ -1922,6 +1922,7 @@ mixin _$PostmanCollectionItem {
       throw _privateConstructorUsedError;
   PostmanCollectionProtocolProfileBehavior? get protocolProfileBehavior =>
       throw _privateConstructorUsedError;
+  List<PostmanCollectionItem>? get item => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
@@ -1932,7 +1933,8 @@ mixin _$PostmanCollectionItem {
             List<PostmanCollectionEvent>? event,
             PostmanCollectionRequest? request,
             List<PostmanCollectionResponse>? response,
-            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior)
+            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
+            List<PostmanCollectionItem>? item)
         $default,
   ) =>
       throw _privateConstructorUsedError;
@@ -1946,7 +1948,8 @@ mixin _$PostmanCollectionItem {
             List<PostmanCollectionEvent>? event,
             PostmanCollectionRequest? request,
             List<PostmanCollectionResponse>? response,
-            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior)?
+            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
+            List<PostmanCollectionItem>? item)?
         $default,
   ) =>
       throw _privateConstructorUsedError;
@@ -1960,7 +1963,8 @@ mixin _$PostmanCollectionItem {
             List<PostmanCollectionEvent>? event,
             PostmanCollectionRequest? request,
             List<PostmanCollectionResponse>? response,
-            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior)?
+            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
+            List<PostmanCollectionItem>? item)?
         $default, {
     required TResult orElse(),
   }) =>
@@ -2006,7 +2010,8 @@ abstract class $PostmanCollectionItemCopyWith<$Res> {
       List<PostmanCollectionEvent>? event,
       PostmanCollectionRequest? request,
       List<PostmanCollectionResponse>? response,
-      PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior});
+      PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
+      List<PostmanCollectionItem>? item});
 
   $PostmanCollectionDescriptionCopyWith<$Res>? get description;
   $PostmanCollectionRequestCopyWith<$Res>? get request;
@@ -2038,6 +2043,7 @@ class _$PostmanCollectionItemCopyWithImpl<$Res,
     Object? request = freezed,
     Object? response = freezed,
     Object? protocolProfileBehavior = freezed,
+    Object? item = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -2072,6 +2078,10 @@ class _$PostmanCollectionItemCopyWithImpl<$Res,
           ? _value.protocolProfileBehavior
           : protocolProfileBehavior // ignore: cast_nullable_to_non_nullable
               as PostmanCollectionProtocolProfileBehavior?,
+      item: freezed == item
+          ? _value.item
+          : item // ignore: cast_nullable_to_non_nullable
+              as List<PostmanCollectionItem>?,
     ) as $Val);
   }
 
@@ -2138,7 +2148,8 @@ abstract class _$$PostmanCollectionItemImplCopyWith<$Res>
       List<PostmanCollectionEvent>? event,
       PostmanCollectionRequest? request,
       List<PostmanCollectionResponse>? response,
-      PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior});
+      PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
+      List<PostmanCollectionItem>? item});
 
   @override
   $PostmanCollectionDescriptionCopyWith<$Res>? get description;
@@ -2171,6 +2182,7 @@ class __$$PostmanCollectionItemImplCopyWithImpl<$Res>
     Object? request = freezed,
     Object? response = freezed,
     Object? protocolProfileBehavior = freezed,
+    Object? item = freezed,
   }) {
     return _then(_$PostmanCollectionItemImpl(
       id: freezed == id
@@ -2205,6 +2217,10 @@ class __$$PostmanCollectionItemImplCopyWithImpl<$Res>
           ? _value.protocolProfileBehavior
           : protocolProfileBehavior // ignore: cast_nullable_to_non_nullable
               as PostmanCollectionProtocolProfileBehavior?,
+      item: freezed == item
+          ? _value._item
+          : item // ignore: cast_nullable_to_non_nullable
+              as List<PostmanCollectionItem>?,
     ));
   }
 }
@@ -2220,10 +2236,12 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
       final List<PostmanCollectionEvent>? event,
       this.request,
       final List<PostmanCollectionResponse>? response,
-      this.protocolProfileBehavior})
+      this.protocolProfileBehavior,
+      final List<PostmanCollectionItem>? item})
       : _variable = variable,
         _event = event,
         _response = response,
+        _item = item,
         super._();
 
   factory _$PostmanCollectionItemImpl.fromJson(Map<String, dynamic> json) =>
@@ -2269,10 +2287,19 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
 
   @override
   final PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior;
+  final List<PostmanCollectionItem>? _item;
+  @override
+  List<PostmanCollectionItem>? get item {
+    final value = _item;
+    if (value == null) return null;
+    if (_item is EqualUnmodifiableListView) return _item;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'PostmanCollectionItem(id: $id, name: $name, description: $description, variable: $variable, event: $event, request: $request, response: $response, protocolProfileBehavior: $protocolProfileBehavior)';
+    return 'PostmanCollectionItem(id: $id, name: $name, description: $description, variable: $variable, event: $event, request: $request, response: $response, protocolProfileBehavior: $protocolProfileBehavior, item: $item)';
   }
 
   @override
@@ -2290,7 +2317,8 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
             const DeepCollectionEquality().equals(other._response, _response) &&
             (identical(
                     other.protocolProfileBehavior, protocolProfileBehavior) ||
-                other.protocolProfileBehavior == protocolProfileBehavior));
+                other.protocolProfileBehavior == protocolProfileBehavior) &&
+            const DeepCollectionEquality().equals(other._item, _item));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -2304,7 +2332,8 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
       const DeepCollectionEquality().hash(_event),
       request,
       const DeepCollectionEquality().hash(_response),
-      protocolProfileBehavior);
+      protocolProfileBehavior,
+      const DeepCollectionEquality().hash(_item));
 
   /// Create a copy of PostmanCollectionItem
   /// with the given fields replaced by the non-null parameter values.
@@ -2326,11 +2355,12 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
             List<PostmanCollectionEvent>? event,
             PostmanCollectionRequest? request,
             List<PostmanCollectionResponse>? response,
-            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior)
+            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
+            List<PostmanCollectionItem>? item)
         $default,
   ) {
     return $default(id, name, description, variable, event, request, response,
-        protocolProfileBehavior);
+        protocolProfileBehavior, item);
   }
 
   @override
@@ -2344,11 +2374,12 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
             List<PostmanCollectionEvent>? event,
             PostmanCollectionRequest? request,
             List<PostmanCollectionResponse>? response,
-            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior)?
+            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
+            List<PostmanCollectionItem>? item)?
         $default,
   ) {
     return $default?.call(id, name, description, variable, event, request,
-        response, protocolProfileBehavior);
+        response, protocolProfileBehavior, item);
   }
 
   @override
@@ -2362,13 +2393,14 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
             List<PostmanCollectionEvent>? event,
             PostmanCollectionRequest? request,
             List<PostmanCollectionResponse>? response,
-            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior)?
+            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
+            List<PostmanCollectionItem>? item)?
         $default, {
     required TResult orElse(),
   }) {
     if ($default != null) {
       return $default(id, name, description, variable, event, request, response,
-          protocolProfileBehavior);
+          protocolProfileBehavior, item);
     }
     return orElse();
   }
@@ -2418,8 +2450,8 @@ abstract class _PostmanCollectionItem extends PostmanCollectionItem {
       final List<PostmanCollectionEvent>? event,
       final PostmanCollectionRequest? request,
       final List<PostmanCollectionResponse>? response,
-      final PostmanCollectionProtocolProfileBehavior?
-          protocolProfileBehavior}) = _$PostmanCollectionItemImpl;
+      final PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
+      final List<PostmanCollectionItem>? item}) = _$PostmanCollectionItemImpl;
   const _PostmanCollectionItem._() : super._();
 
   factory _PostmanCollectionItem.fromJson(Map<String, dynamic> json) =
@@ -2441,6 +2473,8 @@ abstract class _PostmanCollectionItem extends PostmanCollectionItem {
   List<PostmanCollectionResponse>? get response;
   @override
   PostmanCollectionProtocolProfileBehavior? get protocolProfileBehavior;
+  @override
+  List<PostmanCollectionItem>? get item;
 
   /// Create a copy of PostmanCollectionItem
   /// with the given fields replaced by the non-null parameter values.
