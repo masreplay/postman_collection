@@ -130,8 +130,8 @@ class PostmanCollectionRequest with _$PostmanCollectionRequest {
   const PostmanCollectionRequest._();
 
   const factory PostmanCollectionRequest({
-    required String method,
     PostmanCollectionAuth? auth,
+    required String method,
     PostmanCollectionProxyConfig? proxy,
     PostmanCollectionCertificate? certificate,
     List<PostmanCollectionHeader>? header,
@@ -235,7 +235,7 @@ class PostmanCollectionResponse with _$PostmanCollectionResponse {
 
   const factory PostmanCollectionResponse({
     String? id,
-    PostmanCollectionRequest? originalPostmanCollectionRequest,
+    PostmanCollectionRequest? originalRequest,
     Object? responseTime,
     Object? timings,
     Object? header,

@@ -299,11 +299,11 @@ Map<String, dynamic> _$$PostmanCollectionProtocolProfileBehaviorImplToJson(
 _$PostmanCollectionRequestImpl _$$PostmanCollectionRequestImplFromJson(
         Map<String, dynamic> json) =>
     _$PostmanCollectionRequestImpl(
-      method: json['method'] as String,
       auth: json['auth'] == null
           ? null
           : PostmanCollectionAuth.fromJson(
               json['auth'] as Map<String, dynamic>),
+      method: json['method'] as String,
       proxy: json['proxy'] == null
           ? null
           : PostmanCollectionProxyConfig.fromJson(
@@ -325,9 +325,7 @@ _$PostmanCollectionRequestImpl _$$PostmanCollectionRequestImplFromJson(
 
 Map<String, dynamic> _$$PostmanCollectionRequestImplToJson(
     _$PostmanCollectionRequestImpl instance) {
-  final val = <String, dynamic>{
-    'method': instance.method,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -336,6 +334,7 @@ Map<String, dynamic> _$$PostmanCollectionRequestImplToJson(
   }
 
   writeNotNull('auth', instance.auth?.toJson());
+  val['method'] = instance.method;
   writeNotNull('proxy', instance.proxy?.toJson());
   writeNotNull('certificate', instance.certificate?.toJson());
   writeNotNull('header', instance.header?.map((e) => e.toJson()).toList());

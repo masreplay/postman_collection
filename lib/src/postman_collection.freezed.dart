@@ -2995,8 +2995,8 @@ PostmanCollectionRequest _$PostmanCollectionRequestFromJson(
 
 /// @nodoc
 mixin _$PostmanCollectionRequest {
-  String get method => throw _privateConstructorUsedError;
   PostmanCollectionAuth? get auth => throw _privateConstructorUsedError;
+  String get method => throw _privateConstructorUsedError;
   PostmanCollectionProxyConfig? get proxy => throw _privateConstructorUsedError;
   PostmanCollectionCertificate? get certificate =>
       throw _privateConstructorUsedError;
@@ -3008,8 +3008,8 @@ mixin _$PostmanCollectionRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            String method,
             PostmanCollectionAuth? auth,
+            String method,
             PostmanCollectionProxyConfig? proxy,
             PostmanCollectionCertificate? certificate,
             List<PostmanCollectionHeader>? header,
@@ -3022,8 +3022,8 @@ mixin _$PostmanCollectionRequest {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-            String method,
             PostmanCollectionAuth? auth,
+            String method,
             PostmanCollectionProxyConfig? proxy,
             PostmanCollectionCertificate? certificate,
             List<PostmanCollectionHeader>? header,
@@ -3036,8 +3036,8 @@ mixin _$PostmanCollectionRequest {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            String method,
             PostmanCollectionAuth? auth,
+            String method,
             PostmanCollectionProxyConfig? proxy,
             PostmanCollectionCertificate? certificate,
             List<PostmanCollectionHeader>? header,
@@ -3082,8 +3082,8 @@ abstract class $PostmanCollectionRequestCopyWith<$Res> {
       _$PostmanCollectionRequestCopyWithImpl<$Res, PostmanCollectionRequest>;
   @useResult
   $Res call(
-      {String method,
-      PostmanCollectionAuth? auth,
+      {PostmanCollectionAuth? auth,
+      String method,
       PostmanCollectionProxyConfig? proxy,
       PostmanCollectionCertificate? certificate,
       List<PostmanCollectionHeader>? header,
@@ -3113,8 +3113,8 @@ class _$PostmanCollectionRequestCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? method = null,
     Object? auth = freezed,
+    Object? method = null,
     Object? proxy = freezed,
     Object? certificate = freezed,
     Object? header = freezed,
@@ -3123,14 +3123,14 @@ class _$PostmanCollectionRequestCopyWithImpl<$Res,
     Object? description = freezed,
   }) {
     return _then(_value.copyWith(
-      method: null == method
-          ? _value.method
-          : method // ignore: cast_nullable_to_non_nullable
-              as String,
       auth: freezed == auth
           ? _value.auth
           : auth // ignore: cast_nullable_to_non_nullable
               as PostmanCollectionAuth?,
+      method: null == method
+          ? _value.method
+          : method // ignore: cast_nullable_to_non_nullable
+              as String,
       proxy: freezed == proxy
           ? _value.proxy
           : proxy // ignore: cast_nullable_to_non_nullable
@@ -3223,8 +3223,8 @@ abstract class _$$PostmanCollectionRequestImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String method,
-      PostmanCollectionAuth? auth,
+      {PostmanCollectionAuth? auth,
+      String method,
       PostmanCollectionProxyConfig? proxy,
       PostmanCollectionCertificate? certificate,
       List<PostmanCollectionHeader>? header,
@@ -3257,8 +3257,8 @@ class __$$PostmanCollectionRequestImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? method = null,
     Object? auth = freezed,
+    Object? method = null,
     Object? proxy = freezed,
     Object? certificate = freezed,
     Object? header = freezed,
@@ -3267,14 +3267,14 @@ class __$$PostmanCollectionRequestImplCopyWithImpl<$Res>
     Object? description = freezed,
   }) {
     return _then(_$PostmanCollectionRequestImpl(
-      method: null == method
-          ? _value.method
-          : method // ignore: cast_nullable_to_non_nullable
-              as String,
       auth: freezed == auth
           ? _value.auth
           : auth // ignore: cast_nullable_to_non_nullable
               as PostmanCollectionAuth?,
+      method: null == method
+          ? _value.method
+          : method // ignore: cast_nullable_to_non_nullable
+              as String,
       proxy: freezed == proxy
           ? _value.proxy
           : proxy // ignore: cast_nullable_to_non_nullable
@@ -3304,8 +3304,8 @@ class __$$PostmanCollectionRequestImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
   const _$PostmanCollectionRequestImpl(
-      {required this.method,
-      this.auth,
+      {this.auth,
+      required this.method,
       this.proxy,
       this.certificate,
       final List<PostmanCollectionHeader>? header,
@@ -3319,9 +3319,9 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
       _$$PostmanCollectionRequestImplFromJson(json);
 
   @override
-  final String method;
-  @override
   final PostmanCollectionAuth? auth;
+  @override
+  final String method;
   @override
   final PostmanCollectionProxyConfig? proxy;
   @override
@@ -3345,7 +3345,7 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
 
   @override
   String toString() {
-    return 'PostmanCollectionRequest(method: $method, auth: $auth, proxy: $proxy, certificate: $certificate, header: $header, body: $body, url: $url, description: $description)';
+    return 'PostmanCollectionRequest(auth: $auth, method: $method, proxy: $proxy, certificate: $certificate, header: $header, body: $body, url: $url, description: $description)';
   }
 
   @override
@@ -3353,8 +3353,8 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PostmanCollectionRequestImpl &&
-            (identical(other.method, method) || other.method == method) &&
             (identical(other.auth, auth) || other.auth == auth) &&
+            (identical(other.method, method) || other.method == method) &&
             (identical(other.proxy, proxy) || other.proxy == proxy) &&
             (identical(other.certificate, certificate) ||
                 other.certificate == certificate) &&
@@ -3369,8 +3369,8 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      method,
       auth,
+      method,
       proxy,
       certificate,
       const DeepCollectionEquality().hash(_header),
@@ -3391,8 +3391,8 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            String method,
             PostmanCollectionAuth? auth,
+            String method,
             PostmanCollectionProxyConfig? proxy,
             PostmanCollectionCertificate? certificate,
             List<PostmanCollectionHeader>? header,
@@ -3402,15 +3402,15 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
         $default,
   ) {
     return $default(
-        method, auth, proxy, certificate, header, body, url, description);
+        auth, method, proxy, certificate, header, body, url, description);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-            String method,
             PostmanCollectionAuth? auth,
+            String method,
             PostmanCollectionProxyConfig? proxy,
             PostmanCollectionCertificate? certificate,
             List<PostmanCollectionHeader>? header,
@@ -3420,15 +3420,15 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
         $default,
   ) {
     return $default?.call(
-        method, auth, proxy, certificate, header, body, url, description);
+        auth, method, proxy, certificate, header, body, url, description);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            String method,
             PostmanCollectionAuth? auth,
+            String method,
             PostmanCollectionProxyConfig? proxy,
             PostmanCollectionCertificate? certificate,
             List<PostmanCollectionHeader>? header,
@@ -3440,7 +3440,7 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
   }) {
     if ($default != null) {
       return $default(
-          method, auth, proxy, certificate, header, body, url, description);
+          auth, method, proxy, certificate, header, body, url, description);
     }
     return orElse();
   }
@@ -3483,8 +3483,8 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
 
 abstract class _PostmanCollectionRequest extends PostmanCollectionRequest {
   const factory _PostmanCollectionRequest(
-      {required final String method,
-      final PostmanCollectionAuth? auth,
+      {final PostmanCollectionAuth? auth,
+      required final String method,
       final PostmanCollectionProxyConfig? proxy,
       final PostmanCollectionCertificate? certificate,
       final List<PostmanCollectionHeader>? header,
@@ -3497,9 +3497,9 @@ abstract class _PostmanCollectionRequest extends PostmanCollectionRequest {
       _$PostmanCollectionRequestImpl.fromJson;
 
   @override
-  String get method;
-  @override
   PostmanCollectionAuth? get auth;
+  @override
+  String get method;
   @override
   PostmanCollectionProxyConfig? get proxy;
   @override

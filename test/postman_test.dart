@@ -6,7 +6,7 @@ import 'package:test/test.dart';
 void main() {
   group('A group of tests', () {
     test('First Test', () async {
-      final file = File('./test/assets/test1.postman_collection.json');
+      final file = File('./test/assets/test2.postman_collection.json');
       final content = file.readAsStringSync();
       final json = jsonDecode(content);
 
@@ -15,7 +15,7 @@ void main() {
 
       final collection = PostmanCollection.fromJson(json);
       final matcher = JsonEncoder.withIndent('  ').convert(collection.toJson());
-      File('./test/assets/test1.temp.postman_collection.json')
+      File('./test/assets/test2.temp.postman_collection.json')
           .writeAsStringSync(matcher);
       print(matcher);
 
