@@ -508,8 +508,8 @@ mixin _$PostmanCollectionInfo {
   PostmanCollectionVersion? get version => throw _privateConstructorUsedError;
   @JsonKey(name: '_exporter_id')
   String? get exporterId => throw _privateConstructorUsedError;
-  @JsonKey(name: '_exported_at')
-  String? get exportedAt => throw _privateConstructorUsedError;
+  @JsonKey(name: '_collection_link')
+  String? get collectionLink => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
@@ -519,7 +519,7 @@ mixin _$PostmanCollectionInfo {
             PostmanCollectionDescription? description,
             PostmanCollectionVersion? version,
             @JsonKey(name: '_exporter_id') String? exporterId,
-            @JsonKey(name: '_exported_at') String? exportedAt)
+            @JsonKey(name: '_collection_link') String? collectionLink)
         $default,
   ) =>
       throw _privateConstructorUsedError;
@@ -532,7 +532,7 @@ mixin _$PostmanCollectionInfo {
             PostmanCollectionDescription? description,
             PostmanCollectionVersion? version,
             @JsonKey(name: '_exporter_id') String? exporterId,
-            @JsonKey(name: '_exported_at') String? exportedAt)?
+            @JsonKey(name: '_collection_link') String? collectionLink)?
         $default,
   ) =>
       throw _privateConstructorUsedError;
@@ -545,7 +545,7 @@ mixin _$PostmanCollectionInfo {
             PostmanCollectionDescription? description,
             PostmanCollectionVersion? version,
             @JsonKey(name: '_exporter_id') String? exporterId,
-            @JsonKey(name: '_exported_at') String? exportedAt)?
+            @JsonKey(name: '_collection_link') String? collectionLink)?
         $default, {
     required TResult orElse(),
   }) =>
@@ -590,7 +590,7 @@ abstract class $PostmanCollectionInfoCopyWith<$Res> {
       PostmanCollectionDescription? description,
       PostmanCollectionVersion? version,
       @JsonKey(name: '_exporter_id') String? exporterId,
-      @JsonKey(name: '_exported_at') String? exportedAt});
+      @JsonKey(name: '_collection_link') String? collectionLink});
 
   $PostmanCollectionDescriptionCopyWith<$Res>? get description;
   $PostmanCollectionVersionCopyWith<$Res>? get version;
@@ -618,7 +618,7 @@ class _$PostmanCollectionInfoCopyWithImpl<$Res,
     Object? description = freezed,
     Object? version = freezed,
     Object? exporterId = freezed,
-    Object? exportedAt = freezed,
+    Object? collectionLink = freezed,
   }) {
     return _then(_value.copyWith(
       postmanId: freezed == postmanId
@@ -645,9 +645,9 @@ class _$PostmanCollectionInfoCopyWithImpl<$Res,
           ? _value.exporterId
           : exporterId // ignore: cast_nullable_to_non_nullable
               as String?,
-      exportedAt: freezed == exportedAt
-          ? _value.exportedAt
-          : exportedAt // ignore: cast_nullable_to_non_nullable
+      collectionLink: freezed == collectionLink
+          ? _value.collectionLink
+          : collectionLink // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -698,7 +698,7 @@ abstract class _$$PostmanCollectionInfoImplCopyWith<$Res>
       PostmanCollectionDescription? description,
       PostmanCollectionVersion? version,
       @JsonKey(name: '_exporter_id') String? exporterId,
-      @JsonKey(name: '_exported_at') String? exportedAt});
+      @JsonKey(name: '_collection_link') String? collectionLink});
 
   @override
   $PostmanCollectionDescriptionCopyWith<$Res>? get description;
@@ -726,7 +726,7 @@ class __$$PostmanCollectionInfoImplCopyWithImpl<$Res>
     Object? description = freezed,
     Object? version = freezed,
     Object? exporterId = freezed,
-    Object? exportedAt = freezed,
+    Object? collectionLink = freezed,
   }) {
     return _then(_$PostmanCollectionInfoImpl(
       postmanId: freezed == postmanId
@@ -753,9 +753,9 @@ class __$$PostmanCollectionInfoImplCopyWithImpl<$Res>
           ? _value.exporterId
           : exporterId // ignore: cast_nullable_to_non_nullable
               as String?,
-      exportedAt: freezed == exportedAt
-          ? _value.exportedAt
-          : exportedAt // ignore: cast_nullable_to_non_nullable
+      collectionLink: freezed == collectionLink
+          ? _value.collectionLink
+          : collectionLink // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -771,7 +771,7 @@ class _$PostmanCollectionInfoImpl extends _PostmanCollectionInfo {
       this.description,
       this.version,
       @JsonKey(name: '_exporter_id') this.exporterId,
-      @JsonKey(name: '_exported_at') this.exportedAt})
+      @JsonKey(name: '_collection_link') this.collectionLink})
       : super._();
 
   factory _$PostmanCollectionInfoImpl.fromJson(Map<String, dynamic> json) =>
@@ -792,12 +792,12 @@ class _$PostmanCollectionInfoImpl extends _PostmanCollectionInfo {
   @JsonKey(name: '_exporter_id')
   final String? exporterId;
   @override
-  @JsonKey(name: '_exported_at')
-  final String? exportedAt;
+  @JsonKey(name: '_collection_link')
+  final String? collectionLink;
 
   @override
   String toString() {
-    return 'PostmanCollectionInfo(postmanId: $postmanId, name: $name, schema: $schema, description: $description, version: $version, exporterId: $exporterId, exportedAt: $exportedAt)';
+    return 'PostmanCollectionInfo(postmanId: $postmanId, name: $name, schema: $schema, description: $description, version: $version, exporterId: $exporterId, collectionLink: $collectionLink)';
   }
 
   @override
@@ -814,14 +814,14 @@ class _$PostmanCollectionInfoImpl extends _PostmanCollectionInfo {
             (identical(other.version, version) || other.version == version) &&
             (identical(other.exporterId, exporterId) ||
                 other.exporterId == exporterId) &&
-            (identical(other.exportedAt, exportedAt) ||
-                other.exportedAt == exportedAt));
+            (identical(other.collectionLink, collectionLink) ||
+                other.collectionLink == collectionLink));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, postmanId, name, schema,
-      description, version, exporterId, exportedAt);
+      description, version, exporterId, collectionLink);
 
   /// Create a copy of PostmanCollectionInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -842,11 +842,11 @@ class _$PostmanCollectionInfoImpl extends _PostmanCollectionInfo {
             PostmanCollectionDescription? description,
             PostmanCollectionVersion? version,
             @JsonKey(name: '_exporter_id') String? exporterId,
-            @JsonKey(name: '_exported_at') String? exportedAt)
+            @JsonKey(name: '_collection_link') String? collectionLink)
         $default,
   ) {
-    return $default(
-        postmanId, name, schema, description, version, exporterId, exportedAt);
+    return $default(postmanId, name, schema, description, version, exporterId,
+        collectionLink);
   }
 
   @override
@@ -859,11 +859,11 @@ class _$PostmanCollectionInfoImpl extends _PostmanCollectionInfo {
             PostmanCollectionDescription? description,
             PostmanCollectionVersion? version,
             @JsonKey(name: '_exporter_id') String? exporterId,
-            @JsonKey(name: '_exported_at') String? exportedAt)?
+            @JsonKey(name: '_collection_link') String? collectionLink)?
         $default,
   ) {
-    return $default?.call(
-        postmanId, name, schema, description, version, exporterId, exportedAt);
+    return $default?.call(postmanId, name, schema, description, version,
+        exporterId, collectionLink);
   }
 
   @override
@@ -876,13 +876,13 @@ class _$PostmanCollectionInfoImpl extends _PostmanCollectionInfo {
             PostmanCollectionDescription? description,
             PostmanCollectionVersion? version,
             @JsonKey(name: '_exporter_id') String? exporterId,
-            @JsonKey(name: '_exported_at') String? exportedAt)?
+            @JsonKey(name: '_collection_link') String? collectionLink)?
         $default, {
     required TResult orElse(),
   }) {
     if ($default != null) {
       return $default(postmanId, name, schema, description, version, exporterId,
-          exportedAt);
+          collectionLink);
     }
     return orElse();
   }
@@ -931,7 +931,7 @@ abstract class _PostmanCollectionInfo extends PostmanCollectionInfo {
           final PostmanCollectionDescription? description,
           final PostmanCollectionVersion? version,
           @JsonKey(name: '_exporter_id') final String? exporterId,
-          @JsonKey(name: '_exported_at') final String? exportedAt}) =
+          @JsonKey(name: '_collection_link') final String? collectionLink}) =
       _$PostmanCollectionInfoImpl;
   const _PostmanCollectionInfo._() : super._();
 
@@ -953,8 +953,8 @@ abstract class _PostmanCollectionInfo extends PostmanCollectionInfo {
   @JsonKey(name: '_exporter_id')
   String? get exporterId;
   @override
-  @JsonKey(name: '_exported_at')
-  String? get exportedAt;
+  @JsonKey(name: '_collection_link')
+  String? get collectionLink;
 
   /// Create a copy of PostmanCollectionInfo
   /// with the given fields replaced by the non-null parameter values.

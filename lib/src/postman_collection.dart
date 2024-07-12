@@ -31,7 +31,7 @@ class PostmanCollectionInfo with _$PostmanCollectionInfo {
     PostmanCollectionDescription? description,
     PostmanCollectionVersion? version,
     @JsonKey(name: '_exporter_id') String? exporterId,
-    @JsonKey(name: '_exported_at') String? exportedAt,
+    @JsonKey(name: '_collection_link') String? collectionLink,
   }) = _PostmanCollectionInfo;
 
   factory PostmanCollectionInfo.fromJson(Map<String, dynamic> json) =>

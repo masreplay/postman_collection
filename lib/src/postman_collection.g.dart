@@ -58,7 +58,7 @@ _$PostmanCollectionInfoImpl _$$PostmanCollectionInfoImplFromJson(
           : PostmanCollectionVersion.fromJson(
               json['version'] as Map<String, dynamic>),
       exporterId: json['_exporter_id'] as String?,
-      exportedAt: json['_exported_at'] as String?,
+      collectionLink: json['_collection_link'] as String?,
     );
 
 Map<String, dynamic> _$$PostmanCollectionInfoImplToJson(
@@ -70,7 +70,7 @@ Map<String, dynamic> _$$PostmanCollectionInfoImplToJson(
       'description': instance.description?.toJson(),
       'version': instance.version?.toJson(),
       '_exporter_id': instance.exporterId,
-      '_exported_at': instance.exportedAt,
+      '_collection_link': instance.collectionLink,
     };
 
 _$PostmanCollectionDescriptionObjectImpl
