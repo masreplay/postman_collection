@@ -131,13 +131,13 @@ class PostmanCollectionRequest with _$PostmanCollectionRequest {
 
   const factory PostmanCollectionRequest({
     required String method,
-    PostmanCollectionUrl? url,
     PostmanCollectionAuth? auth,
     PostmanCollectionProxyConfig? proxy,
     PostmanCollectionCertificate? certificate,
-    String? description,
     List<PostmanCollectionHeader>? header,
     Object? body,
+    PostmanCollectionUrl? url,
+    String? description,
   }) = _PostmanCollectionRequest;
 
   factory PostmanCollectionRequest.fromJson(Map<String, dynamic> json) =>
@@ -219,6 +219,7 @@ class PostmanCollectionScript with _$PostmanCollectionScript {
   const factory PostmanCollectionScript({
     String? id,
     String? type,
+    @Default({}) Map<String, dynamic>? packages,
     Object? exec,
     PostmanCollectionUrl? src,
     String? name,
@@ -342,6 +343,7 @@ class PostmanCollectionHeader with _$PostmanCollectionHeader {
   const factory PostmanCollectionHeader({
     required String key,
     required String value,
+    String? type,
     bool? disabled,
     String? description,
   }) = _PostmanCollectionHeader;

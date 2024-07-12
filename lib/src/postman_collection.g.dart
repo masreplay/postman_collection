@@ -300,9 +300,6 @@ _$PostmanCollectionRequestImpl _$$PostmanCollectionRequestImplFromJson(
         Map<String, dynamic> json) =>
     _$PostmanCollectionRequestImpl(
       method: json['method'] as String,
-      url: json['url'] == null
-          ? null
-          : PostmanCollectionUrl.fromJson(json['url'] as Map<String, dynamic>),
       auth: json['auth'] == null
           ? null
           : PostmanCollectionAuth.fromJson(
@@ -315,12 +312,15 @@ _$PostmanCollectionRequestImpl _$$PostmanCollectionRequestImplFromJson(
           ? null
           : PostmanCollectionCertificate.fromJson(
               json['certificate'] as Map<String, dynamic>),
-      description: json['description'] as String?,
       header: (json['header'] as List<dynamic>?)
           ?.map((e) =>
               PostmanCollectionHeader.fromJson(e as Map<String, dynamic>))
           .toList(),
       body: json['body'],
+      url: json['url'] == null
+          ? null
+          : PostmanCollectionUrl.fromJson(json['url'] as Map<String, dynamic>),
+      description: json['description'] as String?,
     );
 
 Map<String, dynamic> _$$PostmanCollectionRequestImplToJson(
@@ -335,13 +335,13 @@ Map<String, dynamic> _$$PostmanCollectionRequestImplToJson(
     }
   }
 
-  writeNotNull('url', instance.url?.toJson());
   writeNotNull('auth', instance.auth?.toJson());
   writeNotNull('proxy', instance.proxy?.toJson());
   writeNotNull('certificate', instance.certificate?.toJson());
-  writeNotNull('description', instance.description);
   writeNotNull('header', instance.header?.map((e) => e.toJson()).toList());
   writeNotNull('body', instance.body);
+  writeNotNull('url', instance.url?.toJson());
+  writeNotNull('description', instance.description);
   return val;
 }
 
@@ -487,6 +487,7 @@ _$PostmanCollectionScriptImpl _$$PostmanCollectionScriptImplFromJson(
     _$PostmanCollectionScriptImpl(
       id: json['id'] as String?,
       type: json['type'] as String?,
+      packages: json['packages'] as Map<String, dynamic>? ?? const {},
       exec: json['exec'],
       src: json['src'] == null
           ? null
@@ -506,6 +507,7 @@ Map<String, dynamic> _$$PostmanCollectionScriptImplToJson(
 
   writeNotNull('id', instance.id);
   writeNotNull('type', instance.type);
+  writeNotNull('packages', instance.packages);
   writeNotNull('exec', instance.exec);
   writeNotNull('src', instance.src?.toJson());
   writeNotNull('name', instance.name);
@@ -686,6 +688,7 @@ _$PostmanCollectionHeaderImpl _$$PostmanCollectionHeaderImplFromJson(
     _$PostmanCollectionHeaderImpl(
       key: json['key'] as String,
       value: json['value'] as String,
+      type: json['type'] as String?,
       disabled: json['disabled'] as bool?,
       description: json['description'] as String?,
     );
@@ -703,6 +706,7 @@ Map<String, dynamic> _$$PostmanCollectionHeaderImplToJson(
     }
   }
 
+  writeNotNull('type', instance.type);
   writeNotNull('disabled', instance.disabled);
   writeNotNull('description', instance.description);
   return val;
