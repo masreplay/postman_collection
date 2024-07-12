@@ -5484,7 +5484,7 @@ PostmanCollectionResponse _$PostmanCollectionResponseFromJson(
 /// @nodoc
 mixin _$PostmanCollectionResponse {
   String? get id => throw _privateConstructorUsedError;
-  PostmanCollectionRequest? get originalPostmanCollectionRequest =>
+  PostmanCollectionRequest? get originalRequest =>
       throw _privateConstructorUsedError;
   Object? get responseTime => throw _privateConstructorUsedError;
   Object? get timings => throw _privateConstructorUsedError;
@@ -5498,7 +5498,7 @@ mixin _$PostmanCollectionResponse {
   TResult when<TResult extends Object?>(
     TResult Function(
             String? id,
-            PostmanCollectionRequest? originalPostmanCollectionRequest,
+            PostmanCollectionRequest? originalRequest,
             Object? responseTime,
             Object? timings,
             Object? header,
@@ -5513,7 +5513,7 @@ mixin _$PostmanCollectionResponse {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
             String? id,
-            PostmanCollectionRequest? originalPostmanCollectionRequest,
+            PostmanCollectionRequest? originalRequest,
             Object? responseTime,
             Object? timings,
             Object? header,
@@ -5528,7 +5528,7 @@ mixin _$PostmanCollectionResponse {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
             String? id,
-            PostmanCollectionRequest? originalPostmanCollectionRequest,
+            PostmanCollectionRequest? originalRequest,
             Object? responseTime,
             Object? timings,
             Object? header,
@@ -5575,7 +5575,7 @@ abstract class $PostmanCollectionResponseCopyWith<$Res> {
   @useResult
   $Res call(
       {String? id,
-      PostmanCollectionRequest? originalPostmanCollectionRequest,
+      PostmanCollectionRequest? originalRequest,
       Object? responseTime,
       Object? timings,
       Object? header,
@@ -5584,7 +5584,7 @@ abstract class $PostmanCollectionResponseCopyWith<$Res> {
       String? status,
       int? code});
 
-  $PostmanCollectionRequestCopyWith<$Res>? get originalPostmanCollectionRequest;
+  $PostmanCollectionRequestCopyWith<$Res>? get originalRequest;
 }
 
 /// @nodoc
@@ -5604,7 +5604,7 @@ class _$PostmanCollectionResponseCopyWithImpl<$Res,
   @override
   $Res call({
     Object? id = freezed,
-    Object? originalPostmanCollectionRequest = freezed,
+    Object? originalRequest = freezed,
     Object? responseTime = freezed,
     Object? timings = freezed,
     Object? header = freezed,
@@ -5618,10 +5618,9 @@ class _$PostmanCollectionResponseCopyWithImpl<$Res,
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      originalPostmanCollectionRequest: freezed ==
-              originalPostmanCollectionRequest
-          ? _value.originalPostmanCollectionRequest
-          : originalPostmanCollectionRequest // ignore: cast_nullable_to_non_nullable
+      originalRequest: freezed == originalRequest
+          ? _value.originalRequest
+          : originalRequest // ignore: cast_nullable_to_non_nullable
               as PostmanCollectionRequest?,
       responseTime:
           freezed == responseTime ? _value.responseTime : responseTime,
@@ -5650,16 +5649,14 @@ class _$PostmanCollectionResponseCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PostmanCollectionRequestCopyWith<$Res>?
-      get originalPostmanCollectionRequest {
-    if (_value.originalPostmanCollectionRequest == null) {
+  $PostmanCollectionRequestCopyWith<$Res>? get originalRequest {
+    if (_value.originalRequest == null) {
       return null;
     }
 
-    return $PostmanCollectionRequestCopyWith<$Res>(
-        _value.originalPostmanCollectionRequest!, (value) {
-      return _then(
-          _value.copyWith(originalPostmanCollectionRequest: value) as $Val);
+    return $PostmanCollectionRequestCopyWith<$Res>(_value.originalRequest!,
+        (value) {
+      return _then(_value.copyWith(originalRequest: value) as $Val);
     });
   }
 }
@@ -5675,7 +5672,7 @@ abstract class _$$PostmanCollectionResponseImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? id,
-      PostmanCollectionRequest? originalPostmanCollectionRequest,
+      PostmanCollectionRequest? originalRequest,
       Object? responseTime,
       Object? timings,
       Object? header,
@@ -5685,7 +5682,7 @@ abstract class _$$PostmanCollectionResponseImplCopyWith<$Res>
       int? code});
 
   @override
-  $PostmanCollectionRequestCopyWith<$Res>? get originalPostmanCollectionRequest;
+  $PostmanCollectionRequestCopyWith<$Res>? get originalRequest;
 }
 
 /// @nodoc
@@ -5704,7 +5701,7 @@ class __$$PostmanCollectionResponseImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? originalPostmanCollectionRequest = freezed,
+    Object? originalRequest = freezed,
     Object? responseTime = freezed,
     Object? timings = freezed,
     Object? header = freezed,
@@ -5718,10 +5715,9 @@ class __$$PostmanCollectionResponseImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      originalPostmanCollectionRequest: freezed ==
-              originalPostmanCollectionRequest
-          ? _value.originalPostmanCollectionRequest
-          : originalPostmanCollectionRequest // ignore: cast_nullable_to_non_nullable
+      originalRequest: freezed == originalRequest
+          ? _value.originalRequest
+          : originalRequest // ignore: cast_nullable_to_non_nullable
               as PostmanCollectionRequest?,
       responseTime:
           freezed == responseTime ? _value.responseTime : responseTime,
@@ -5752,7 +5748,7 @@ class __$$PostmanCollectionResponseImplCopyWithImpl<$Res>
 class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
   const _$PostmanCollectionResponseImpl(
       {this.id,
-      this.originalPostmanCollectionRequest,
+      this.originalRequest,
       this.responseTime,
       this.timings,
       this.header,
@@ -5769,7 +5765,7 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
   @override
   final String? id;
   @override
-  final PostmanCollectionRequest? originalPostmanCollectionRequest;
+  final PostmanCollectionRequest? originalRequest;
   @override
   final Object? responseTime;
   @override
@@ -5795,7 +5791,7 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
 
   @override
   String toString() {
-    return 'PostmanCollectionResponse(id: $id, originalPostmanCollectionRequest: $originalPostmanCollectionRequest, responseTime: $responseTime, timings: $timings, header: $header, cookie: $cookie, body: $body, status: $status, code: $code)';
+    return 'PostmanCollectionResponse(id: $id, originalRequest: $originalRequest, responseTime: $responseTime, timings: $timings, header: $header, cookie: $cookie, body: $body, status: $status, code: $code)';
   }
 
   @override
@@ -5804,10 +5800,8 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
         (other.runtimeType == runtimeType &&
             other is _$PostmanCollectionResponseImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.originalPostmanCollectionRequest,
-                    originalPostmanCollectionRequest) ||
-                other.originalPostmanCollectionRequest ==
-                    originalPostmanCollectionRequest) &&
+            (identical(other.originalRequest, originalRequest) ||
+                other.originalRequest == originalRequest) &&
             const DeepCollectionEquality()
                 .equals(other.responseTime, responseTime) &&
             const DeepCollectionEquality().equals(other.timings, timings) &&
@@ -5823,7 +5817,7 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
   int get hashCode => Object.hash(
       runtimeType,
       id,
-      originalPostmanCollectionRequest,
+      originalRequest,
       const DeepCollectionEquality().hash(responseTime),
       const DeepCollectionEquality().hash(timings),
       const DeepCollectionEquality().hash(header),
@@ -5846,7 +5840,7 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
   TResult when<TResult extends Object?>(
     TResult Function(
             String? id,
-            PostmanCollectionRequest? originalPostmanCollectionRequest,
+            PostmanCollectionRequest? originalRequest,
             Object? responseTime,
             Object? timings,
             Object? header,
@@ -5856,8 +5850,8 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
             int? code)
         $default,
   ) {
-    return $default(id, originalPostmanCollectionRequest, responseTime, timings,
-        header, cookie, body, status, code);
+    return $default(id, originalRequest, responseTime, timings, header, cookie,
+        body, status, code);
   }
 
   @override
@@ -5865,7 +5859,7 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
             String? id,
-            PostmanCollectionRequest? originalPostmanCollectionRequest,
+            PostmanCollectionRequest? originalRequest,
             Object? responseTime,
             Object? timings,
             Object? header,
@@ -5875,8 +5869,8 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
             int? code)?
         $default,
   ) {
-    return $default?.call(id, originalPostmanCollectionRequest, responseTime,
-        timings, header, cookie, body, status, code);
+    return $default?.call(id, originalRequest, responseTime, timings, header,
+        cookie, body, status, code);
   }
 
   @override
@@ -5884,7 +5878,7 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
             String? id,
-            PostmanCollectionRequest? originalPostmanCollectionRequest,
+            PostmanCollectionRequest? originalRequest,
             Object? responseTime,
             Object? timings,
             Object? header,
@@ -5896,8 +5890,8 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(id, originalPostmanCollectionRequest, responseTime,
-          timings, header, cookie, body, status, code);
+      return $default(id, originalRequest, responseTime, timings, header,
+          cookie, body, status, code);
     }
     return orElse();
   }
@@ -5941,7 +5935,7 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
 abstract class _PostmanCollectionResponse extends PostmanCollectionResponse {
   const factory _PostmanCollectionResponse(
       {final String? id,
-      final PostmanCollectionRequest? originalPostmanCollectionRequest,
+      final PostmanCollectionRequest? originalRequest,
       final Object? responseTime,
       final Object? timings,
       final Object? header,
@@ -5957,7 +5951,7 @@ abstract class _PostmanCollectionResponse extends PostmanCollectionResponse {
   @override
   String? get id;
   @override
-  PostmanCollectionRequest? get originalPostmanCollectionRequest;
+  PostmanCollectionRequest? get originalRequest;
   @override
   Object? get responseTime;
   @override
