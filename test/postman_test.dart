@@ -10,16 +10,16 @@ void main() {
       final content = file.readAsStringSync();
       final json = jsonDecode(content);
 
-      final oldData = JsonEncoder.withIndent('  ').convert(json);
-      print(oldData);
-
-      File
+      final actual = JsonEncoder.withIndent('  ').convert(json);
+      print(actual);
 
       final collection = PostmanCollection.fromJson(json);
-      final data = JsonEncoder.withIndent('  ').convert(collection.toJson());
-      print(data);
+      final matcher = JsonEncoder.withIndent('  ').convert(collection.toJson());
+      File('./test/assets/test1.postman_collection.json')
+          .writeAsStringSync(matcher);
+      print(matcher);
 
-      expect(data, oldData);
+      expect(matcher, actual);
     });
   });
 }
