@@ -15,7 +15,7 @@ void main() {
 
       final collection = PostmanCollection.fromJson(json);
       final matcher = JsonEncoder.withIndent('  ').convert(collection.toJson());
-      File('./test/assets/test1.postman_collection.json')
+      File('./test/assets/test1.temp.postman_collection.json')
           .writeAsStringSync(matcher);
       print(matcher);
 
