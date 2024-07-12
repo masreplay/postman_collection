@@ -59,10 +59,7 @@ _$PostmanCollectionInfoImpl _$$PostmanCollectionInfoImplFromJson(
       postmanId: json['_postman_id'] as String?,
       name: json['name'] as String,
       schema: json['schema'] as String,
-      description: json['description'] == null
-          ? null
-          : PostmanCollectionDescription.fromJson(
-              json['description'] as Map<String, dynamic>),
+      description: json['description'] as String?,
       version: json['version'] == null
           ? null
           : PostmanCollectionVersion.fromJson(
@@ -84,65 +81,12 @@ Map<String, dynamic> _$$PostmanCollectionInfoImplToJson(
   writeNotNull('_postman_id', instance.postmanId);
   val['name'] = instance.name;
   val['schema'] = instance.schema;
-  writeNotNull('description', instance.description?.toJson());
+  writeNotNull('description', instance.description);
   writeNotNull('version', instance.version?.toJson());
   writeNotNull('_exporter_id', instance.exporterId);
   writeNotNull('_collection_link', instance.collectionLink);
   return val;
 }
-
-_$PostmanCollectionDescriptionObjectImpl
-    _$$PostmanCollectionDescriptionObjectImplFromJson(
-            Map<String, dynamic> json) =>
-        _$PostmanCollectionDescriptionObjectImpl(
-          content: json['content'] as String?,
-          type: json['type'] as String?,
-          version: json['version'],
-        );
-
-Map<String, dynamic> _$$PostmanCollectionDescriptionObjectImplToJson(
-    _$PostmanCollectionDescriptionObjectImpl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('content', instance.content);
-  writeNotNull('type', instance.type);
-  writeNotNull('version', instance.version);
-  return val;
-}
-
-_$PostmanCollectionDescriptionTextImpl
-    _$$PostmanCollectionDescriptionTextImplFromJson(
-            Map<String, dynamic> json) =>
-        _$PostmanCollectionDescriptionTextImpl(
-          json['content'] as String,
-          $type: json['type'] as String?,
-        );
-
-Map<String, dynamic> _$$PostmanCollectionDescriptionTextImplToJson(
-        _$PostmanCollectionDescriptionTextImpl instance) =>
-    <String, dynamic>{
-      'content': instance.content,
-      'type': instance.$type,
-    };
-
-_$PostmanCollectionDescriptionNullImpl
-    _$$PostmanCollectionDescriptionNullImplFromJson(
-            Map<String, dynamic> json) =>
-        _$PostmanCollectionDescriptionNullImpl(
-          $type: json['type'] as String?,
-        );
-
-Map<String, dynamic> _$$PostmanCollectionDescriptionNullImplToJson(
-        _$PostmanCollectionDescriptionNullImpl instance) =>
-    <String, dynamic>{
-      'type': instance.$type,
-    };
 
 _$PostmanCollectionVersionImpl _$$PostmanCollectionVersionImplFromJson(
         Map<String, dynamic> json) =>
@@ -178,10 +122,7 @@ _$PostmanCollectionItemImpl _$$PostmanCollectionItemImplFromJson(
     _$PostmanCollectionItemImpl(
       id: json['id'] as String?,
       name: json['name'] as String,
-      description: json['description'] == null
-          ? null
-          : PostmanCollectionDescription.fromJson(
-              json['description'] as Map<String, dynamic>),
+      description: json['description'] as String?,
       variable: (json['variable'] as List<dynamic>?)
           ?.map((e) =>
               PostmanCollectionVariable.fromJson(e as Map<String, dynamic>))
@@ -220,7 +161,7 @@ Map<String, dynamic> _$$PostmanCollectionItemImplToJson(
 
   writeNotNull('id', instance.id);
   val['name'] = instance.name;
-  writeNotNull('description', instance.description?.toJson());
+  writeNotNull('description', instance.description);
   writeNotNull('variable', instance.variable?.map((e) => e.toJson()).toList());
   writeNotNull('event', instance.event?.map((e) => e.toJson()).toList());
   writeNotNull('request', instance.request?.toJson());
@@ -374,10 +315,7 @@ _$PostmanCollectionRequestImpl _$$PostmanCollectionRequestImplFromJson(
           ? null
           : PostmanCollectionCertificate.fromJson(
               json['certificate'] as Map<String, dynamic>),
-      description: json['description'] == null
-          ? null
-          : PostmanCollectionDescription.fromJson(
-              json['description'] as Map<String, dynamic>),
+      description: json['description'] as String?,
       header: (json['header'] as List<dynamic>?)
           ?.map((e) =>
               PostmanCollectionHeader.fromJson(e as Map<String, dynamic>))
@@ -401,7 +339,7 @@ Map<String, dynamic> _$$PostmanCollectionRequestImplToJson(
   writeNotNull('auth', instance.auth?.toJson());
   writeNotNull('proxy', instance.proxy?.toJson());
   writeNotNull('certificate', instance.certificate?.toJson());
-  writeNotNull('description', instance.description?.toJson());
+  writeNotNull('description', instance.description);
   writeNotNull('header', instance.header?.map((e) => e.toJson()).toList());
   writeNotNull('body', instance.body);
   return val;
@@ -453,10 +391,7 @@ _$PostmanCollectionQueryParamImpl _$$PostmanCollectionQueryParamImplFromJson(
       key: json['key'] as String?,
       value: json['value'] as String?,
       disabled: json['disabled'] as bool?,
-      description: json['description'] == null
-          ? null
-          : PostmanCollectionDescription.fromJson(
-              json['description'] as Map<String, dynamic>),
+      description: json['description'] as String?,
     );
 
 Map<String, dynamic> _$$PostmanCollectionQueryParamImplToJson(
@@ -472,7 +407,7 @@ Map<String, dynamic> _$$PostmanCollectionQueryParamImplToJson(
   writeNotNull('key', instance.key);
   writeNotNull('value', instance.value);
   writeNotNull('disabled', instance.disabled);
-  writeNotNull('description', instance.description?.toJson());
+  writeNotNull('description', instance.description);
   return val;
 }
 
@@ -485,10 +420,7 @@ _$PostmanCollectionVariableImpl _$$PostmanCollectionVariableImplFromJson(
       type: $enumDecodeNullable(
           _$PostmanCollectionVariableTypeEnumMap, json['type']),
       name: json['name'] as String?,
-      description: json['description'] == null
-          ? null
-          : PostmanCollectionDescription.fromJson(
-              json['description'] as Map<String, dynamic>),
+      description: json['description'] as String?,
       system: json['system'] as bool?,
       disabled: json['disabled'] as bool?,
     );
@@ -508,7 +440,7 @@ Map<String, dynamic> _$$PostmanCollectionVariableImplToJson(
   writeNotNull('value', instance.value);
   writeNotNull('type', _$PostmanCollectionVariableTypeEnumMap[instance.type]);
   writeNotNull('name', instance.name);
-  writeNotNull('description', instance.description?.toJson());
+  writeNotNull('description', instance.description);
   writeNotNull('system', instance.system);
   writeNotNull('disabled', instance.disabled);
   return val;
@@ -755,10 +687,7 @@ _$PostmanCollectionHeaderImpl _$$PostmanCollectionHeaderImplFromJson(
       key: json['key'] as String,
       value: json['value'] as String,
       disabled: json['disabled'] as bool?,
-      description: json['description'] == null
-          ? null
-          : PostmanCollectionDescription.fromJson(
-              json['description'] as Map<String, dynamic>),
+      description: json['description'] as String?,
     );
 
 Map<String, dynamic> _$$PostmanCollectionHeaderImplToJson(
@@ -775,6 +704,6 @@ Map<String, dynamic> _$$PostmanCollectionHeaderImplToJson(
   }
 
   writeNotNull('disabled', instance.disabled);
-  writeNotNull('description', instance.description?.toJson());
+  writeNotNull('description', instance.description);
   return val;
 }

@@ -503,8 +503,7 @@ mixin _$PostmanCollectionInfo {
   String? get postmanId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get schema => throw _privateConstructorUsedError;
-  PostmanCollectionDescription? get description =>
-      throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   PostmanCollectionVersion? get version => throw _privateConstructorUsedError;
   @JsonKey(name: '_exporter_id')
   String? get exporterId => throw _privateConstructorUsedError;
@@ -516,7 +515,7 @@ mixin _$PostmanCollectionInfo {
             @JsonKey(name: '_postman_id') String? postmanId,
             String name,
             String schema,
-            PostmanCollectionDescription? description,
+            String? description,
             PostmanCollectionVersion? version,
             @JsonKey(name: '_exporter_id') String? exporterId,
             @JsonKey(name: '_collection_link') String? collectionLink)
@@ -529,7 +528,7 @@ mixin _$PostmanCollectionInfo {
             @JsonKey(name: '_postman_id') String? postmanId,
             String name,
             String schema,
-            PostmanCollectionDescription? description,
+            String? description,
             PostmanCollectionVersion? version,
             @JsonKey(name: '_exporter_id') String? exporterId,
             @JsonKey(name: '_collection_link') String? collectionLink)?
@@ -542,7 +541,7 @@ mixin _$PostmanCollectionInfo {
             @JsonKey(name: '_postman_id') String? postmanId,
             String name,
             String schema,
-            PostmanCollectionDescription? description,
+            String? description,
             PostmanCollectionVersion? version,
             @JsonKey(name: '_exporter_id') String? exporterId,
             @JsonKey(name: '_collection_link') String? collectionLink)?
@@ -587,12 +586,11 @@ abstract class $PostmanCollectionInfoCopyWith<$Res> {
       {@JsonKey(name: '_postman_id') String? postmanId,
       String name,
       String schema,
-      PostmanCollectionDescription? description,
+      String? description,
       PostmanCollectionVersion? version,
       @JsonKey(name: '_exporter_id') String? exporterId,
       @JsonKey(name: '_collection_link') String? collectionLink});
 
-  $PostmanCollectionDescriptionCopyWith<$Res>? get description;
   $PostmanCollectionVersionCopyWith<$Res>? get version;
 }
 
@@ -636,7 +634,7 @@ class _$PostmanCollectionInfoCopyWithImpl<$Res,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as PostmanCollectionDescription?,
+              as String?,
       version: freezed == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
@@ -650,21 +648,6 @@ class _$PostmanCollectionInfoCopyWithImpl<$Res,
           : collectionLink // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
-  }
-
-  /// Create a copy of PostmanCollectionInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PostmanCollectionDescriptionCopyWith<$Res>? get description {
-    if (_value.description == null) {
-      return null;
-    }
-
-    return $PostmanCollectionDescriptionCopyWith<$Res>(_value.description!,
-        (value) {
-      return _then(_value.copyWith(description: value) as $Val);
-    });
   }
 
   /// Create a copy of PostmanCollectionInfo
@@ -695,13 +678,11 @@ abstract class _$$PostmanCollectionInfoImplCopyWith<$Res>
       {@JsonKey(name: '_postman_id') String? postmanId,
       String name,
       String schema,
-      PostmanCollectionDescription? description,
+      String? description,
       PostmanCollectionVersion? version,
       @JsonKey(name: '_exporter_id') String? exporterId,
       @JsonKey(name: '_collection_link') String? collectionLink});
 
-  @override
-  $PostmanCollectionDescriptionCopyWith<$Res>? get description;
   @override
   $PostmanCollectionVersionCopyWith<$Res>? get version;
 }
@@ -744,7 +725,7 @@ class __$$PostmanCollectionInfoImplCopyWithImpl<$Res>
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as PostmanCollectionDescription?,
+              as String?,
       version: freezed == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
@@ -785,7 +766,7 @@ class _$PostmanCollectionInfoImpl extends _PostmanCollectionInfo {
   @override
   final String schema;
   @override
-  final PostmanCollectionDescription? description;
+  final String? description;
   @override
   final PostmanCollectionVersion? version;
   @override
@@ -839,7 +820,7 @@ class _$PostmanCollectionInfoImpl extends _PostmanCollectionInfo {
             @JsonKey(name: '_postman_id') String? postmanId,
             String name,
             String schema,
-            PostmanCollectionDescription? description,
+            String? description,
             PostmanCollectionVersion? version,
             @JsonKey(name: '_exporter_id') String? exporterId,
             @JsonKey(name: '_collection_link') String? collectionLink)
@@ -856,7 +837,7 @@ class _$PostmanCollectionInfoImpl extends _PostmanCollectionInfo {
             @JsonKey(name: '_postman_id') String? postmanId,
             String name,
             String schema,
-            PostmanCollectionDescription? description,
+            String? description,
             PostmanCollectionVersion? version,
             @JsonKey(name: '_exporter_id') String? exporterId,
             @JsonKey(name: '_collection_link') String? collectionLink)?
@@ -873,7 +854,7 @@ class _$PostmanCollectionInfoImpl extends _PostmanCollectionInfo {
             @JsonKey(name: '_postman_id') String? postmanId,
             String name,
             String schema,
-            PostmanCollectionDescription? description,
+            String? description,
             PostmanCollectionVersion? version,
             @JsonKey(name: '_exporter_id') String? exporterId,
             @JsonKey(name: '_collection_link') String? collectionLink)?
@@ -928,7 +909,7 @@ abstract class _PostmanCollectionInfo extends PostmanCollectionInfo {
           {@JsonKey(name: '_postman_id') final String? postmanId,
           required final String name,
           required final String schema,
-          final PostmanCollectionDescription? description,
+          final String? description,
           final PostmanCollectionVersion? version,
           @JsonKey(name: '_exporter_id') final String? exporterId,
           @JsonKey(name: '_collection_link') final String? collectionLink}) =
@@ -946,7 +927,7 @@ abstract class _PostmanCollectionInfo extends PostmanCollectionInfo {
   @override
   String get schema;
   @override
-  PostmanCollectionDescription? get description;
+  String? get description;
   @override
   PostmanCollectionVersion? get version;
   @override
@@ -962,616 +943,6 @@ abstract class _PostmanCollectionInfo extends PostmanCollectionInfo {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PostmanCollectionInfoImplCopyWith<_$PostmanCollectionInfoImpl>
       get copyWith => throw _privateConstructorUsedError;
-}
-
-PostmanCollectionDescription _$PostmanCollectionDescriptionFromJson(
-    Map<String, dynamic> json) {
-  switch (json['type']) {
-    case 'default':
-      return PostmanCollectionDescriptionObject.fromJson(json);
-    case 'text':
-      return PostmanCollectionDescriptionText.fromJson(json);
-    case 'nullable':
-      return PostmanCollectionDescriptionNull.fromJson(json);
-
-    default:
-      throw CheckedFromJsonException(
-          json,
-          'type',
-          'PostmanCollectionDescription',
-          'Invalid union type "${json['type']}"!');
-  }
-}
-
-/// @nodoc
-mixin _$PostmanCollectionDescription {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String? content, String? type, Object? version) $default, {
-    required TResult Function(String content) text,
-    required TResult Function() nullable,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? content, String? type, Object? version)?
-        $default, {
-    TResult? Function(String content)? text,
-    TResult? Function()? nullable,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? content, String? type, Object? version)?
-        $default, {
-    TResult Function(String content)? text,
-    TResult Function()? nullable,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(PostmanCollectionDescriptionObject value) $default, {
-    required TResult Function(PostmanCollectionDescriptionText value) text,
-    required TResult Function(PostmanCollectionDescriptionNull value) nullable,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(PostmanCollectionDescriptionObject value)? $default, {
-    TResult? Function(PostmanCollectionDescriptionText value)? text,
-    TResult? Function(PostmanCollectionDescriptionNull value)? nullable,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(PostmanCollectionDescriptionObject value)? $default, {
-    TResult Function(PostmanCollectionDescriptionText value)? text,
-    TResult Function(PostmanCollectionDescriptionNull value)? nullable,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-
-  /// Serializes this PostmanCollectionDescription to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PostmanCollectionDescriptionCopyWith<$Res> {
-  factory $PostmanCollectionDescriptionCopyWith(
-          PostmanCollectionDescription value,
-          $Res Function(PostmanCollectionDescription) then) =
-      _$PostmanCollectionDescriptionCopyWithImpl<$Res,
-          PostmanCollectionDescription>;
-}
-
-/// @nodoc
-class _$PostmanCollectionDescriptionCopyWithImpl<$Res,
-        $Val extends PostmanCollectionDescription>
-    implements $PostmanCollectionDescriptionCopyWith<$Res> {
-  _$PostmanCollectionDescriptionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of PostmanCollectionDescription
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$PostmanCollectionDescriptionObjectImplCopyWith<$Res> {
-  factory _$$PostmanCollectionDescriptionObjectImplCopyWith(
-          _$PostmanCollectionDescriptionObjectImpl value,
-          $Res Function(_$PostmanCollectionDescriptionObjectImpl) then) =
-      __$$PostmanCollectionDescriptionObjectImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String? content, String? type, Object? version});
-}
-
-/// @nodoc
-class __$$PostmanCollectionDescriptionObjectImplCopyWithImpl<$Res>
-    extends _$PostmanCollectionDescriptionCopyWithImpl<$Res,
-        _$PostmanCollectionDescriptionObjectImpl>
-    implements _$$PostmanCollectionDescriptionObjectImplCopyWith<$Res> {
-  __$$PostmanCollectionDescriptionObjectImplCopyWithImpl(
-      _$PostmanCollectionDescriptionObjectImpl _value,
-      $Res Function(_$PostmanCollectionDescriptionObjectImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of PostmanCollectionDescription
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? content = freezed,
-    Object? type = freezed,
-    Object? version = freezed,
-  }) {
-    return _then(_$PostmanCollectionDescriptionObjectImpl(
-      content: freezed == content
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
-              as String?,
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
-      version: freezed == version ? _value.version : version,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$PostmanCollectionDescriptionObjectImpl
-    extends PostmanCollectionDescriptionObject {
-  const _$PostmanCollectionDescriptionObjectImpl(
-      {this.content, this.type, this.version})
-      : super._();
-
-  factory _$PostmanCollectionDescriptionObjectImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$PostmanCollectionDescriptionObjectImplFromJson(json);
-
-  @override
-  final String? content;
-  @override
-  final String? type;
-  @override
-  final Object? version;
-
-  @override
-  String toString() {
-    return 'PostmanCollectionDescription(content: $content, type: $type, version: $version)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PostmanCollectionDescriptionObjectImpl &&
-            (identical(other.content, content) || other.content == content) &&
-            (identical(other.type, type) || other.type == type) &&
-            const DeepCollectionEquality().equals(other.version, version));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, content, type, const DeepCollectionEquality().hash(version));
-
-  /// Create a copy of PostmanCollectionDescription
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PostmanCollectionDescriptionObjectImplCopyWith<
-          _$PostmanCollectionDescriptionObjectImpl>
-      get copyWith => __$$PostmanCollectionDescriptionObjectImplCopyWithImpl<
-          _$PostmanCollectionDescriptionObjectImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String? content, String? type, Object? version) $default, {
-    required TResult Function(String content) text,
-    required TResult Function() nullable,
-  }) {
-    return $default(content, type, version);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? content, String? type, Object? version)?
-        $default, {
-    TResult? Function(String content)? text,
-    TResult? Function()? nullable,
-  }) {
-    return $default?.call(content, type, version);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? content, String? type, Object? version)?
-        $default, {
-    TResult Function(String content)? text,
-    TResult Function()? nullable,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(content, type, version);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(PostmanCollectionDescriptionObject value) $default, {
-    required TResult Function(PostmanCollectionDescriptionText value) text,
-    required TResult Function(PostmanCollectionDescriptionNull value) nullable,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(PostmanCollectionDescriptionObject value)? $default, {
-    TResult? Function(PostmanCollectionDescriptionText value)? text,
-    TResult? Function(PostmanCollectionDescriptionNull value)? nullable,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(PostmanCollectionDescriptionObject value)? $default, {
-    TResult Function(PostmanCollectionDescriptionText value)? text,
-    TResult Function(PostmanCollectionDescriptionNull value)? nullable,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PostmanCollectionDescriptionObjectImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class PostmanCollectionDescriptionObject
-    extends PostmanCollectionDescription {
-  const factory PostmanCollectionDescriptionObject(
-      {final String? content,
-      final String? type,
-      final Object? version}) = _$PostmanCollectionDescriptionObjectImpl;
-  const PostmanCollectionDescriptionObject._() : super._();
-
-  factory PostmanCollectionDescriptionObject.fromJson(
-          Map<String, dynamic> json) =
-      _$PostmanCollectionDescriptionObjectImpl.fromJson;
-
-  String? get content;
-  String? get type;
-  Object? get version;
-
-  /// Create a copy of PostmanCollectionDescription
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PostmanCollectionDescriptionObjectImplCopyWith<
-          _$PostmanCollectionDescriptionObjectImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$PostmanCollectionDescriptionTextImplCopyWith<$Res> {
-  factory _$$PostmanCollectionDescriptionTextImplCopyWith(
-          _$PostmanCollectionDescriptionTextImpl value,
-          $Res Function(_$PostmanCollectionDescriptionTextImpl) then) =
-      __$$PostmanCollectionDescriptionTextImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String content});
-}
-
-/// @nodoc
-class __$$PostmanCollectionDescriptionTextImplCopyWithImpl<$Res>
-    extends _$PostmanCollectionDescriptionCopyWithImpl<$Res,
-        _$PostmanCollectionDescriptionTextImpl>
-    implements _$$PostmanCollectionDescriptionTextImplCopyWith<$Res> {
-  __$$PostmanCollectionDescriptionTextImplCopyWithImpl(
-      _$PostmanCollectionDescriptionTextImpl _value,
-      $Res Function(_$PostmanCollectionDescriptionTextImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of PostmanCollectionDescription
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? content = null,
-  }) {
-    return _then(_$PostmanCollectionDescriptionTextImpl(
-      null == content
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$PostmanCollectionDescriptionTextImpl
-    extends PostmanCollectionDescriptionText {
-  const _$PostmanCollectionDescriptionTextImpl(this.content,
-      {final String? $type})
-      : $type = $type ?? 'text',
-        super._();
-
-  factory _$PostmanCollectionDescriptionTextImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$PostmanCollectionDescriptionTextImplFromJson(json);
-
-  @override
-  final String content;
-
-  @JsonKey(name: 'type')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'PostmanCollectionDescription.text(content: $content)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PostmanCollectionDescriptionTextImpl &&
-            (identical(other.content, content) || other.content == content));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, content);
-
-  /// Create a copy of PostmanCollectionDescription
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PostmanCollectionDescriptionTextImplCopyWith<
-          _$PostmanCollectionDescriptionTextImpl>
-      get copyWith => __$$PostmanCollectionDescriptionTextImplCopyWithImpl<
-          _$PostmanCollectionDescriptionTextImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String? content, String? type, Object? version) $default, {
-    required TResult Function(String content) text,
-    required TResult Function() nullable,
-  }) {
-    return text(content);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? content, String? type, Object? version)?
-        $default, {
-    TResult? Function(String content)? text,
-    TResult? Function()? nullable,
-  }) {
-    return text?.call(content);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? content, String? type, Object? version)?
-        $default, {
-    TResult Function(String content)? text,
-    TResult Function()? nullable,
-    required TResult orElse(),
-  }) {
-    if (text != null) {
-      return text(content);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(PostmanCollectionDescriptionObject value) $default, {
-    required TResult Function(PostmanCollectionDescriptionText value) text,
-    required TResult Function(PostmanCollectionDescriptionNull value) nullable,
-  }) {
-    return text(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(PostmanCollectionDescriptionObject value)? $default, {
-    TResult? Function(PostmanCollectionDescriptionText value)? text,
-    TResult? Function(PostmanCollectionDescriptionNull value)? nullable,
-  }) {
-    return text?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(PostmanCollectionDescriptionObject value)? $default, {
-    TResult Function(PostmanCollectionDescriptionText value)? text,
-    TResult Function(PostmanCollectionDescriptionNull value)? nullable,
-    required TResult orElse(),
-  }) {
-    if (text != null) {
-      return text(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PostmanCollectionDescriptionTextImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class PostmanCollectionDescriptionText
-    extends PostmanCollectionDescription {
-  const factory PostmanCollectionDescriptionText(final String content) =
-      _$PostmanCollectionDescriptionTextImpl;
-  const PostmanCollectionDescriptionText._() : super._();
-
-  factory PostmanCollectionDescriptionText.fromJson(Map<String, dynamic> json) =
-      _$PostmanCollectionDescriptionTextImpl.fromJson;
-
-  String get content;
-
-  /// Create a copy of PostmanCollectionDescription
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PostmanCollectionDescriptionTextImplCopyWith<
-          _$PostmanCollectionDescriptionTextImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$PostmanCollectionDescriptionNullImplCopyWith<$Res> {
-  factory _$$PostmanCollectionDescriptionNullImplCopyWith(
-          _$PostmanCollectionDescriptionNullImpl value,
-          $Res Function(_$PostmanCollectionDescriptionNullImpl) then) =
-      __$$PostmanCollectionDescriptionNullImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$PostmanCollectionDescriptionNullImplCopyWithImpl<$Res>
-    extends _$PostmanCollectionDescriptionCopyWithImpl<$Res,
-        _$PostmanCollectionDescriptionNullImpl>
-    implements _$$PostmanCollectionDescriptionNullImplCopyWith<$Res> {
-  __$$PostmanCollectionDescriptionNullImplCopyWithImpl(
-      _$PostmanCollectionDescriptionNullImpl _value,
-      $Res Function(_$PostmanCollectionDescriptionNullImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of PostmanCollectionDescription
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$PostmanCollectionDescriptionNullImpl
-    extends PostmanCollectionDescriptionNull {
-  const _$PostmanCollectionDescriptionNullImpl({final String? $type})
-      : $type = $type ?? 'nullable',
-        super._();
-
-  factory _$PostmanCollectionDescriptionNullImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$PostmanCollectionDescriptionNullImplFromJson(json);
-
-  @JsonKey(name: 'type')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'PostmanCollectionDescription.nullable()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PostmanCollectionDescriptionNullImpl);
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String? content, String? type, Object? version) $default, {
-    required TResult Function(String content) text,
-    required TResult Function() nullable,
-  }) {
-    return nullable();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? content, String? type, Object? version)?
-        $default, {
-    TResult? Function(String content)? text,
-    TResult? Function()? nullable,
-  }) {
-    return nullable?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? content, String? type, Object? version)?
-        $default, {
-    TResult Function(String content)? text,
-    TResult Function()? nullable,
-    required TResult orElse(),
-  }) {
-    if (nullable != null) {
-      return nullable();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(PostmanCollectionDescriptionObject value) $default, {
-    required TResult Function(PostmanCollectionDescriptionText value) text,
-    required TResult Function(PostmanCollectionDescriptionNull value) nullable,
-  }) {
-    return nullable(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(PostmanCollectionDescriptionObject value)? $default, {
-    TResult? Function(PostmanCollectionDescriptionText value)? text,
-    TResult? Function(PostmanCollectionDescriptionNull value)? nullable,
-  }) {
-    return nullable?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(PostmanCollectionDescriptionObject value)? $default, {
-    TResult Function(PostmanCollectionDescriptionText value)? text,
-    TResult Function(PostmanCollectionDescriptionNull value)? nullable,
-    required TResult orElse(),
-  }) {
-    if (nullable != null) {
-      return nullable(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PostmanCollectionDescriptionNullImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class PostmanCollectionDescriptionNull
-    extends PostmanCollectionDescription {
-  const factory PostmanCollectionDescriptionNull() =
-      _$PostmanCollectionDescriptionNullImpl;
-  const PostmanCollectionDescriptionNull._() : super._();
-
-  factory PostmanCollectionDescriptionNull.fromJson(Map<String, dynamic> json) =
-      _$PostmanCollectionDescriptionNullImpl.fromJson;
 }
 
 PostmanCollectionVersion _$PostmanCollectionVersionFromJson(
@@ -1912,8 +1283,7 @@ PostmanCollectionItem _$PostmanCollectionItemFromJson(
 mixin _$PostmanCollectionItem {
   String? get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  PostmanCollectionDescription? get description =>
-      throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   List<PostmanCollectionVariable>? get variable =>
       throw _privateConstructorUsedError;
   List<PostmanCollectionEvent>? get event => throw _privateConstructorUsedError;
@@ -1928,7 +1298,7 @@ mixin _$PostmanCollectionItem {
     TResult Function(
             String? id,
             String name,
-            PostmanCollectionDescription? description,
+            String? description,
             List<PostmanCollectionVariable>? variable,
             List<PostmanCollectionEvent>? event,
             PostmanCollectionRequest? request,
@@ -1943,7 +1313,7 @@ mixin _$PostmanCollectionItem {
     TResult? Function(
             String? id,
             String name,
-            PostmanCollectionDescription? description,
+            String? description,
             List<PostmanCollectionVariable>? variable,
             List<PostmanCollectionEvent>? event,
             PostmanCollectionRequest? request,
@@ -1958,7 +1328,7 @@ mixin _$PostmanCollectionItem {
     TResult Function(
             String? id,
             String name,
-            PostmanCollectionDescription? description,
+            String? description,
             List<PostmanCollectionVariable>? variable,
             List<PostmanCollectionEvent>? event,
             PostmanCollectionRequest? request,
@@ -2005,7 +1375,7 @@ abstract class $PostmanCollectionItemCopyWith<$Res> {
   $Res call(
       {String? id,
       String name,
-      PostmanCollectionDescription? description,
+      String? description,
       List<PostmanCollectionVariable>? variable,
       List<PostmanCollectionEvent>? event,
       PostmanCollectionRequest? request,
@@ -2013,7 +1383,6 @@ abstract class $PostmanCollectionItemCopyWith<$Res> {
       PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
       List<PostmanCollectionItem>? item});
 
-  $PostmanCollectionDescriptionCopyWith<$Res>? get description;
   $PostmanCollectionRequestCopyWith<$Res>? get request;
   $PostmanCollectionProtocolProfileBehaviorCopyWith<$Res>?
       get protocolProfileBehavior;
@@ -2057,7 +1426,7 @@ class _$PostmanCollectionItemCopyWithImpl<$Res,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as PostmanCollectionDescription?,
+              as String?,
       variable: freezed == variable
           ? _value.variable
           : variable // ignore: cast_nullable_to_non_nullable
@@ -2083,21 +1452,6 @@ class _$PostmanCollectionItemCopyWithImpl<$Res,
           : item // ignore: cast_nullable_to_non_nullable
               as List<PostmanCollectionItem>?,
     ) as $Val);
-  }
-
-  /// Create a copy of PostmanCollectionItem
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PostmanCollectionDescriptionCopyWith<$Res>? get description {
-    if (_value.description == null) {
-      return null;
-    }
-
-    return $PostmanCollectionDescriptionCopyWith<$Res>(_value.description!,
-        (value) {
-      return _then(_value.copyWith(description: value) as $Val);
-    });
   }
 
   /// Create a copy of PostmanCollectionItem
@@ -2143,7 +1497,7 @@ abstract class _$$PostmanCollectionItemImplCopyWith<$Res>
   $Res call(
       {String? id,
       String name,
-      PostmanCollectionDescription? description,
+      String? description,
       List<PostmanCollectionVariable>? variable,
       List<PostmanCollectionEvent>? event,
       PostmanCollectionRequest? request,
@@ -2151,8 +1505,6 @@ abstract class _$$PostmanCollectionItemImplCopyWith<$Res>
       PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
       List<PostmanCollectionItem>? item});
 
-  @override
-  $PostmanCollectionDescriptionCopyWith<$Res>? get description;
   @override
   $PostmanCollectionRequestCopyWith<$Res>? get request;
   @override
@@ -2196,7 +1548,7 @@ class __$$PostmanCollectionItemImplCopyWithImpl<$Res>
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as PostmanCollectionDescription?,
+              as String?,
       variable: freezed == variable
           ? _value._variable
           : variable // ignore: cast_nullable_to_non_nullable
@@ -2252,7 +1604,7 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
   @override
   final String name;
   @override
-  final PostmanCollectionDescription? description;
+  final String? description;
   final List<PostmanCollectionVariable>? _variable;
   @override
   List<PostmanCollectionVariable>? get variable {
@@ -2350,7 +1702,7 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
     TResult Function(
             String? id,
             String name,
-            PostmanCollectionDescription? description,
+            String? description,
             List<PostmanCollectionVariable>? variable,
             List<PostmanCollectionEvent>? event,
             PostmanCollectionRequest? request,
@@ -2369,7 +1721,7 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
     TResult? Function(
             String? id,
             String name,
-            PostmanCollectionDescription? description,
+            String? description,
             List<PostmanCollectionVariable>? variable,
             List<PostmanCollectionEvent>? event,
             PostmanCollectionRequest? request,
@@ -2388,7 +1740,7 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
     TResult Function(
             String? id,
             String name,
-            PostmanCollectionDescription? description,
+            String? description,
             List<PostmanCollectionVariable>? variable,
             List<PostmanCollectionEvent>? event,
             PostmanCollectionRequest? request,
@@ -2445,7 +1797,7 @@ abstract class _PostmanCollectionItem extends PostmanCollectionItem {
   const factory _PostmanCollectionItem(
       {final String? id,
       required final String name,
-      final PostmanCollectionDescription? description,
+      final String? description,
       final List<PostmanCollectionVariable>? variable,
       final List<PostmanCollectionEvent>? event,
       final PostmanCollectionRequest? request,
@@ -2462,7 +1814,7 @@ abstract class _PostmanCollectionItem extends PostmanCollectionItem {
   @override
   String get name;
   @override
-  PostmanCollectionDescription? get description;
+  String? get description;
   @override
   List<PostmanCollectionVariable>? get variable;
   @override
@@ -3649,8 +3001,7 @@ mixin _$PostmanCollectionRequest {
   PostmanCollectionProxyConfig? get proxy => throw _privateConstructorUsedError;
   PostmanCollectionCertificate? get certificate =>
       throw _privateConstructorUsedError;
-  PostmanCollectionDescription? get description =>
-      throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   List<PostmanCollectionHeader>? get header =>
       throw _privateConstructorUsedError;
   Object? get body => throw _privateConstructorUsedError;
@@ -3662,7 +3013,7 @@ mixin _$PostmanCollectionRequest {
             PostmanCollectionAuth? auth,
             PostmanCollectionProxyConfig? proxy,
             PostmanCollectionCertificate? certificate,
-            PostmanCollectionDescription? description,
+            String? description,
             List<PostmanCollectionHeader>? header,
             Object? body)
         $default,
@@ -3676,7 +3027,7 @@ mixin _$PostmanCollectionRequest {
             PostmanCollectionAuth? auth,
             PostmanCollectionProxyConfig? proxy,
             PostmanCollectionCertificate? certificate,
-            PostmanCollectionDescription? description,
+            String? description,
             List<PostmanCollectionHeader>? header,
             Object? body)?
         $default,
@@ -3690,7 +3041,7 @@ mixin _$PostmanCollectionRequest {
             PostmanCollectionAuth? auth,
             PostmanCollectionProxyConfig? proxy,
             PostmanCollectionCertificate? certificate,
-            PostmanCollectionDescription? description,
+            String? description,
             List<PostmanCollectionHeader>? header,
             Object? body)?
         $default, {
@@ -3736,7 +3087,7 @@ abstract class $PostmanCollectionRequestCopyWith<$Res> {
       PostmanCollectionAuth? auth,
       PostmanCollectionProxyConfig? proxy,
       PostmanCollectionCertificate? certificate,
-      PostmanCollectionDescription? description,
+      String? description,
       List<PostmanCollectionHeader>? header,
       Object? body});
 
@@ -3744,7 +3095,6 @@ abstract class $PostmanCollectionRequestCopyWith<$Res> {
   $PostmanCollectionAuthCopyWith<$Res>? get auth;
   $PostmanCollectionProxyConfigCopyWith<$Res>? get proxy;
   $PostmanCollectionCertificateCopyWith<$Res>? get certificate;
-  $PostmanCollectionDescriptionCopyWith<$Res>? get description;
 }
 
 /// @nodoc
@@ -3796,7 +3146,7 @@ class _$PostmanCollectionRequestCopyWithImpl<$Res,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as PostmanCollectionDescription?,
+              as String?,
       header: freezed == header
           ? _value.header
           : header // ignore: cast_nullable_to_non_nullable
@@ -3861,21 +3211,6 @@ class _$PostmanCollectionRequestCopyWithImpl<$Res,
       return _then(_value.copyWith(certificate: value) as $Val);
     });
   }
-
-  /// Create a copy of PostmanCollectionRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PostmanCollectionDescriptionCopyWith<$Res>? get description {
-    if (_value.description == null) {
-      return null;
-    }
-
-    return $PostmanCollectionDescriptionCopyWith<$Res>(_value.description!,
-        (value) {
-      return _then(_value.copyWith(description: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -3893,7 +3228,7 @@ abstract class _$$PostmanCollectionRequestImplCopyWith<$Res>
       PostmanCollectionAuth? auth,
       PostmanCollectionProxyConfig? proxy,
       PostmanCollectionCertificate? certificate,
-      PostmanCollectionDescription? description,
+      String? description,
       List<PostmanCollectionHeader>? header,
       Object? body});
 
@@ -3905,8 +3240,6 @@ abstract class _$$PostmanCollectionRequestImplCopyWith<$Res>
   $PostmanCollectionProxyConfigCopyWith<$Res>? get proxy;
   @override
   $PostmanCollectionCertificateCopyWith<$Res>? get certificate;
-  @override
-  $PostmanCollectionDescriptionCopyWith<$Res>? get description;
 }
 
 /// @nodoc
@@ -3957,7 +3290,7 @@ class __$$PostmanCollectionRequestImplCopyWithImpl<$Res>
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as PostmanCollectionDescription?,
+              as String?,
       header: freezed == header
           ? _value._header
           : header // ignore: cast_nullable_to_non_nullable
@@ -3996,7 +3329,7 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
   @override
   final PostmanCollectionCertificate? certificate;
   @override
-  final PostmanCollectionDescription? description;
+  final String? description;
   final List<PostmanCollectionHeader>? _header;
   @override
   List<PostmanCollectionHeader>? get header {
@@ -4063,7 +3396,7 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
             PostmanCollectionAuth? auth,
             PostmanCollectionProxyConfig? proxy,
             PostmanCollectionCertificate? certificate,
-            PostmanCollectionDescription? description,
+            String? description,
             List<PostmanCollectionHeader>? header,
             Object? body)
         $default,
@@ -4081,7 +3414,7 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
             PostmanCollectionAuth? auth,
             PostmanCollectionProxyConfig? proxy,
             PostmanCollectionCertificate? certificate,
-            PostmanCollectionDescription? description,
+            String? description,
             List<PostmanCollectionHeader>? header,
             Object? body)?
         $default,
@@ -4099,7 +3432,7 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
             PostmanCollectionAuth? auth,
             PostmanCollectionProxyConfig? proxy,
             PostmanCollectionCertificate? certificate,
-            PostmanCollectionDescription? description,
+            String? description,
             List<PostmanCollectionHeader>? header,
             Object? body)?
         $default, {
@@ -4155,7 +3488,7 @@ abstract class _PostmanCollectionRequest extends PostmanCollectionRequest {
       final PostmanCollectionAuth? auth,
       final PostmanCollectionProxyConfig? proxy,
       final PostmanCollectionCertificate? certificate,
-      final PostmanCollectionDescription? description,
+      final String? description,
       final List<PostmanCollectionHeader>? header,
       final Object? body}) = _$PostmanCollectionRequestImpl;
   const _PostmanCollectionRequest._() : super._();
@@ -4174,7 +3507,7 @@ abstract class _PostmanCollectionRequest extends PostmanCollectionRequest {
   @override
   PostmanCollectionCertificate? get certificate;
   @override
-  PostmanCollectionDescription? get description;
+  String? get description;
   @override
   List<PostmanCollectionHeader>? get header;
   @override
@@ -4657,26 +3990,25 @@ mixin _$PostmanCollectionQueryParam {
   String? get key => throw _privateConstructorUsedError;
   String? get value => throw _privateConstructorUsedError;
   bool? get disabled => throw _privateConstructorUsedError;
-  PostmanCollectionDescription? get description =>
-      throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? key, String? value, bool? disabled,
-            PostmanCollectionDescription? description)
+    TResult Function(
+            String? key, String? value, bool? disabled, String? description)
         $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? key, String? value, bool? disabled,
-            PostmanCollectionDescription? description)?
+    TResult? Function(
+            String? key, String? value, bool? disabled, String? description)?
         $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? key, String? value, bool? disabled,
-            PostmanCollectionDescription? description)?
+    TResult Function(
+            String? key, String? value, bool? disabled, String? description)?
         $default, {
     required TResult orElse(),
   }) =>
@@ -4716,13 +4048,7 @@ abstract class $PostmanCollectionQueryParamCopyWith<$Res> {
       _$PostmanCollectionQueryParamCopyWithImpl<$Res,
           PostmanCollectionQueryParam>;
   @useResult
-  $Res call(
-      {String? key,
-      String? value,
-      bool? disabled,
-      PostmanCollectionDescription? description});
-
-  $PostmanCollectionDescriptionCopyWith<$Res>? get description;
+  $Res call({String? key, String? value, bool? disabled, String? description});
 }
 
 /// @nodoc
@@ -4762,23 +4088,8 @@ class _$PostmanCollectionQueryParamCopyWithImpl<$Res,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as PostmanCollectionDescription?,
+              as String?,
     ) as $Val);
-  }
-
-  /// Create a copy of PostmanCollectionQueryParam
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PostmanCollectionDescriptionCopyWith<$Res>? get description {
-    if (_value.description == null) {
-      return null;
-    }
-
-    return $PostmanCollectionDescriptionCopyWith<$Res>(_value.description!,
-        (value) {
-      return _then(_value.copyWith(description: value) as $Val);
-    });
   }
 }
 
@@ -4791,14 +4102,7 @@ abstract class _$$PostmanCollectionQueryParamImplCopyWith<$Res>
       __$$PostmanCollectionQueryParamImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String? key,
-      String? value,
-      bool? disabled,
-      PostmanCollectionDescription? description});
-
-  @override
-  $PostmanCollectionDescriptionCopyWith<$Res>? get description;
+  $Res call({String? key, String? value, bool? disabled, String? description});
 }
 
 /// @nodoc
@@ -4837,7 +4141,7 @@ class __$$PostmanCollectionQueryParamImplCopyWithImpl<$Res>
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as PostmanCollectionDescription?,
+              as String?,
     ));
   }
 }
@@ -4860,7 +4164,7 @@ class _$PostmanCollectionQueryParamImpl extends _PostmanCollectionQueryParam {
   @override
   final bool? disabled;
   @override
-  final PostmanCollectionDescription? description;
+  final String? description;
 
   @override
   String toString() {
@@ -4897,8 +4201,8 @@ class _$PostmanCollectionQueryParamImpl extends _PostmanCollectionQueryParam {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? key, String? value, bool? disabled,
-            PostmanCollectionDescription? description)
+    TResult Function(
+            String? key, String? value, bool? disabled, String? description)
         $default,
   ) {
     return $default(key, value, disabled, description);
@@ -4907,8 +4211,8 @@ class _$PostmanCollectionQueryParamImpl extends _PostmanCollectionQueryParam {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? key, String? value, bool? disabled,
-            PostmanCollectionDescription? description)?
+    TResult? Function(
+            String? key, String? value, bool? disabled, String? description)?
         $default,
   ) {
     return $default?.call(key, value, disabled, description);
@@ -4917,8 +4221,8 @@ class _$PostmanCollectionQueryParamImpl extends _PostmanCollectionQueryParam {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? key, String? value, bool? disabled,
-            PostmanCollectionDescription? description)?
+    TResult Function(
+            String? key, String? value, bool? disabled, String? description)?
         $default, {
     required TResult orElse(),
   }) {
@@ -4967,11 +4271,10 @@ class _$PostmanCollectionQueryParamImpl extends _PostmanCollectionQueryParam {
 abstract class _PostmanCollectionQueryParam
     extends PostmanCollectionQueryParam {
   const factory _PostmanCollectionQueryParam(
-          {final String? key,
-          final String? value,
-          final bool? disabled,
-          final PostmanCollectionDescription? description}) =
-      _$PostmanCollectionQueryParamImpl;
+      {final String? key,
+      final String? value,
+      final bool? disabled,
+      final String? description}) = _$PostmanCollectionQueryParamImpl;
   const _PostmanCollectionQueryParam._() : super._();
 
   factory _PostmanCollectionQueryParam.fromJson(Map<String, dynamic> json) =
@@ -4984,7 +4287,7 @@ abstract class _PostmanCollectionQueryParam
   @override
   bool? get disabled;
   @override
-  PostmanCollectionDescription? get description;
+  String? get description;
 
   /// Create a copy of PostmanCollectionQueryParam
   /// with the given fields replaced by the non-null parameter values.
@@ -5006,8 +4309,7 @@ mixin _$PostmanCollectionVariable {
   Object? get value => throw _privateConstructorUsedError;
   PostmanCollectionVariableType? get type => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
-  PostmanCollectionDescription? get description =>
-      throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   bool? get system => throw _privateConstructorUsedError;
   bool? get disabled => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -5018,7 +4320,7 @@ mixin _$PostmanCollectionVariable {
             Object? value,
             PostmanCollectionVariableType? type,
             String? name,
-            PostmanCollectionDescription? description,
+            String? description,
             bool? system,
             bool? disabled)
         $default,
@@ -5032,7 +4334,7 @@ mixin _$PostmanCollectionVariable {
             Object? value,
             PostmanCollectionVariableType? type,
             String? name,
-            PostmanCollectionDescription? description,
+            String? description,
             bool? system,
             bool? disabled)?
         $default,
@@ -5046,7 +4348,7 @@ mixin _$PostmanCollectionVariable {
             Object? value,
             PostmanCollectionVariableType? type,
             String? name,
-            PostmanCollectionDescription? description,
+            String? description,
             bool? system,
             bool? disabled)?
         $default, {
@@ -5092,11 +4394,9 @@ abstract class $PostmanCollectionVariableCopyWith<$Res> {
       Object? value,
       PostmanCollectionVariableType? type,
       String? name,
-      PostmanCollectionDescription? description,
+      String? description,
       bool? system,
       bool? disabled});
-
-  $PostmanCollectionDescriptionCopyWith<$Res>? get description;
 }
 
 /// @nodoc
@@ -5145,7 +4445,7 @@ class _$PostmanCollectionVariableCopyWithImpl<$Res,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as PostmanCollectionDescription?,
+              as String?,
       system: freezed == system
           ? _value.system
           : system // ignore: cast_nullable_to_non_nullable
@@ -5155,21 +4455,6 @@ class _$PostmanCollectionVariableCopyWithImpl<$Res,
           : disabled // ignore: cast_nullable_to_non_nullable
               as bool?,
     ) as $Val);
-  }
-
-  /// Create a copy of PostmanCollectionVariable
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PostmanCollectionDescriptionCopyWith<$Res>? get description {
-    if (_value.description == null) {
-      return null;
-    }
-
-    return $PostmanCollectionDescriptionCopyWith<$Res>(_value.description!,
-        (value) {
-      return _then(_value.copyWith(description: value) as $Val);
-    });
   }
 }
 
@@ -5188,12 +4473,9 @@ abstract class _$$PostmanCollectionVariableImplCopyWith<$Res>
       Object? value,
       PostmanCollectionVariableType? type,
       String? name,
-      PostmanCollectionDescription? description,
+      String? description,
       bool? system,
       bool? disabled});
-
-  @override
-  $PostmanCollectionDescriptionCopyWith<$Res>? get description;
 }
 
 /// @nodoc
@@ -5241,7 +4523,7 @@ class __$$PostmanCollectionVariableImplCopyWithImpl<$Res>
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as PostmanCollectionDescription?,
+              as String?,
       system: freezed == system
           ? _value.system
           : system // ignore: cast_nullable_to_non_nullable
@@ -5282,7 +4564,7 @@ class _$PostmanCollectionVariableImpl extends _PostmanCollectionVariable {
   @override
   final String? name;
   @override
-  final PostmanCollectionDescription? description;
+  final String? description;
   @override
   final bool? system;
   @override
@@ -5341,7 +4623,7 @@ class _$PostmanCollectionVariableImpl extends _PostmanCollectionVariable {
             Object? value,
             PostmanCollectionVariableType? type,
             String? name,
-            PostmanCollectionDescription? description,
+            String? description,
             bool? system,
             bool? disabled)
         $default,
@@ -5358,7 +4640,7 @@ class _$PostmanCollectionVariableImpl extends _PostmanCollectionVariable {
             Object? value,
             PostmanCollectionVariableType? type,
             String? name,
-            PostmanCollectionDescription? description,
+            String? description,
             bool? system,
             bool? disabled)?
         $default,
@@ -5376,7 +4658,7 @@ class _$PostmanCollectionVariableImpl extends _PostmanCollectionVariable {
             Object? value,
             PostmanCollectionVariableType? type,
             String? name,
-            PostmanCollectionDescription? description,
+            String? description,
             bool? system,
             bool? disabled)?
         $default, {
@@ -5432,7 +4714,7 @@ abstract class _PostmanCollectionVariable extends PostmanCollectionVariable {
       final Object? value,
       final PostmanCollectionVariableType? type,
       final String? name,
-      final PostmanCollectionDescription? description,
+      final String? description,
       final bool? system,
       final bool? disabled}) = _$PostmanCollectionVariableImpl;
   const _PostmanCollectionVariable._() : super._();
@@ -5451,7 +4733,7 @@ abstract class _PostmanCollectionVariable extends PostmanCollectionVariable {
   @override
   String? get name;
   @override
-  PostmanCollectionDescription? get description;
+  String? get description;
   @override
   bool? get system;
   @override
@@ -8206,26 +7488,25 @@ mixin _$PostmanCollectionHeader {
   String get key => throw _privateConstructorUsedError;
   String get value => throw _privateConstructorUsedError;
   bool? get disabled => throw _privateConstructorUsedError;
-  PostmanCollectionDescription? get description =>
-      throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String key, String value, bool? disabled,
-            PostmanCollectionDescription? description)
+    TResult Function(
+            String key, String value, bool? disabled, String? description)
         $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String key, String value, bool? disabled,
-            PostmanCollectionDescription? description)?
+    TResult? Function(
+            String key, String value, bool? disabled, String? description)?
         $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String key, String value, bool? disabled,
-            PostmanCollectionDescription? description)?
+    TResult Function(
+            String key, String value, bool? disabled, String? description)?
         $default, {
     required TResult orElse(),
   }) =>
@@ -8263,13 +7544,7 @@ abstract class $PostmanCollectionHeaderCopyWith<$Res> {
           $Res Function(PostmanCollectionHeader) then) =
       _$PostmanCollectionHeaderCopyWithImpl<$Res, PostmanCollectionHeader>;
   @useResult
-  $Res call(
-      {String key,
-      String value,
-      bool? disabled,
-      PostmanCollectionDescription? description});
-
-  $PostmanCollectionDescriptionCopyWith<$Res>? get description;
+  $Res call({String key, String value, bool? disabled, String? description});
 }
 
 /// @nodoc
@@ -8309,23 +7584,8 @@ class _$PostmanCollectionHeaderCopyWithImpl<$Res,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as PostmanCollectionDescription?,
+              as String?,
     ) as $Val);
-  }
-
-  /// Create a copy of PostmanCollectionHeader
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PostmanCollectionDescriptionCopyWith<$Res>? get description {
-    if (_value.description == null) {
-      return null;
-    }
-
-    return $PostmanCollectionDescriptionCopyWith<$Res>(_value.description!,
-        (value) {
-      return _then(_value.copyWith(description: value) as $Val);
-    });
   }
 }
 
@@ -8338,14 +7598,7 @@ abstract class _$$PostmanCollectionHeaderImplCopyWith<$Res>
       __$$PostmanCollectionHeaderImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String key,
-      String value,
-      bool? disabled,
-      PostmanCollectionDescription? description});
-
-  @override
-  $PostmanCollectionDescriptionCopyWith<$Res>? get description;
+  $Res call({String key, String value, bool? disabled, String? description});
 }
 
 /// @nodoc
@@ -8384,7 +7637,7 @@ class __$$PostmanCollectionHeaderImplCopyWithImpl<$Res>
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as PostmanCollectionDescription?,
+              as String?,
     ));
   }
 }
@@ -8406,7 +7659,7 @@ class _$PostmanCollectionHeaderImpl extends _PostmanCollectionHeader {
   @override
   final bool? disabled;
   @override
-  final PostmanCollectionDescription? description;
+  final String? description;
 
   @override
   String toString() {
@@ -8443,8 +7696,8 @@ class _$PostmanCollectionHeaderImpl extends _PostmanCollectionHeader {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String key, String value, bool? disabled,
-            PostmanCollectionDescription? description)
+    TResult Function(
+            String key, String value, bool? disabled, String? description)
         $default,
   ) {
     return $default(key, value, disabled, description);
@@ -8453,8 +7706,8 @@ class _$PostmanCollectionHeaderImpl extends _PostmanCollectionHeader {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String key, String value, bool? disabled,
-            PostmanCollectionDescription? description)?
+    TResult? Function(
+            String key, String value, bool? disabled, String? description)?
         $default,
   ) {
     return $default?.call(key, value, disabled, description);
@@ -8463,8 +7716,8 @@ class _$PostmanCollectionHeaderImpl extends _PostmanCollectionHeader {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String key, String value, bool? disabled,
-            PostmanCollectionDescription? description)?
+    TResult Function(
+            String key, String value, bool? disabled, String? description)?
         $default, {
     required TResult orElse(),
   }) {
@@ -8512,11 +7765,10 @@ class _$PostmanCollectionHeaderImpl extends _PostmanCollectionHeader {
 
 abstract class _PostmanCollectionHeader extends PostmanCollectionHeader {
   const factory _PostmanCollectionHeader(
-          {required final String key,
-          required final String value,
-          final bool? disabled,
-          final PostmanCollectionDescription? description}) =
-      _$PostmanCollectionHeaderImpl;
+      {required final String key,
+      required final String value,
+      final bool? disabled,
+      final String? description}) = _$PostmanCollectionHeaderImpl;
   const _PostmanCollectionHeader._() : super._();
 
   factory _PostmanCollectionHeader.fromJson(Map<String, dynamic> json) =
@@ -8529,7 +7781,7 @@ abstract class _PostmanCollectionHeader extends PostmanCollectionHeader {
   @override
   bool? get disabled;
   @override
-  PostmanCollectionDescription? get description;
+  String? get description;
 
   /// Create a copy of PostmanCollectionHeader
   /// with the given fields replaced by the non-null parameter values.

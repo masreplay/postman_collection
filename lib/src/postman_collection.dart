@@ -28,7 +28,7 @@ class PostmanCollectionInfo with _$PostmanCollectionInfo {
     @JsonKey(name: '_postman_id') String? postmanId,
     required String name,
     required String schema,
-    PostmanCollectionDescription? description,
+    String? description,
     PostmanCollectionVersion? version,
     @JsonKey(name: '_exporter_id') String? exporterId,
     @JsonKey(name: '_collection_link') String? collectionLink,
@@ -36,26 +36,6 @@ class PostmanCollectionInfo with _$PostmanCollectionInfo {
 
   factory PostmanCollectionInfo.fromJson(Map<String, dynamic> json) =>
       _$PostmanCollectionInfoFromJson(json);
-}
-
-@freezed
-class PostmanCollectionDescription with _$PostmanCollectionDescription {
-  const PostmanCollectionDescription._();
-
-  const factory PostmanCollectionDescription({
-    String? content,
-    String? type,
-    Object? version,
-  }) = PostmanCollectionDescriptionObject;
-
-  const factory PostmanCollectionDescription.text(String content) =
-      PostmanCollectionDescriptionText;
-
-  const factory PostmanCollectionDescription.nullable() =
-      PostmanCollectionDescriptionNull;
-
-  factory PostmanCollectionDescription.fromJson(Map<String, dynamic> json) =>
-      _$PostmanCollectionDescriptionFromJson(json);
 }
 
 @freezed
@@ -81,7 +61,7 @@ class PostmanCollectionItem with _$PostmanCollectionItem {
   const factory PostmanCollectionItem({
     String? id,
     required String name,
-    PostmanCollectionDescription? description,
+    String? description,
     List<PostmanCollectionVariable>? variable,
     List<PostmanCollectionEvent>? event,
     PostmanCollectionRequest? request,
@@ -155,7 +135,7 @@ class PostmanCollectionRequest with _$PostmanCollectionRequest {
     PostmanCollectionAuth? auth,
     PostmanCollectionProxyConfig? proxy,
     PostmanCollectionCertificate? certificate,
-    PostmanCollectionDescription? description,
+    String? description,
     List<PostmanCollectionHeader>? header,
     Object? body,
   }) = _PostmanCollectionRequest;
@@ -191,7 +171,7 @@ class PostmanCollectionQueryParam with _$PostmanCollectionQueryParam {
     String? key,
     String? value,
     bool? disabled,
-    PostmanCollectionDescription? description,
+    String? description,
   }) = _PostmanCollectionQueryParam;
 
   factory PostmanCollectionQueryParam.fromJson(Map<String, dynamic> json) =>
@@ -208,7 +188,7 @@ class PostmanCollectionVariable with _$PostmanCollectionVariable {
     Object? value,
     PostmanCollectionVariableType? type,
     String? name,
-    PostmanCollectionDescription? description,
+    String? description,
     bool? system,
     bool? disabled,
   }) = _PostmanCollectionVariable;
@@ -363,7 +343,7 @@ class PostmanCollectionHeader with _$PostmanCollectionHeader {
     required String key,
     required String value,
     bool? disabled,
-    PostmanCollectionDescription? description,
+    String? description,
   }) = _PostmanCollectionHeader;
 
   factory PostmanCollectionHeader.fromJson(Map<String, dynamic> json) =>
