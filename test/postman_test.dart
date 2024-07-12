@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:postman/postman.dart';
 import 'package:test/test.dart';
 
@@ -16,8 +17,8 @@ void main() {
       final matcher = PostmanCollection.fromJson(actual);
       final matcherText =
           JsonEncoder.withIndent('  ').convert(matcher.toJson());
-      File('./test/assets/test2.temp.postman_collection.json')
-          .writeAsStringSync(matcherText);
+      // File('./test/assets/test2.temp.postman_collection.json')
+      //     .writeAsStringSync(matcherText);
       print(matcherText);
 
       // deep match [actual] and [matcher]
