@@ -10,10 +10,10 @@ class PostmanCollection with _$PostmanCollection {
   const factory PostmanCollection({
     required PostmanCollectionInfo info,
     required List<PostmanCollectionItem> item,
-    List<PostmanCollectionEvent>? event,
-    List<PostmanCollectionVariable>? variable,
     PostmanCollectionAuth? auth,
-    PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
+    List<PostmanCollectionEvent>? event,
+    Map<String, dynamic>? protocolProfileBehavior,
+    List<PostmanCollectionVariable>? variable,
   }) = _PostmanCollection;
 
   factory PostmanCollection.fromJson(Map<String, dynamic> json) =>
@@ -64,9 +64,9 @@ class PostmanCollectionItem with _$PostmanCollectionItem {
     String? description,
     List<PostmanCollectionVariable>? variable,
     List<PostmanCollectionEvent>? event,
+    Map<String, dynamic>? protocolProfileBehavior,
     PostmanCollectionRequest? request,
     List<PostmanCollectionResponse>? response,
-    PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
     List<PostmanCollectionItem>? item,
   }) = _PostmanCollectionItem;
 
@@ -109,20 +109,6 @@ class PostmanCollectionAuthAttribute with _$PostmanCollectionAuthAttribute {
 
   factory PostmanCollectionAuthAttribute.fromJson(Map<String, dynamic> json) =>
       _$PostmanCollectionAuthAttributeFromJson(json);
-}
-
-@freezed
-class PostmanCollectionProtocolProfileBehavior
-    with _$PostmanCollectionProtocolProfileBehavior {
-  const PostmanCollectionProtocolProfileBehavior._();
-
-  const factory PostmanCollectionProtocolProfileBehavior() =
-      _PostmanCollectionProtocolProfileBehavior;
-
-  factory PostmanCollectionProtocolProfileBehavior.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$PostmanCollectionProtocolProfileBehaviorFromJson(json);
 }
 
 @freezed
@@ -218,8 +204,8 @@ class PostmanCollectionScript with _$PostmanCollectionScript {
 
   const factory PostmanCollectionScript({
     String? id,
+    Map<String, dynamic>? packages,
     String? type,
-    @Default({}) Map<String, dynamic>? packages,
     Object? exec,
     PostmanCollectionUrl? src,
     String? name,

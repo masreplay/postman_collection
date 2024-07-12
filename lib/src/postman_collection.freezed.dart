@@ -22,21 +22,21 @@ PostmanCollection _$PostmanCollectionFromJson(Map<String, dynamic> json) {
 mixin _$PostmanCollection {
   PostmanCollectionInfo get info => throw _privateConstructorUsedError;
   List<PostmanCollectionItem> get item => throw _privateConstructorUsedError;
-  List<PostmanCollectionEvent>? get event => throw _privateConstructorUsedError;
-  List<PostmanCollectionVariable>? get variable =>
-      throw _privateConstructorUsedError;
   PostmanCollectionAuth? get auth => throw _privateConstructorUsedError;
-  PostmanCollectionProtocolProfileBehavior? get protocolProfileBehavior =>
+  List<PostmanCollectionEvent>? get event => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get protocolProfileBehavior =>
+      throw _privateConstructorUsedError;
+  List<PostmanCollectionVariable>? get variable =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
             PostmanCollectionInfo info,
             List<PostmanCollectionItem> item,
-            List<PostmanCollectionEvent>? event,
-            List<PostmanCollectionVariable>? variable,
             PostmanCollectionAuth? auth,
-            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior)
+            List<PostmanCollectionEvent>? event,
+            Map<String, dynamic>? protocolProfileBehavior,
+            List<PostmanCollectionVariable>? variable)
         $default,
   ) =>
       throw _privateConstructorUsedError;
@@ -45,10 +45,10 @@ mixin _$PostmanCollection {
     TResult? Function(
             PostmanCollectionInfo info,
             List<PostmanCollectionItem> item,
-            List<PostmanCollectionEvent>? event,
-            List<PostmanCollectionVariable>? variable,
             PostmanCollectionAuth? auth,
-            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior)?
+            List<PostmanCollectionEvent>? event,
+            Map<String, dynamic>? protocolProfileBehavior,
+            List<PostmanCollectionVariable>? variable)?
         $default,
   ) =>
       throw _privateConstructorUsedError;
@@ -57,10 +57,10 @@ mixin _$PostmanCollection {
     TResult Function(
             PostmanCollectionInfo info,
             List<PostmanCollectionItem> item,
-            List<PostmanCollectionEvent>? event,
-            List<PostmanCollectionVariable>? variable,
             PostmanCollectionAuth? auth,
-            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior)?
+            List<PostmanCollectionEvent>? event,
+            Map<String, dynamic>? protocolProfileBehavior,
+            List<PostmanCollectionVariable>? variable)?
         $default, {
     required TResult orElse(),
   }) =>
@@ -101,15 +101,13 @@ abstract class $PostmanCollectionCopyWith<$Res> {
   $Res call(
       {PostmanCollectionInfo info,
       List<PostmanCollectionItem> item,
-      List<PostmanCollectionEvent>? event,
-      List<PostmanCollectionVariable>? variable,
       PostmanCollectionAuth? auth,
-      PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior});
+      List<PostmanCollectionEvent>? event,
+      Map<String, dynamic>? protocolProfileBehavior,
+      List<PostmanCollectionVariable>? variable});
 
   $PostmanCollectionInfoCopyWith<$Res> get info;
   $PostmanCollectionAuthCopyWith<$Res>? get auth;
-  $PostmanCollectionProtocolProfileBehaviorCopyWith<$Res>?
-      get protocolProfileBehavior;
 }
 
 /// @nodoc
@@ -129,10 +127,10 @@ class _$PostmanCollectionCopyWithImpl<$Res, $Val extends PostmanCollection>
   $Res call({
     Object? info = null,
     Object? item = null,
-    Object? event = freezed,
-    Object? variable = freezed,
     Object? auth = freezed,
+    Object? event = freezed,
     Object? protocolProfileBehavior = freezed,
+    Object? variable = freezed,
   }) {
     return _then(_value.copyWith(
       info: null == info
@@ -143,22 +141,22 @@ class _$PostmanCollectionCopyWithImpl<$Res, $Val extends PostmanCollection>
           ? _value.item
           : item // ignore: cast_nullable_to_non_nullable
               as List<PostmanCollectionItem>,
-      event: freezed == event
-          ? _value.event
-          : event // ignore: cast_nullable_to_non_nullable
-              as List<PostmanCollectionEvent>?,
-      variable: freezed == variable
-          ? _value.variable
-          : variable // ignore: cast_nullable_to_non_nullable
-              as List<PostmanCollectionVariable>?,
       auth: freezed == auth
           ? _value.auth
           : auth // ignore: cast_nullable_to_non_nullable
               as PostmanCollectionAuth?,
+      event: freezed == event
+          ? _value.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as List<PostmanCollectionEvent>?,
       protocolProfileBehavior: freezed == protocolProfileBehavior
           ? _value.protocolProfileBehavior
           : protocolProfileBehavior // ignore: cast_nullable_to_non_nullable
-              as PostmanCollectionProtocolProfileBehavior?,
+              as Map<String, dynamic>?,
+      variable: freezed == variable
+          ? _value.variable
+          : variable // ignore: cast_nullable_to_non_nullable
+              as List<PostmanCollectionVariable>?,
     ) as $Val);
   }
 
@@ -185,22 +183,6 @@ class _$PostmanCollectionCopyWithImpl<$Res, $Val extends PostmanCollection>
       return _then(_value.copyWith(auth: value) as $Val);
     });
   }
-
-  /// Create a copy of PostmanCollection
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PostmanCollectionProtocolProfileBehaviorCopyWith<$Res>?
-      get protocolProfileBehavior {
-    if (_value.protocolProfileBehavior == null) {
-      return null;
-    }
-
-    return $PostmanCollectionProtocolProfileBehaviorCopyWith<$Res>(
-        _value.protocolProfileBehavior!, (value) {
-      return _then(_value.copyWith(protocolProfileBehavior: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -214,18 +196,15 @@ abstract class _$$PostmanCollectionImplCopyWith<$Res>
   $Res call(
       {PostmanCollectionInfo info,
       List<PostmanCollectionItem> item,
-      List<PostmanCollectionEvent>? event,
-      List<PostmanCollectionVariable>? variable,
       PostmanCollectionAuth? auth,
-      PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior});
+      List<PostmanCollectionEvent>? event,
+      Map<String, dynamic>? protocolProfileBehavior,
+      List<PostmanCollectionVariable>? variable});
 
   @override
   $PostmanCollectionInfoCopyWith<$Res> get info;
   @override
   $PostmanCollectionAuthCopyWith<$Res>? get auth;
-  @override
-  $PostmanCollectionProtocolProfileBehaviorCopyWith<$Res>?
-      get protocolProfileBehavior;
 }
 
 /// @nodoc
@@ -243,10 +222,10 @@ class __$$PostmanCollectionImplCopyWithImpl<$Res>
   $Res call({
     Object? info = null,
     Object? item = null,
-    Object? event = freezed,
-    Object? variable = freezed,
     Object? auth = freezed,
+    Object? event = freezed,
     Object? protocolProfileBehavior = freezed,
+    Object? variable = freezed,
   }) {
     return _then(_$PostmanCollectionImpl(
       info: null == info
@@ -257,22 +236,22 @@ class __$$PostmanCollectionImplCopyWithImpl<$Res>
           ? _value._item
           : item // ignore: cast_nullable_to_non_nullable
               as List<PostmanCollectionItem>,
-      event: freezed == event
-          ? _value._event
-          : event // ignore: cast_nullable_to_non_nullable
-              as List<PostmanCollectionEvent>?,
-      variable: freezed == variable
-          ? _value._variable
-          : variable // ignore: cast_nullable_to_non_nullable
-              as List<PostmanCollectionVariable>?,
       auth: freezed == auth
           ? _value.auth
           : auth // ignore: cast_nullable_to_non_nullable
               as PostmanCollectionAuth?,
+      event: freezed == event
+          ? _value._event
+          : event // ignore: cast_nullable_to_non_nullable
+              as List<PostmanCollectionEvent>?,
       protocolProfileBehavior: freezed == protocolProfileBehavior
-          ? _value.protocolProfileBehavior
+          ? _value._protocolProfileBehavior
           : protocolProfileBehavior // ignore: cast_nullable_to_non_nullable
-              as PostmanCollectionProtocolProfileBehavior?,
+              as Map<String, dynamic>?,
+      variable: freezed == variable
+          ? _value._variable
+          : variable // ignore: cast_nullable_to_non_nullable
+              as List<PostmanCollectionVariable>?,
     ));
   }
 }
@@ -283,12 +262,13 @@ class _$PostmanCollectionImpl extends _PostmanCollection {
   const _$PostmanCollectionImpl(
       {required this.info,
       required final List<PostmanCollectionItem> item,
-      final List<PostmanCollectionEvent>? event,
-      final List<PostmanCollectionVariable>? variable,
       this.auth,
-      this.protocolProfileBehavior})
+      final List<PostmanCollectionEvent>? event,
+      final Map<String, dynamic>? protocolProfileBehavior,
+      final List<PostmanCollectionVariable>? variable})
       : _item = item,
         _event = event,
+        _protocolProfileBehavior = protocolProfileBehavior,
         _variable = variable,
         super._();
 
@@ -305,6 +285,8 @@ class _$PostmanCollectionImpl extends _PostmanCollection {
     return EqualUnmodifiableListView(_item);
   }
 
+  @override
+  final PostmanCollectionAuth? auth;
   final List<PostmanCollectionEvent>? _event;
   @override
   List<PostmanCollectionEvent>? get event {
@@ -313,6 +295,17 @@ class _$PostmanCollectionImpl extends _PostmanCollection {
     if (_event is EqualUnmodifiableListView) return _event;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
+  }
+
+  final Map<String, dynamic>? _protocolProfileBehavior;
+  @override
+  Map<String, dynamic>? get protocolProfileBehavior {
+    final value = _protocolProfileBehavior;
+    if (value == null) return null;
+    if (_protocolProfileBehavior is EqualUnmodifiableMapView)
+      return _protocolProfileBehavior;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
   }
 
   final List<PostmanCollectionVariable>? _variable;
@@ -326,13 +319,8 @@ class _$PostmanCollectionImpl extends _PostmanCollection {
   }
 
   @override
-  final PostmanCollectionAuth? auth;
-  @override
-  final PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior;
-
-  @override
   String toString() {
-    return 'PostmanCollection(info: $info, item: $item, event: $event, variable: $variable, auth: $auth, protocolProfileBehavior: $protocolProfileBehavior)';
+    return 'PostmanCollection(info: $info, item: $item, auth: $auth, event: $event, protocolProfileBehavior: $protocolProfileBehavior, variable: $variable)';
   }
 
   @override
@@ -342,12 +330,11 @@ class _$PostmanCollectionImpl extends _PostmanCollection {
             other is _$PostmanCollectionImpl &&
             (identical(other.info, info) || other.info == info) &&
             const DeepCollectionEquality().equals(other._item, _item) &&
-            const DeepCollectionEquality().equals(other._event, _event) &&
-            const DeepCollectionEquality().equals(other._variable, _variable) &&
             (identical(other.auth, auth) || other.auth == auth) &&
-            (identical(
-                    other.protocolProfileBehavior, protocolProfileBehavior) ||
-                other.protocolProfileBehavior == protocolProfileBehavior));
+            const DeepCollectionEquality().equals(other._event, _event) &&
+            const DeepCollectionEquality().equals(
+                other._protocolProfileBehavior, _protocolProfileBehavior) &&
+            const DeepCollectionEquality().equals(other._variable, _variable));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -356,10 +343,10 @@ class _$PostmanCollectionImpl extends _PostmanCollection {
       runtimeType,
       info,
       const DeepCollectionEquality().hash(_item),
-      const DeepCollectionEquality().hash(_event),
-      const DeepCollectionEquality().hash(_variable),
       auth,
-      protocolProfileBehavior);
+      const DeepCollectionEquality().hash(_event),
+      const DeepCollectionEquality().hash(_protocolProfileBehavior),
+      const DeepCollectionEquality().hash(_variable));
 
   /// Create a copy of PostmanCollection
   /// with the given fields replaced by the non-null parameter values.
@@ -376,13 +363,13 @@ class _$PostmanCollectionImpl extends _PostmanCollection {
     TResult Function(
             PostmanCollectionInfo info,
             List<PostmanCollectionItem> item,
-            List<PostmanCollectionEvent>? event,
-            List<PostmanCollectionVariable>? variable,
             PostmanCollectionAuth? auth,
-            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior)
+            List<PostmanCollectionEvent>? event,
+            Map<String, dynamic>? protocolProfileBehavior,
+            List<PostmanCollectionVariable>? variable)
         $default,
   ) {
-    return $default(info, item, event, variable, auth, protocolProfileBehavior);
+    return $default(info, item, auth, event, protocolProfileBehavior, variable);
   }
 
   @override
@@ -391,14 +378,14 @@ class _$PostmanCollectionImpl extends _PostmanCollection {
     TResult? Function(
             PostmanCollectionInfo info,
             List<PostmanCollectionItem> item,
-            List<PostmanCollectionEvent>? event,
-            List<PostmanCollectionVariable>? variable,
             PostmanCollectionAuth? auth,
-            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior)?
+            List<PostmanCollectionEvent>? event,
+            Map<String, dynamic>? protocolProfileBehavior,
+            List<PostmanCollectionVariable>? variable)?
         $default,
   ) {
     return $default?.call(
-        info, item, event, variable, auth, protocolProfileBehavior);
+        info, item, auth, event, protocolProfileBehavior, variable);
   }
 
   @override
@@ -407,16 +394,16 @@ class _$PostmanCollectionImpl extends _PostmanCollection {
     TResult Function(
             PostmanCollectionInfo info,
             List<PostmanCollectionItem> item,
-            List<PostmanCollectionEvent>? event,
-            List<PostmanCollectionVariable>? variable,
             PostmanCollectionAuth? auth,
-            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior)?
+            List<PostmanCollectionEvent>? event,
+            Map<String, dynamic>? protocolProfileBehavior,
+            List<PostmanCollectionVariable>? variable)?
         $default, {
     required TResult orElse(),
   }) {
     if ($default != null) {
       return $default(
-          info, item, event, variable, auth, protocolProfileBehavior);
+          info, item, auth, event, protocolProfileBehavior, variable);
     }
     return orElse();
   }
@@ -459,13 +446,13 @@ class _$PostmanCollectionImpl extends _PostmanCollection {
 
 abstract class _PostmanCollection extends PostmanCollection {
   const factory _PostmanCollection(
-      {required final PostmanCollectionInfo info,
-      required final List<PostmanCollectionItem> item,
-      final List<PostmanCollectionEvent>? event,
-      final List<PostmanCollectionVariable>? variable,
-      final PostmanCollectionAuth? auth,
-      final PostmanCollectionProtocolProfileBehavior?
-          protocolProfileBehavior}) = _$PostmanCollectionImpl;
+          {required final PostmanCollectionInfo info,
+          required final List<PostmanCollectionItem> item,
+          final PostmanCollectionAuth? auth,
+          final List<PostmanCollectionEvent>? event,
+          final Map<String, dynamic>? protocolProfileBehavior,
+          final List<PostmanCollectionVariable>? variable}) =
+      _$PostmanCollectionImpl;
   const _PostmanCollection._() : super._();
 
   factory _PostmanCollection.fromJson(Map<String, dynamic> json) =
@@ -476,13 +463,13 @@ abstract class _PostmanCollection extends PostmanCollection {
   @override
   List<PostmanCollectionItem> get item;
   @override
-  List<PostmanCollectionEvent>? get event;
-  @override
-  List<PostmanCollectionVariable>? get variable;
-  @override
   PostmanCollectionAuth? get auth;
   @override
-  PostmanCollectionProtocolProfileBehavior? get protocolProfileBehavior;
+  List<PostmanCollectionEvent>? get event;
+  @override
+  Map<String, dynamic>? get protocolProfileBehavior;
+  @override
+  List<PostmanCollectionVariable>? get variable;
 
   /// Create a copy of PostmanCollection
   /// with the given fields replaced by the non-null parameter values.
@@ -1287,10 +1274,10 @@ mixin _$PostmanCollectionItem {
   List<PostmanCollectionVariable>? get variable =>
       throw _privateConstructorUsedError;
   List<PostmanCollectionEvent>? get event => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get protocolProfileBehavior =>
+      throw _privateConstructorUsedError;
   PostmanCollectionRequest? get request => throw _privateConstructorUsedError;
   List<PostmanCollectionResponse>? get response =>
-      throw _privateConstructorUsedError;
-  PostmanCollectionProtocolProfileBehavior? get protocolProfileBehavior =>
       throw _privateConstructorUsedError;
   List<PostmanCollectionItem>? get item => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1301,9 +1288,9 @@ mixin _$PostmanCollectionItem {
             String? description,
             List<PostmanCollectionVariable>? variable,
             List<PostmanCollectionEvent>? event,
+            Map<String, dynamic>? protocolProfileBehavior,
             PostmanCollectionRequest? request,
             List<PostmanCollectionResponse>? response,
-            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
             List<PostmanCollectionItem>? item)
         $default,
   ) =>
@@ -1316,9 +1303,9 @@ mixin _$PostmanCollectionItem {
             String? description,
             List<PostmanCollectionVariable>? variable,
             List<PostmanCollectionEvent>? event,
+            Map<String, dynamic>? protocolProfileBehavior,
             PostmanCollectionRequest? request,
             List<PostmanCollectionResponse>? response,
-            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
             List<PostmanCollectionItem>? item)?
         $default,
   ) =>
@@ -1331,9 +1318,9 @@ mixin _$PostmanCollectionItem {
             String? description,
             List<PostmanCollectionVariable>? variable,
             List<PostmanCollectionEvent>? event,
+            Map<String, dynamic>? protocolProfileBehavior,
             PostmanCollectionRequest? request,
             List<PostmanCollectionResponse>? response,
-            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
             List<PostmanCollectionItem>? item)?
         $default, {
     required TResult orElse(),
@@ -1378,14 +1365,12 @@ abstract class $PostmanCollectionItemCopyWith<$Res> {
       String? description,
       List<PostmanCollectionVariable>? variable,
       List<PostmanCollectionEvent>? event,
+      Map<String, dynamic>? protocolProfileBehavior,
       PostmanCollectionRequest? request,
       List<PostmanCollectionResponse>? response,
-      PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
       List<PostmanCollectionItem>? item});
 
   $PostmanCollectionRequestCopyWith<$Res>? get request;
-  $PostmanCollectionProtocolProfileBehaviorCopyWith<$Res>?
-      get protocolProfileBehavior;
 }
 
 /// @nodoc
@@ -1409,9 +1394,9 @@ class _$PostmanCollectionItemCopyWithImpl<$Res,
     Object? description = freezed,
     Object? variable = freezed,
     Object? event = freezed,
+    Object? protocolProfileBehavior = freezed,
     Object? request = freezed,
     Object? response = freezed,
-    Object? protocolProfileBehavior = freezed,
     Object? item = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1435,6 +1420,10 @@ class _$PostmanCollectionItemCopyWithImpl<$Res,
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as List<PostmanCollectionEvent>?,
+      protocolProfileBehavior: freezed == protocolProfileBehavior
+          ? _value.protocolProfileBehavior
+          : protocolProfileBehavior // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
       request: freezed == request
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
@@ -1443,10 +1432,6 @@ class _$PostmanCollectionItemCopyWithImpl<$Res,
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
               as List<PostmanCollectionResponse>?,
-      protocolProfileBehavior: freezed == protocolProfileBehavior
-          ? _value.protocolProfileBehavior
-          : protocolProfileBehavior // ignore: cast_nullable_to_non_nullable
-              as PostmanCollectionProtocolProfileBehavior?,
       item: freezed == item
           ? _value.item
           : item // ignore: cast_nullable_to_non_nullable
@@ -1467,22 +1452,6 @@ class _$PostmanCollectionItemCopyWithImpl<$Res,
       return _then(_value.copyWith(request: value) as $Val);
     });
   }
-
-  /// Create a copy of PostmanCollectionItem
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PostmanCollectionProtocolProfileBehaviorCopyWith<$Res>?
-      get protocolProfileBehavior {
-    if (_value.protocolProfileBehavior == null) {
-      return null;
-    }
-
-    return $PostmanCollectionProtocolProfileBehaviorCopyWith<$Res>(
-        _value.protocolProfileBehavior!, (value) {
-      return _then(_value.copyWith(protocolProfileBehavior: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -1500,16 +1469,13 @@ abstract class _$$PostmanCollectionItemImplCopyWith<$Res>
       String? description,
       List<PostmanCollectionVariable>? variable,
       List<PostmanCollectionEvent>? event,
+      Map<String, dynamic>? protocolProfileBehavior,
       PostmanCollectionRequest? request,
       List<PostmanCollectionResponse>? response,
-      PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
       List<PostmanCollectionItem>? item});
 
   @override
   $PostmanCollectionRequestCopyWith<$Res>? get request;
-  @override
-  $PostmanCollectionProtocolProfileBehaviorCopyWith<$Res>?
-      get protocolProfileBehavior;
 }
 
 /// @nodoc
@@ -1531,9 +1497,9 @@ class __$$PostmanCollectionItemImplCopyWithImpl<$Res>
     Object? description = freezed,
     Object? variable = freezed,
     Object? event = freezed,
+    Object? protocolProfileBehavior = freezed,
     Object? request = freezed,
     Object? response = freezed,
-    Object? protocolProfileBehavior = freezed,
     Object? item = freezed,
   }) {
     return _then(_$PostmanCollectionItemImpl(
@@ -1557,6 +1523,10 @@ class __$$PostmanCollectionItemImplCopyWithImpl<$Res>
           ? _value._event
           : event // ignore: cast_nullable_to_non_nullable
               as List<PostmanCollectionEvent>?,
+      protocolProfileBehavior: freezed == protocolProfileBehavior
+          ? _value._protocolProfileBehavior
+          : protocolProfileBehavior // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
       request: freezed == request
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
@@ -1565,10 +1535,6 @@ class __$$PostmanCollectionItemImplCopyWithImpl<$Res>
           ? _value._response
           : response // ignore: cast_nullable_to_non_nullable
               as List<PostmanCollectionResponse>?,
-      protocolProfileBehavior: freezed == protocolProfileBehavior
-          ? _value.protocolProfileBehavior
-          : protocolProfileBehavior // ignore: cast_nullable_to_non_nullable
-              as PostmanCollectionProtocolProfileBehavior?,
       item: freezed == item
           ? _value._item
           : item // ignore: cast_nullable_to_non_nullable
@@ -1586,12 +1552,13 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
       this.description,
       final List<PostmanCollectionVariable>? variable,
       final List<PostmanCollectionEvent>? event,
+      final Map<String, dynamic>? protocolProfileBehavior,
       this.request,
       final List<PostmanCollectionResponse>? response,
-      this.protocolProfileBehavior,
       final List<PostmanCollectionItem>? item})
       : _variable = variable,
         _event = event,
+        _protocolProfileBehavior = protocolProfileBehavior,
         _response = response,
         _item = item,
         super._();
@@ -1625,6 +1592,17 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
     return EqualUnmodifiableListView(value);
   }
 
+  final Map<String, dynamic>? _protocolProfileBehavior;
+  @override
+  Map<String, dynamic>? get protocolProfileBehavior {
+    final value = _protocolProfileBehavior;
+    if (value == null) return null;
+    if (_protocolProfileBehavior is EqualUnmodifiableMapView)
+      return _protocolProfileBehavior;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @override
   final PostmanCollectionRequest? request;
   final List<PostmanCollectionResponse>? _response;
@@ -1637,8 +1615,6 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
     return EqualUnmodifiableListView(value);
   }
 
-  @override
-  final PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior;
   final List<PostmanCollectionItem>? _item;
   @override
   List<PostmanCollectionItem>? get item {
@@ -1651,7 +1627,7 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
 
   @override
   String toString() {
-    return 'PostmanCollectionItem(id: $id, name: $name, description: $description, variable: $variable, event: $event, request: $request, response: $response, protocolProfileBehavior: $protocolProfileBehavior, item: $item)';
+    return 'PostmanCollectionItem(id: $id, name: $name, description: $description, variable: $variable, event: $event, protocolProfileBehavior: $protocolProfileBehavior, request: $request, response: $response, item: $item)';
   }
 
   @override
@@ -1665,11 +1641,10 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
                 other.description == description) &&
             const DeepCollectionEquality().equals(other._variable, _variable) &&
             const DeepCollectionEquality().equals(other._event, _event) &&
+            const DeepCollectionEquality().equals(
+                other._protocolProfileBehavior, _protocolProfileBehavior) &&
             (identical(other.request, request) || other.request == request) &&
             const DeepCollectionEquality().equals(other._response, _response) &&
-            (identical(
-                    other.protocolProfileBehavior, protocolProfileBehavior) ||
-                other.protocolProfileBehavior == protocolProfileBehavior) &&
             const DeepCollectionEquality().equals(other._item, _item));
   }
 
@@ -1682,9 +1657,9 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
       description,
       const DeepCollectionEquality().hash(_variable),
       const DeepCollectionEquality().hash(_event),
+      const DeepCollectionEquality().hash(_protocolProfileBehavior),
       request,
       const DeepCollectionEquality().hash(_response),
-      protocolProfileBehavior,
       const DeepCollectionEquality().hash(_item));
 
   /// Create a copy of PostmanCollectionItem
@@ -1705,14 +1680,14 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
             String? description,
             List<PostmanCollectionVariable>? variable,
             List<PostmanCollectionEvent>? event,
+            Map<String, dynamic>? protocolProfileBehavior,
             PostmanCollectionRequest? request,
             List<PostmanCollectionResponse>? response,
-            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
             List<PostmanCollectionItem>? item)
         $default,
   ) {
-    return $default(id, name, description, variable, event, request, response,
-        protocolProfileBehavior, item);
+    return $default(id, name, description, variable, event,
+        protocolProfileBehavior, request, response, item);
   }
 
   @override
@@ -1724,14 +1699,14 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
             String? description,
             List<PostmanCollectionVariable>? variable,
             List<PostmanCollectionEvent>? event,
+            Map<String, dynamic>? protocolProfileBehavior,
             PostmanCollectionRequest? request,
             List<PostmanCollectionResponse>? response,
-            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
             List<PostmanCollectionItem>? item)?
         $default,
   ) {
-    return $default?.call(id, name, description, variable, event, request,
-        response, protocolProfileBehavior, item);
+    return $default?.call(id, name, description, variable, event,
+        protocolProfileBehavior, request, response, item);
   }
 
   @override
@@ -1743,16 +1718,16 @@ class _$PostmanCollectionItemImpl extends _PostmanCollectionItem {
             String? description,
             List<PostmanCollectionVariable>? variable,
             List<PostmanCollectionEvent>? event,
+            Map<String, dynamic>? protocolProfileBehavior,
             PostmanCollectionRequest? request,
             List<PostmanCollectionResponse>? response,
-            PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
             List<PostmanCollectionItem>? item)?
         $default, {
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(id, name, description, variable, event, request, response,
-          protocolProfileBehavior, item);
+      return $default(id, name, description, variable, event,
+          protocolProfileBehavior, request, response, item);
     }
     return orElse();
   }
@@ -1800,9 +1775,9 @@ abstract class _PostmanCollectionItem extends PostmanCollectionItem {
       final String? description,
       final List<PostmanCollectionVariable>? variable,
       final List<PostmanCollectionEvent>? event,
+      final Map<String, dynamic>? protocolProfileBehavior,
       final PostmanCollectionRequest? request,
       final List<PostmanCollectionResponse>? response,
-      final PostmanCollectionProtocolProfileBehavior? protocolProfileBehavior,
       final List<PostmanCollectionItem>? item}) = _$PostmanCollectionItemImpl;
   const _PostmanCollectionItem._() : super._();
 
@@ -1820,11 +1795,11 @@ abstract class _PostmanCollectionItem extends PostmanCollectionItem {
   @override
   List<PostmanCollectionEvent>? get event;
   @override
+  Map<String, dynamic>? get protocolProfileBehavior;
+  @override
   PostmanCollectionRequest? get request;
   @override
   List<PostmanCollectionResponse>? get response;
-  @override
-  PostmanCollectionProtocolProfileBehavior? get protocolProfileBehavior;
   @override
   List<PostmanCollectionItem>? get item;
 
@@ -2789,203 +2764,6 @@ abstract class _PostmanCollectionAuthAttribute
   _$$PostmanCollectionAuthAttributeImplCopyWith<
           _$PostmanCollectionAuthAttributeImpl>
       get copyWith => throw _privateConstructorUsedError;
-}
-
-PostmanCollectionProtocolProfileBehavior
-    _$PostmanCollectionProtocolProfileBehaviorFromJson(
-        Map<String, dynamic> json) {
-  return _PostmanCollectionProtocolProfileBehavior.fromJson(json);
-}
-
-/// @nodoc
-mixin _$PostmanCollectionProtocolProfileBehavior {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_PostmanCollectionProtocolProfileBehavior value) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_PostmanCollectionProtocolProfileBehavior value)?
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PostmanCollectionProtocolProfileBehavior value)?
-        $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-
-  /// Serializes this PostmanCollectionProtocolProfileBehavior to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PostmanCollectionProtocolProfileBehaviorCopyWith<$Res> {
-  factory $PostmanCollectionProtocolProfileBehaviorCopyWith(
-          PostmanCollectionProtocolProfileBehavior value,
-          $Res Function(PostmanCollectionProtocolProfileBehavior) then) =
-      _$PostmanCollectionProtocolProfileBehaviorCopyWithImpl<$Res,
-          PostmanCollectionProtocolProfileBehavior>;
-}
-
-/// @nodoc
-class _$PostmanCollectionProtocolProfileBehaviorCopyWithImpl<$Res,
-        $Val extends PostmanCollectionProtocolProfileBehavior>
-    implements $PostmanCollectionProtocolProfileBehaviorCopyWith<$Res> {
-  _$PostmanCollectionProtocolProfileBehaviorCopyWithImpl(
-      this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of PostmanCollectionProtocolProfileBehavior
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$PostmanCollectionProtocolProfileBehaviorImplCopyWith<$Res> {
-  factory _$$PostmanCollectionProtocolProfileBehaviorImplCopyWith(
-          _$PostmanCollectionProtocolProfileBehaviorImpl value,
-          $Res Function(_$PostmanCollectionProtocolProfileBehaviorImpl) then) =
-      __$$PostmanCollectionProtocolProfileBehaviorImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$PostmanCollectionProtocolProfileBehaviorImplCopyWithImpl<$Res>
-    extends _$PostmanCollectionProtocolProfileBehaviorCopyWithImpl<$Res,
-        _$PostmanCollectionProtocolProfileBehaviorImpl>
-    implements _$$PostmanCollectionProtocolProfileBehaviorImplCopyWith<$Res> {
-  __$$PostmanCollectionProtocolProfileBehaviorImplCopyWithImpl(
-      _$PostmanCollectionProtocolProfileBehaviorImpl _value,
-      $Res Function(_$PostmanCollectionProtocolProfileBehaviorImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of PostmanCollectionProtocolProfileBehavior
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$PostmanCollectionProtocolProfileBehaviorImpl
-    extends _PostmanCollectionProtocolProfileBehavior {
-  const _$PostmanCollectionProtocolProfileBehaviorImpl() : super._();
-
-  factory _$PostmanCollectionProtocolProfileBehaviorImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$PostmanCollectionProtocolProfileBehaviorImplFromJson(json);
-
-  @override
-  String toString() {
-    return 'PostmanCollectionProtocolProfileBehavior()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PostmanCollectionProtocolProfileBehaviorImpl);
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default,
-  ) {
-    return $default();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default,
-  ) {
-    return $default?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_PostmanCollectionProtocolProfileBehavior value) $default,
-  ) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_PostmanCollectionProtocolProfileBehavior value)?
-        $default,
-  ) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PostmanCollectionProtocolProfileBehavior value)?
-        $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PostmanCollectionProtocolProfileBehaviorImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _PostmanCollectionProtocolProfileBehavior
-    extends PostmanCollectionProtocolProfileBehavior {
-  const factory _PostmanCollectionProtocolProfileBehavior() =
-      _$PostmanCollectionProtocolProfileBehaviorImpl;
-  const _PostmanCollectionProtocolProfileBehavior._() : super._();
-
-  factory _PostmanCollectionProtocolProfileBehavior.fromJson(
-          Map<String, dynamic> json) =
-      _$PostmanCollectionProtocolProfileBehaviorImpl.fromJson;
 }
 
 PostmanCollectionRequest _$PostmanCollectionRequestFromJson(
@@ -5093,28 +4871,28 @@ PostmanCollectionScript _$PostmanCollectionScriptFromJson(
 /// @nodoc
 mixin _$PostmanCollectionScript {
   String? get id => throw _privateConstructorUsedError;
-  String? get type => throw _privateConstructorUsedError;
   Map<String, dynamic>? get packages => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
   Object? get exec => throw _privateConstructorUsedError;
   PostmanCollectionUrl? get src => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? id, String? type, Map<String, dynamic>? packages,
+    TResult Function(String? id, Map<String, dynamic>? packages, String? type,
             Object? exec, PostmanCollectionUrl? src, String? name)
         $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? id, String? type, Map<String, dynamic>? packages,
+    TResult? Function(String? id, Map<String, dynamic>? packages, String? type,
             Object? exec, PostmanCollectionUrl? src, String? name)?
         $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? id, String? type, Map<String, dynamic>? packages,
+    TResult Function(String? id, Map<String, dynamic>? packages, String? type,
             Object? exec, PostmanCollectionUrl? src, String? name)?
         $default, {
     required TResult orElse(),
@@ -5155,8 +4933,8 @@ abstract class $PostmanCollectionScriptCopyWith<$Res> {
   @useResult
   $Res call(
       {String? id,
-      String? type,
       Map<String, dynamic>? packages,
+      String? type,
       Object? exec,
       PostmanCollectionUrl? src,
       String? name});
@@ -5181,8 +4959,8 @@ class _$PostmanCollectionScriptCopyWithImpl<$Res,
   @override
   $Res call({
     Object? id = freezed,
-    Object? type = freezed,
     Object? packages = freezed,
+    Object? type = freezed,
     Object? exec = freezed,
     Object? src = freezed,
     Object? name = freezed,
@@ -5192,14 +4970,14 @@ class _$PostmanCollectionScriptCopyWithImpl<$Res,
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
       packages: freezed == packages
           ? _value.packages
           : packages // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
       exec: freezed == exec ? _value.exec : exec,
       src: freezed == src
           ? _value.src
@@ -5238,8 +5016,8 @@ abstract class _$$PostmanCollectionScriptImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? id,
-      String? type,
       Map<String, dynamic>? packages,
+      String? type,
       Object? exec,
       PostmanCollectionUrl? src,
       String? name});
@@ -5264,8 +5042,8 @@ class __$$PostmanCollectionScriptImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? type = freezed,
     Object? packages = freezed,
+    Object? type = freezed,
     Object? exec = freezed,
     Object? src = freezed,
     Object? name = freezed,
@@ -5275,14 +5053,14 @@ class __$$PostmanCollectionScriptImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
       packages: freezed == packages
           ? _value._packages
           : packages // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
       exec: freezed == exec ? _value.exec : exec,
       src: freezed == src
           ? _value.src
@@ -5301,8 +5079,8 @@ class __$$PostmanCollectionScriptImplCopyWithImpl<$Res>
 class _$PostmanCollectionScriptImpl extends _PostmanCollectionScript {
   const _$PostmanCollectionScriptImpl(
       {this.id,
+      final Map<String, dynamic>? packages,
       this.type,
-      final Map<String, dynamic>? packages = const {},
       this.exec,
       this.src,
       this.name})
@@ -5314,11 +5092,8 @@ class _$PostmanCollectionScriptImpl extends _PostmanCollectionScript {
 
   @override
   final String? id;
-  @override
-  final String? type;
   final Map<String, dynamic>? _packages;
   @override
-  @JsonKey()
   Map<String, dynamic>? get packages {
     final value = _packages;
     if (value == null) return null;
@@ -5328,6 +5103,8 @@ class _$PostmanCollectionScriptImpl extends _PostmanCollectionScript {
   }
 
   @override
+  final String? type;
+  @override
   final Object? exec;
   @override
   final PostmanCollectionUrl? src;
@@ -5336,7 +5113,7 @@ class _$PostmanCollectionScriptImpl extends _PostmanCollectionScript {
 
   @override
   String toString() {
-    return 'PostmanCollectionScript(id: $id, type: $type, packages: $packages, exec: $exec, src: $src, name: $name)';
+    return 'PostmanCollectionScript(id: $id, packages: $packages, type: $type, exec: $exec, src: $src, name: $name)';
   }
 
   @override
@@ -5345,8 +5122,8 @@ class _$PostmanCollectionScriptImpl extends _PostmanCollectionScript {
         (other.runtimeType == runtimeType &&
             other is _$PostmanCollectionScriptImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._packages, _packages) &&
+            (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other.exec, exec) &&
             (identical(other.src, src) || other.src == src) &&
             (identical(other.name, name) || other.name == name));
@@ -5357,8 +5134,8 @@ class _$PostmanCollectionScriptImpl extends _PostmanCollectionScript {
   int get hashCode => Object.hash(
       runtimeType,
       id,
-      type,
       const DeepCollectionEquality().hash(_packages),
+      type,
       const DeepCollectionEquality().hash(exec),
       src,
       name);
@@ -5375,33 +5152,33 @@ class _$PostmanCollectionScriptImpl extends _PostmanCollectionScript {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? id, String? type, Map<String, dynamic>? packages,
+    TResult Function(String? id, Map<String, dynamic>? packages, String? type,
             Object? exec, PostmanCollectionUrl? src, String? name)
         $default,
   ) {
-    return $default(id, type, packages, exec, src, name);
+    return $default(id, packages, type, exec, src, name);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String? id, String? type, Map<String, dynamic>? packages,
+    TResult? Function(String? id, Map<String, dynamic>? packages, String? type,
             Object? exec, PostmanCollectionUrl? src, String? name)?
         $default,
   ) {
-    return $default?.call(id, type, packages, exec, src, name);
+    return $default?.call(id, packages, type, exec, src, name);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? id, String? type, Map<String, dynamic>? packages,
+    TResult Function(String? id, Map<String, dynamic>? packages, String? type,
             Object? exec, PostmanCollectionUrl? src, String? name)?
         $default, {
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(id, type, packages, exec, src, name);
+      return $default(id, packages, type, exec, src, name);
     }
     return orElse();
   }
@@ -5445,8 +5222,8 @@ class _$PostmanCollectionScriptImpl extends _PostmanCollectionScript {
 abstract class _PostmanCollectionScript extends PostmanCollectionScript {
   const factory _PostmanCollectionScript(
       {final String? id,
-      final String? type,
       final Map<String, dynamic>? packages,
+      final String? type,
       final Object? exec,
       final PostmanCollectionUrl? src,
       final String? name}) = _$PostmanCollectionScriptImpl;
@@ -5458,9 +5235,9 @@ abstract class _PostmanCollectionScript extends PostmanCollectionScript {
   @override
   String? get id;
   @override
-  String? get type;
-  @override
   Map<String, dynamic>? get packages;
+  @override
+  String? get type;
   @override
   Object? get exec;
   @override

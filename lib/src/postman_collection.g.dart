@@ -14,22 +14,20 @@ _$PostmanCollectionImpl _$$PostmanCollectionImplFromJson(
       item: (json['item'] as List<dynamic>)
           .map((e) => PostmanCollectionItem.fromJson(e as Map<String, dynamic>))
           .toList(),
-      event: (json['event'] as List<dynamic>?)
-          ?.map(
-              (e) => PostmanCollectionEvent.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      variable: (json['variable'] as List<dynamic>?)
-          ?.map((e) =>
-              PostmanCollectionVariable.fromJson(e as Map<String, dynamic>))
-          .toList(),
       auth: json['auth'] == null
           ? null
           : PostmanCollectionAuth.fromJson(
               json['auth'] as Map<String, dynamic>),
-      protocolProfileBehavior: json['protocolProfileBehavior'] == null
-          ? null
-          : PostmanCollectionProtocolProfileBehavior.fromJson(
-              json['protocolProfileBehavior'] as Map<String, dynamic>),
+      event: (json['event'] as List<dynamic>?)
+          ?.map(
+              (e) => PostmanCollectionEvent.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      protocolProfileBehavior:
+          json['protocolProfileBehavior'] as Map<String, dynamic>?,
+      variable: (json['variable'] as List<dynamic>?)
+          ?.map((e) =>
+              PostmanCollectionVariable.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$PostmanCollectionImplToJson(
@@ -45,11 +43,10 @@ Map<String, dynamic> _$$PostmanCollectionImplToJson(
     }
   }
 
-  writeNotNull('event', instance.event?.map((e) => e.toJson()).toList());
-  writeNotNull('variable', instance.variable?.map((e) => e.toJson()).toList());
   writeNotNull('auth', instance.auth?.toJson());
-  writeNotNull(
-      'protocolProfileBehavior', instance.protocolProfileBehavior?.toJson());
+  writeNotNull('event', instance.event?.map((e) => e.toJson()).toList());
+  writeNotNull('protocolProfileBehavior', instance.protocolProfileBehavior);
+  writeNotNull('variable', instance.variable?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -131,6 +128,8 @@ _$PostmanCollectionItemImpl _$$PostmanCollectionItemImplFromJson(
           ?.map(
               (e) => PostmanCollectionEvent.fromJson(e as Map<String, dynamic>))
           .toList(),
+      protocolProfileBehavior:
+          json['protocolProfileBehavior'] as Map<String, dynamic>?,
       request: json['request'] == null
           ? null
           : PostmanCollectionRequest.fromJson(
@@ -139,10 +138,6 @@ _$PostmanCollectionItemImpl _$$PostmanCollectionItemImplFromJson(
           ?.map((e) =>
               PostmanCollectionResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
-      protocolProfileBehavior: json['protocolProfileBehavior'] == null
-          ? null
-          : PostmanCollectionProtocolProfileBehavior.fromJson(
-              json['protocolProfileBehavior'] as Map<String, dynamic>),
       item: (json['item'] as List<dynamic>?)
           ?.map(
               (e) => PostmanCollectionItem.fromJson(e as Map<String, dynamic>))
@@ -164,10 +159,9 @@ Map<String, dynamic> _$$PostmanCollectionItemImplToJson(
   writeNotNull('description', instance.description);
   writeNotNull('variable', instance.variable?.map((e) => e.toJson()).toList());
   writeNotNull('event', instance.event?.map((e) => e.toJson()).toList());
+  writeNotNull('protocolProfileBehavior', instance.protocolProfileBehavior);
   writeNotNull('request', instance.request?.toJson());
   writeNotNull('response', instance.response?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'protocolProfileBehavior', instance.protocolProfileBehavior?.toJson());
   writeNotNull('item', instance.item?.map((e) => e.toJson()).toList());
   return val;
 }
@@ -286,15 +280,6 @@ Map<String, dynamic> _$$PostmanCollectionAuthAttributeImplToJson(
   writeNotNull('type', instance.type);
   return val;
 }
-
-_$PostmanCollectionProtocolProfileBehaviorImpl
-    _$$PostmanCollectionProtocolProfileBehaviorImplFromJson(
-            Map<String, dynamic> json) =>
-        _$PostmanCollectionProtocolProfileBehaviorImpl();
-
-Map<String, dynamic> _$$PostmanCollectionProtocolProfileBehaviorImplToJson(
-        _$PostmanCollectionProtocolProfileBehaviorImpl instance) =>
-    <String, dynamic>{};
 
 _$PostmanCollectionRequestImpl _$$PostmanCollectionRequestImplFromJson(
         Map<String, dynamic> json) =>
@@ -485,8 +470,8 @@ _$PostmanCollectionScriptImpl _$$PostmanCollectionScriptImplFromJson(
         Map<String, dynamic> json) =>
     _$PostmanCollectionScriptImpl(
       id: json['id'] as String?,
+      packages: json['packages'] as Map<String, dynamic>?,
       type: json['type'] as String?,
-      packages: json['packages'] as Map<String, dynamic>? ?? const {},
       exec: json['exec'],
       src: json['src'] == null
           ? null
@@ -505,8 +490,8 @@ Map<String, dynamic> _$$PostmanCollectionScriptImplToJson(
   }
 
   writeNotNull('id', instance.id);
-  writeNotNull('type', instance.type);
   writeNotNull('packages', instance.packages);
+  writeNotNull('type', instance.type);
   writeNotNull('exec', instance.exec);
   writeNotNull('src', instance.src?.toJson());
   writeNotNull('name', instance.name);

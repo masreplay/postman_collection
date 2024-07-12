@@ -8,18 +8,20 @@ void main() {
     test('First Test', () async {
       final file = File('./test/assets/test2.postman_collection.json');
       final content = file.readAsStringSync();
-      final json = jsonDecode(content);
+      final actual = jsonDecode(content);
 
-      final actual = JsonEncoder.withIndent('  ').convert(json);
-      print(actual);
+      final actualText = JsonEncoder.withIndent('  ').convert(actual);
+      print(actualText);
 
-      final collection = PostmanCollection.fromJson(json);
-      final matcher = JsonEncoder.withIndent('  ').convert(collection.toJson());
+      final matcher = PostmanCollection.fromJson(actual);
+      final matcherText =
+          JsonEncoder.withIndent('  ').convert(matcher.toJson());
       File('./test/assets/test2.temp.postman_collection.json')
-          .writeAsStringSync(matcher);
-      print(matcher);
+          .writeAsStringSync(matcherText);
+      print(matcherText);
 
-      expect(matcher, actual);
+      // deep match [actual] and [matcher]
+      expect(actual, matcher.toJson());
     });
   });
 }
