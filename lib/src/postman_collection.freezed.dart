@@ -5483,9 +5483,12 @@ PostmanCollectionResponse _$PostmanCollectionResponseFromJson(
 
 /// @nodoc
 mixin _$PostmanCollectionResponse {
+  String? get name => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
   PostmanCollectionRequest? get originalRequest =>
       throw _privateConstructorUsedError;
+  @JsonKey(name: '_postman_previewlanguage')
+  String? get postmanPreviewLanguage => throw _privateConstructorUsedError;
   Object? get responseTime => throw _privateConstructorUsedError;
   Object? get timings => throw _privateConstructorUsedError;
   Object? get header => throw _privateConstructorUsedError;
@@ -5497,8 +5500,11 @@ mixin _$PostmanCollectionResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            String? name,
             String? id,
             PostmanCollectionRequest? originalRequest,
+            @JsonKey(name: '_postman_previewlanguage')
+            String? postmanPreviewLanguage,
             Object? responseTime,
             Object? timings,
             Object? header,
@@ -5512,8 +5518,11 @@ mixin _$PostmanCollectionResponse {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
+            String? name,
             String? id,
             PostmanCollectionRequest? originalRequest,
+            @JsonKey(name: '_postman_previewlanguage')
+            String? postmanPreviewLanguage,
             Object? responseTime,
             Object? timings,
             Object? header,
@@ -5527,8 +5536,11 @@ mixin _$PostmanCollectionResponse {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            String? name,
             String? id,
             PostmanCollectionRequest? originalRequest,
+            @JsonKey(name: '_postman_previewlanguage')
+            String? postmanPreviewLanguage,
             Object? responseTime,
             Object? timings,
             Object? header,
@@ -5574,8 +5586,10 @@ abstract class $PostmanCollectionResponseCopyWith<$Res> {
       _$PostmanCollectionResponseCopyWithImpl<$Res, PostmanCollectionResponse>;
   @useResult
   $Res call(
-      {String? id,
+      {String? name,
+      String? id,
       PostmanCollectionRequest? originalRequest,
+      @JsonKey(name: '_postman_previewlanguage') String? postmanPreviewLanguage,
       Object? responseTime,
       Object? timings,
       Object? header,
@@ -5603,8 +5617,10 @@ class _$PostmanCollectionResponseCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? name = freezed,
     Object? id = freezed,
     Object? originalRequest = freezed,
+    Object? postmanPreviewLanguage = freezed,
     Object? responseTime = freezed,
     Object? timings = freezed,
     Object? header = freezed,
@@ -5614,6 +5630,10 @@ class _$PostmanCollectionResponseCopyWithImpl<$Res,
     Object? code = freezed,
   }) {
     return _then(_value.copyWith(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -5622,6 +5642,10 @@ class _$PostmanCollectionResponseCopyWithImpl<$Res,
           ? _value.originalRequest
           : originalRequest // ignore: cast_nullable_to_non_nullable
               as PostmanCollectionRequest?,
+      postmanPreviewLanguage: freezed == postmanPreviewLanguage
+          ? _value.postmanPreviewLanguage
+          : postmanPreviewLanguage // ignore: cast_nullable_to_non_nullable
+              as String?,
       responseTime:
           freezed == responseTime ? _value.responseTime : responseTime,
       timings: freezed == timings ? _value.timings : timings,
@@ -5671,8 +5695,10 @@ abstract class _$$PostmanCollectionResponseImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? id,
+      {String? name,
+      String? id,
       PostmanCollectionRequest? originalRequest,
+      @JsonKey(name: '_postman_previewlanguage') String? postmanPreviewLanguage,
       Object? responseTime,
       Object? timings,
       Object? header,
@@ -5700,8 +5726,10 @@ class __$$PostmanCollectionResponseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? name = freezed,
     Object? id = freezed,
     Object? originalRequest = freezed,
+    Object? postmanPreviewLanguage = freezed,
     Object? responseTime = freezed,
     Object? timings = freezed,
     Object? header = freezed,
@@ -5711,6 +5739,10 @@ class __$$PostmanCollectionResponseImplCopyWithImpl<$Res>
     Object? code = freezed,
   }) {
     return _then(_$PostmanCollectionResponseImpl(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -5719,6 +5751,10 @@ class __$$PostmanCollectionResponseImplCopyWithImpl<$Res>
           ? _value.originalRequest
           : originalRequest // ignore: cast_nullable_to_non_nullable
               as PostmanCollectionRequest?,
+      postmanPreviewLanguage: freezed == postmanPreviewLanguage
+          ? _value.postmanPreviewLanguage
+          : postmanPreviewLanguage // ignore: cast_nullable_to_non_nullable
+              as String?,
       responseTime:
           freezed == responseTime ? _value.responseTime : responseTime,
       timings: freezed == timings ? _value.timings : timings,
@@ -5747,8 +5783,10 @@ class __$$PostmanCollectionResponseImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
   const _$PostmanCollectionResponseImpl(
-      {this.id,
+      {this.name,
+      this.id,
       this.originalRequest,
+      @JsonKey(name: '_postman_previewlanguage') this.postmanPreviewLanguage,
       this.responseTime,
       this.timings,
       this.header,
@@ -5763,9 +5801,14 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
       _$$PostmanCollectionResponseImplFromJson(json);
 
   @override
+  final String? name;
+  @override
   final String? id;
   @override
   final PostmanCollectionRequest? originalRequest;
+  @override
+  @JsonKey(name: '_postman_previewlanguage')
+  final String? postmanPreviewLanguage;
   @override
   final Object? responseTime;
   @override
@@ -5791,7 +5834,7 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
 
   @override
   String toString() {
-    return 'PostmanCollectionResponse(id: $id, originalRequest: $originalRequest, responseTime: $responseTime, timings: $timings, header: $header, cookie: $cookie, body: $body, status: $status, code: $code)';
+    return 'PostmanCollectionResponse(name: $name, id: $id, originalRequest: $originalRequest, postmanPreviewLanguage: $postmanPreviewLanguage, responseTime: $responseTime, timings: $timings, header: $header, cookie: $cookie, body: $body, status: $status, code: $code)';
   }
 
   @override
@@ -5799,9 +5842,12 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PostmanCollectionResponseImpl &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.originalRequest, originalRequest) ||
                 other.originalRequest == originalRequest) &&
+            (identical(other.postmanPreviewLanguage, postmanPreviewLanguage) ||
+                other.postmanPreviewLanguage == postmanPreviewLanguage) &&
             const DeepCollectionEquality()
                 .equals(other.responseTime, responseTime) &&
             const DeepCollectionEquality().equals(other.timings, timings) &&
@@ -5816,8 +5862,10 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      name,
       id,
       originalRequest,
+      postmanPreviewLanguage,
       const DeepCollectionEquality().hash(responseTime),
       const DeepCollectionEquality().hash(timings),
       const DeepCollectionEquality().hash(header),
@@ -5839,8 +5887,11 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            String? name,
             String? id,
             PostmanCollectionRequest? originalRequest,
+            @JsonKey(name: '_postman_previewlanguage')
+            String? postmanPreviewLanguage,
             Object? responseTime,
             Object? timings,
             Object? header,
@@ -5850,16 +5901,19 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
             int? code)
         $default,
   ) {
-    return $default(id, originalRequest, responseTime, timings, header, cookie,
-        body, status, code);
+    return $default(name, id, originalRequest, postmanPreviewLanguage,
+        responseTime, timings, header, cookie, body, status, code);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
+            String? name,
             String? id,
             PostmanCollectionRequest? originalRequest,
+            @JsonKey(name: '_postman_previewlanguage')
+            String? postmanPreviewLanguage,
             Object? responseTime,
             Object? timings,
             Object? header,
@@ -5869,16 +5923,19 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
             int? code)?
         $default,
   ) {
-    return $default?.call(id, originalRequest, responseTime, timings, header,
-        cookie, body, status, code);
+    return $default?.call(name, id, originalRequest, postmanPreviewLanguage,
+        responseTime, timings, header, cookie, body, status, code);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            String? name,
             String? id,
             PostmanCollectionRequest? originalRequest,
+            @JsonKey(name: '_postman_previewlanguage')
+            String? postmanPreviewLanguage,
             Object? responseTime,
             Object? timings,
             Object? header,
@@ -5890,8 +5947,8 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(id, originalRequest, responseTime, timings, header,
-          cookie, body, status, code);
+      return $default(name, id, originalRequest, postmanPreviewLanguage,
+          responseTime, timings, header, cookie, body, status, code);
     }
     return orElse();
   }
@@ -5934,8 +5991,11 @@ class _$PostmanCollectionResponseImpl extends _PostmanCollectionResponse {
 
 abstract class _PostmanCollectionResponse extends PostmanCollectionResponse {
   const factory _PostmanCollectionResponse(
-      {final String? id,
+      {final String? name,
+      final String? id,
       final PostmanCollectionRequest? originalRequest,
+      @JsonKey(name: '_postman_previewlanguage')
+      final String? postmanPreviewLanguage,
       final Object? responseTime,
       final Object? timings,
       final Object? header,
@@ -5949,9 +6009,14 @@ abstract class _PostmanCollectionResponse extends PostmanCollectionResponse {
       _$PostmanCollectionResponseImpl.fromJson;
 
   @override
+  String? get name;
+  @override
   String? get id;
   @override
   PostmanCollectionRequest? get originalRequest;
+  @override
+  @JsonKey(name: '_postman_previewlanguage')
+  String? get postmanPreviewLanguage;
   @override
   Object? get responseTime;
   @override

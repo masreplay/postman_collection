@@ -516,11 +516,13 @@ Map<String, dynamic> _$$PostmanCollectionScriptImplToJson(
 _$PostmanCollectionResponseImpl _$$PostmanCollectionResponseImplFromJson(
         Map<String, dynamic> json) =>
     _$PostmanCollectionResponseImpl(
+      name: json['name'] as String?,
       id: json['id'] as String?,
       originalRequest: json['originalRequest'] == null
           ? null
           : PostmanCollectionRequest.fromJson(
               json['originalRequest'] as Map<String, dynamic>),
+      postmanPreviewLanguage: json['_postman_previewlanguage'] as String?,
       responseTime: json['responseTime'],
       timings: json['timings'],
       header: json['header'],
@@ -543,8 +545,10 @@ Map<String, dynamic> _$$PostmanCollectionResponseImplToJson(
     }
   }
 
+  writeNotNull('name', instance.name);
   writeNotNull('id', instance.id);
   writeNotNull('originalRequest', instance.originalRequest?.toJson());
+  writeNotNull('_postman_previewlanguage', instance.postmanPreviewLanguage);
   writeNotNull('responseTime', instance.responseTime);
   writeNotNull('timings', instance.timings);
   writeNotNull('header', instance.header);

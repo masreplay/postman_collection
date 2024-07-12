@@ -234,8 +234,10 @@ class PostmanCollectionResponse with _$PostmanCollectionResponse {
   const PostmanCollectionResponse._();
 
   const factory PostmanCollectionResponse({
+    String? name,
     String? id,
     PostmanCollectionRequest? originalRequest,
+    @JsonKey(name: '_postman_previewlanguage') String? postmanPreviewLanguage,
     Object? responseTime,
     Object? timings,
     Object? header,
