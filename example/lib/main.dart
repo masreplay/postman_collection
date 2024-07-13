@@ -22,7 +22,7 @@ abstract class AppClient {
   });
 }
 
-class AppClientDoc {
+class AppClientDoc with PostmanCollectionDocumentationMixin {
   AppClientDoc(this._client);
 
   final AppClient _client;
@@ -66,6 +66,7 @@ class AppClientDoc {
     );
   }
 
+  @override
   Future<PostmanCollectionItem> doc() async {
     return PostmanCollectionItem(
       name: PostmanCollectionItem.getNameFromClass(runtimeType),
@@ -87,7 +88,7 @@ abstract class UserClient {
   Future<HttpResponse<UserResponse>> getDetail(@Path() String id);
 }
 
-class UserClientDoc {
+class UserClientDoc with PostmanCollectionDocumentationMixin {
   UserClientDoc(this._client);
 
   final UserClient _client;
@@ -139,7 +140,7 @@ class UserClientDoc {
     );
   }
 
-  // doc
+  @override
   Future<PostmanCollectionItem> doc() async {
     return PostmanCollectionItem(
       name: PostmanCollectionItem.getNameFromClass(runtimeType),
@@ -154,21 +155,23 @@ class UserClientDoc {
 Future<void> main() async {
   final dio = getDocumentationDio();
 
+  final projectName = 'flutter';
+
   final collection = PostmanCollection(
     info: PostmanCollectionInfo(
-      name: 'Postman Collection',
+      name: projectName,
       schema: PostmanCollectionInfo.schemaV210,
     ),
     item: await Future.wait([
-      AppClientDoc(AppClient(dio)).doc(),
-      UserClientDoc(UserClient(dio)).doc(),
-    ]),
+      AppClientDoc(AppClient(dio)),
+      UserClientDoc(UserClient(dio)),
+    ].map((e) => e.doc()).toList()),
   );
 
-  final projectName = 'postman_collection';
+  final file = File('versions/${PostmanCollection.filename(projectName)}');
+  file.writeAsStringSync(jsonEncode(collection.toJson()));
+}
 
-  final file = File('versions/$projectName.postman_collection.json');
-  file.writeAsStringSync(
-    JsonEncoder.withIndent('  ').convert(collection.toJson()),
-  );
+String jsonEncode(Object? object) {
+  return JsonEncoder.withIndent('  ').convert(object);
 }

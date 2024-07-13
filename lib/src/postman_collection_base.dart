@@ -19,6 +19,10 @@ class PostmanCollection with _$PostmanCollection {
     List<PostmanCollectionVariable>? variable,
   }) = _PostmanCollection;
 
+  static String filename(String filename) {
+    return '$filename.postman_collection.json';
+  }
+
   factory PostmanCollection.fromJson(Map<String, dynamic> json) =>
       _$PostmanCollectionFromJson(json);
 }
@@ -158,7 +162,9 @@ class PostmanCollectionRequest with _$PostmanCollectionRequest {
           ? []
           : options.headers.entries.map((entry) {
               return PostmanCollectionHeader(
-                  key: entry.key, value: entry.value);
+                key: entry.key,
+                value: entry.value,
+              );
             }).toList(),
       description: options.method,
       body: options.data,
