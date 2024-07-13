@@ -153,7 +153,7 @@ class UserClientDoc with PostmanCollectionDocumentationMixin {
 Future<void> main() async {
   final dio = getDocumentationDio();
 
-  final projectName = 'flutter';
+  final projectName = 'flutter${DateTime.now()}';
 
   final collection = PostmanCollection(
     info: PostmanCollectionInfo(

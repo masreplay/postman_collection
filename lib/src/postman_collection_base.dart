@@ -170,7 +170,7 @@ class PostmanCollectionRequest with _$PostmanCollectionRequest {
       body: options.data,
       url: PostmanCollectionUrl(
         raw: options.uri.toString(),
-        protocol: options.uri.scheme,
+        // protocol: options.uri.scheme,
         port: options.uri.port == 443 ? null : options.uri.port.toString(),
         host: options.baseUrl,
         path: options.path,
