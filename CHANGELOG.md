@@ -6,3 +6,6 @@
 - Added new feature.
 - Fixed bug.
 - Add more documentation.
+
+## 0.0.3
+- Fix url in collection
