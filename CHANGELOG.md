@@ -12,3 +12,6 @@
 
 ## 0.0.4
 - Add request mode
+
+## 0.0.5
+- Fix query data type

@@ -1,6 +1,6 @@
 name: postman_collection
 description: postman collection schema with freezed and json_serializable
-version: 0.0.4
+version: 0.0.5
 homepage: https://pub.dev/packages/postman_collection
 repository: https://github.com/masreplay/postman_collection
 topics: [postman, dio, doc, documentation, dart]
@@ -27,4 +27,4 @@ scripts:
   w: dart run build_runner watch --delete-conflicting-outputs
   g: dart run build_runner build --delete-conflicting-outputs
 
-  publish: dart publish --force
+  publish: flutter pub publish --force

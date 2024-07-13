@@ -185,7 +185,7 @@ class PostmanCollectionRequest with _$PostmanCollectionRequest {
             : options.queryParameters.entries.map((entry) {
                 return PostmanCollectionQueryParam(
                   key: entry.key,
-                  value: entry.value,
+                  value: entry.value?.toString(),
                 );
               }).toList(),
       ),
