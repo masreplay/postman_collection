@@ -1,4 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'format/format.dart';
 
 part 'postman_collection_base.freezed.dart';
 part 'postman_collection_base.g.dart';
@@ -33,6 +36,9 @@ class PostmanCollectionInfo with _$PostmanCollectionInfo {
     @JsonKey(name: '_exporter_id') String? exporterId,
     @JsonKey(name: '_collection_link') String? collectionLink,
   }) = _PostmanCollectionInfo;
+
+  static const String schemaV210 =
+      'https://schema.getpostman.com/json/collection/v2.1.0/collection.json';
 
   factory PostmanCollectionInfo.fromJson(Map<String, dynamic> json) =>
       _$PostmanCollectionInfoFromJson(json);
@@ -69,6 +75,22 @@ class PostmanCollectionItem with _$PostmanCollectionItem {
     List<PostmanCollectionResponse>? response,
     List<PostmanCollectionItem>? item,
   }) = _PostmanCollectionItem;
+
+  static String getNameFromFunction(Function function) {
+    final string = function.toString();
+    final firstQuote = string.indexOf("'");
+    final secondQuote = string.indexOf("'", firstQuote + 1);
+    final name = string.substring(firstQuote + 1, secondQuote);
+
+    return toSentenceCase(name);
+  }
+
+  static String getNameFromClass(Type type) {
+    final string = type.toString();
+    final name = string.substring(string.indexOf('.') + 1);
+
+    return toSentenceCase(name);
+  }
 
   factory PostmanCollectionItem.fromJson(Map<String, dynamic> json) =>
       _$PostmanCollectionItemFromJson(json);
@@ -128,6 +150,35 @@ class PostmanCollectionRequest with _$PostmanCollectionRequest {
 
   factory PostmanCollectionRequest.fromJson(Map<String, dynamic> json) =>
       _$PostmanCollectionRequestFromJson(json);
+
+  factory PostmanCollectionRequest.fromRequestOptions(RequestOptions options) {
+    return PostmanCollectionRequest(
+      method: options.method,
+      header: options.headers.isEmpty
+          ? []
+          : options.headers.entries.map((entry) {
+              return PostmanCollectionHeader(
+                  key: entry.key, value: entry.value);
+            }).toList(),
+      description: options.method,
+      body: options.data,
+      url: PostmanCollectionUrl(
+        raw: options.uri.toString(),
+        protocol: options.uri.scheme,
+        port: options.uri.port == 443 ? null : options.uri.port.toString(),
+        host: options.baseUrl,
+        path: options.path,
+        query: options.queryParameters.isEmpty
+            ? []
+            : options.queryParameters.entries.map((entry) {
+                return PostmanCollectionQueryParam(
+                  key: entry.key,
+                  value: entry.value,
+                );
+              }).toList(),
+      ),
+    );
+  }
 }
 
 @freezed
