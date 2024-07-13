@@ -15,3 +15,6 @@
 
 ## 0.0.5
 - Fix query data type
+
+## 0.0.5
+- Fix request body type
