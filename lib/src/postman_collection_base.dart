@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -169,7 +171,11 @@ class PostmanCollectionRequest with _$PostmanCollectionRequest {
       description: options.method,
       body: PostmanCollectionRequestMode(
         mode: 'raw',
-        raw: options.data,
+        raw: options.data == null
+            ? null
+            : options.data is Map<String, dynamic>
+                ? JsonEncoder.withIndent('  ').convert(options.data)
+                : options.data?.toString(),
         options: {
           'raw': {'language': 'json'},
         },
