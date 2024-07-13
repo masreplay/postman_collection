@@ -9,3 +9,6 @@
 
 ## 0.0.3
 - Fix url in collection
+
+## 0.0.4
+- Add request mode

@@ -1,6 +1,6 @@
 name: postman_collection
 description: postman collection schema with freezed and json_serializable
-version: 0.0.3
+version: 0.0.4
 homepage: https://pub.dev/packages/postman_collection
 repository: https://github.com/masreplay/postman_collection
 topics: [postman, dio, doc, documentation, dart]
