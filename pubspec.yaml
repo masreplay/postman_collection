@@ -24,7 +24,7 @@ dev_dependencies:
   retrofit_generator: ^8.1.2
 
 scripts:
-  w: flutter pub run build_runner watch --delete-conflicting-outputs
-  g: flutter pub run build_runner build --delete-conflicting-outputs
+  w: dart run build_runner watch --delete-conflicting-outputs
+  g: dart run build_runner build --delete-conflicting-outputs
 
-  publish: flutter pub publish --force
+  publish: dart publish --force

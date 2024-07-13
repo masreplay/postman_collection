@@ -301,7 +301,10 @@ _$PostmanCollectionRequestImpl _$$PostmanCollectionRequestImplFromJson(
           ?.map((e) =>
               PostmanCollectionHeader.fromJson(e as Map<String, dynamic>))
           .toList(),
-      body: json['body'],
+      body: json['body'] == null
+          ? null
+          : PostmanCollectionRequestMode.fromJson(
+              json['body'] as Map<String, dynamic>),
       url: json['url'] == null
           ? null
           : PostmanCollectionUrl.fromJson(json['url'] as Map<String, dynamic>),
@@ -323,9 +326,34 @@ Map<String, dynamic> _$$PostmanCollectionRequestImplToJson(
   writeNotNull('proxy', instance.proxy?.toJson());
   writeNotNull('certificate', instance.certificate?.toJson());
   writeNotNull('header', instance.header?.map((e) => e.toJson()).toList());
-  writeNotNull('body', instance.body);
+  writeNotNull('body', instance.body?.toJson());
   writeNotNull('url', instance.url?.toJson());
   writeNotNull('description', instance.description);
+  return val;
+}
+
+_$PostmanCollectionRequestModeImpl _$$PostmanCollectionRequestModeImplFromJson(
+        Map<String, dynamic> json) =>
+    _$PostmanCollectionRequestModeImpl(
+      mode: json['mode'] as String,
+      raw: json['raw'] as String?,
+      options: json['options'] as Map<String, dynamic>?,
+    );
+
+Map<String, dynamic> _$$PostmanCollectionRequestModeImplToJson(
+    _$PostmanCollectionRequestModeImpl instance) {
+  final val = <String, dynamic>{
+    'mode': instance.mode,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('raw', instance.raw);
+  writeNotNull('options', instance.options);
   return val;
 }
 

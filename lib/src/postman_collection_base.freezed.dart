@@ -2780,7 +2780,7 @@ mixin _$PostmanCollectionRequest {
       throw _privateConstructorUsedError;
   List<PostmanCollectionHeader>? get header =>
       throw _privateConstructorUsedError;
-  Object? get body => throw _privateConstructorUsedError;
+  PostmanCollectionRequestMode? get body => throw _privateConstructorUsedError;
   PostmanCollectionUrl? get url => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2791,7 +2791,7 @@ mixin _$PostmanCollectionRequest {
             PostmanCollectionProxyConfig? proxy,
             PostmanCollectionCertificate? certificate,
             List<PostmanCollectionHeader>? header,
-            Object? body,
+            PostmanCollectionRequestMode? body,
             PostmanCollectionUrl? url,
             String? description)
         $default,
@@ -2805,7 +2805,7 @@ mixin _$PostmanCollectionRequest {
             PostmanCollectionProxyConfig? proxy,
             PostmanCollectionCertificate? certificate,
             List<PostmanCollectionHeader>? header,
-            Object? body,
+            PostmanCollectionRequestMode? body,
             PostmanCollectionUrl? url,
             String? description)?
         $default,
@@ -2819,7 +2819,7 @@ mixin _$PostmanCollectionRequest {
             PostmanCollectionProxyConfig? proxy,
             PostmanCollectionCertificate? certificate,
             List<PostmanCollectionHeader>? header,
-            Object? body,
+            PostmanCollectionRequestMode? body,
             PostmanCollectionUrl? url,
             String? description)?
         $default, {
@@ -2865,13 +2865,14 @@ abstract class $PostmanCollectionRequestCopyWith<$Res> {
       PostmanCollectionProxyConfig? proxy,
       PostmanCollectionCertificate? certificate,
       List<PostmanCollectionHeader>? header,
-      Object? body,
+      PostmanCollectionRequestMode? body,
       PostmanCollectionUrl? url,
       String? description});
 
   $PostmanCollectionAuthCopyWith<$Res>? get auth;
   $PostmanCollectionProxyConfigCopyWith<$Res>? get proxy;
   $PostmanCollectionCertificateCopyWith<$Res>? get certificate;
+  $PostmanCollectionRequestModeCopyWith<$Res>? get body;
   $PostmanCollectionUrlCopyWith<$Res>? get url;
 }
 
@@ -2921,7 +2922,10 @@ class _$PostmanCollectionRequestCopyWithImpl<$Res,
           ? _value.header
           : header // ignore: cast_nullable_to_non_nullable
               as List<PostmanCollectionHeader>?,
-      body: freezed == body ? _value.body : body,
+      body: freezed == body
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as PostmanCollectionRequestMode?,
       url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -2980,6 +2984,20 @@ class _$PostmanCollectionRequestCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $PostmanCollectionRequestModeCopyWith<$Res>? get body {
+    if (_value.body == null) {
+      return null;
+    }
+
+    return $PostmanCollectionRequestModeCopyWith<$Res>(_value.body!, (value) {
+      return _then(_value.copyWith(body: value) as $Val);
+    });
+  }
+
+  /// Create a copy of PostmanCollectionRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $PostmanCollectionUrlCopyWith<$Res>? get url {
     if (_value.url == null) {
       return null;
@@ -3006,7 +3024,7 @@ abstract class _$$PostmanCollectionRequestImplCopyWith<$Res>
       PostmanCollectionProxyConfig? proxy,
       PostmanCollectionCertificate? certificate,
       List<PostmanCollectionHeader>? header,
-      Object? body,
+      PostmanCollectionRequestMode? body,
       PostmanCollectionUrl? url,
       String? description});
 
@@ -3016,6 +3034,8 @@ abstract class _$$PostmanCollectionRequestImplCopyWith<$Res>
   $PostmanCollectionProxyConfigCopyWith<$Res>? get proxy;
   @override
   $PostmanCollectionCertificateCopyWith<$Res>? get certificate;
+  @override
+  $PostmanCollectionRequestModeCopyWith<$Res>? get body;
   @override
   $PostmanCollectionUrlCopyWith<$Res>? get url;
 }
@@ -3065,7 +3085,10 @@ class __$$PostmanCollectionRequestImplCopyWithImpl<$Res>
           ? _value._header
           : header // ignore: cast_nullable_to_non_nullable
               as List<PostmanCollectionHeader>?,
-      body: freezed == body ? _value.body : body,
+      body: freezed == body
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as PostmanCollectionRequestMode?,
       url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -3115,7 +3138,7 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
   }
 
   @override
-  final Object? body;
+  final PostmanCollectionRequestMode? body;
   @override
   final PostmanCollectionUrl? url;
   @override
@@ -3137,7 +3160,7 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
             (identical(other.certificate, certificate) ||
                 other.certificate == certificate) &&
             const DeepCollectionEquality().equals(other._header, _header) &&
-            const DeepCollectionEquality().equals(other.body, body) &&
+            (identical(other.body, body) || other.body == body) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.description, description) ||
                 other.description == description));
@@ -3145,16 +3168,8 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      auth,
-      method,
-      proxy,
-      certificate,
-      const DeepCollectionEquality().hash(_header),
-      const DeepCollectionEquality().hash(body),
-      url,
-      description);
+  int get hashCode => Object.hash(runtimeType, auth, method, proxy, certificate,
+      const DeepCollectionEquality().hash(_header), body, url, description);
 
   /// Create a copy of PostmanCollectionRequest
   /// with the given fields replaced by the non-null parameter values.
@@ -3174,7 +3189,7 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
             PostmanCollectionProxyConfig? proxy,
             PostmanCollectionCertificate? certificate,
             List<PostmanCollectionHeader>? header,
-            Object? body,
+            PostmanCollectionRequestMode? body,
             PostmanCollectionUrl? url,
             String? description)
         $default,
@@ -3192,7 +3207,7 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
             PostmanCollectionProxyConfig? proxy,
             PostmanCollectionCertificate? certificate,
             List<PostmanCollectionHeader>? header,
-            Object? body,
+            PostmanCollectionRequestMode? body,
             PostmanCollectionUrl? url,
             String? description)?
         $default,
@@ -3210,7 +3225,7 @@ class _$PostmanCollectionRequestImpl extends _PostmanCollectionRequest {
             PostmanCollectionProxyConfig? proxy,
             PostmanCollectionCertificate? certificate,
             List<PostmanCollectionHeader>? header,
-            Object? body,
+            PostmanCollectionRequestMode? body,
             PostmanCollectionUrl? url,
             String? description)?
         $default, {
@@ -3266,7 +3281,7 @@ abstract class _PostmanCollectionRequest extends PostmanCollectionRequest {
       final PostmanCollectionProxyConfig? proxy,
       final PostmanCollectionCertificate? certificate,
       final List<PostmanCollectionHeader>? header,
-      final Object? body,
+      final PostmanCollectionRequestMode? body,
       final PostmanCollectionUrl? url,
       final String? description}) = _$PostmanCollectionRequestImpl;
   const _PostmanCollectionRequest._() : super._();
@@ -3285,7 +3300,7 @@ abstract class _PostmanCollectionRequest extends PostmanCollectionRequest {
   @override
   List<PostmanCollectionHeader>? get header;
   @override
-  Object? get body;
+  PostmanCollectionRequestMode? get body;
   @override
   PostmanCollectionUrl? get url;
   @override
@@ -3296,6 +3311,308 @@ abstract class _PostmanCollectionRequest extends PostmanCollectionRequest {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PostmanCollectionRequestImplCopyWith<_$PostmanCollectionRequestImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+PostmanCollectionRequestMode _$PostmanCollectionRequestModeFromJson(
+    Map<String, dynamic> json) {
+  return _PostmanCollectionRequestMode.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PostmanCollectionRequestMode {
+  String get mode => throw _privateConstructorUsedError;
+  String? get raw => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get options => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(String mode, String? raw, Map<String, dynamic>? options)
+        $default,
+  ) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(String mode, String? raw, Map<String, dynamic>? options)?
+        $default,
+  ) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String mode, String? raw, Map<String, dynamic>? options)?
+        $default, {
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_PostmanCollectionRequestMode value) $default,
+  ) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_PostmanCollectionRequestMode value)? $default,
+  ) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_PostmanCollectionRequestMode value)? $default, {
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+
+  /// Serializes this PostmanCollectionRequestMode to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of PostmanCollectionRequestMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PostmanCollectionRequestModeCopyWith<PostmanCollectionRequestMode>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PostmanCollectionRequestModeCopyWith<$Res> {
+  factory $PostmanCollectionRequestModeCopyWith(
+          PostmanCollectionRequestMode value,
+          $Res Function(PostmanCollectionRequestMode) then) =
+      _$PostmanCollectionRequestModeCopyWithImpl<$Res,
+          PostmanCollectionRequestMode>;
+  @useResult
+  $Res call({String mode, String? raw, Map<String, dynamic>? options});
+}
+
+/// @nodoc
+class _$PostmanCollectionRequestModeCopyWithImpl<$Res,
+        $Val extends PostmanCollectionRequestMode>
+    implements $PostmanCollectionRequestModeCopyWith<$Res> {
+  _$PostmanCollectionRequestModeCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of PostmanCollectionRequestMode
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? mode = null,
+    Object? raw = freezed,
+    Object? options = freezed,
+  }) {
+    return _then(_value.copyWith(
+      mode: null == mode
+          ? _value.mode
+          : mode // ignore: cast_nullable_to_non_nullable
+              as String,
+      raw: freezed == raw
+          ? _value.raw
+          : raw // ignore: cast_nullable_to_non_nullable
+              as String?,
+      options: freezed == options
+          ? _value.options
+          : options // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PostmanCollectionRequestModeImplCopyWith<$Res>
+    implements $PostmanCollectionRequestModeCopyWith<$Res> {
+  factory _$$PostmanCollectionRequestModeImplCopyWith(
+          _$PostmanCollectionRequestModeImpl value,
+          $Res Function(_$PostmanCollectionRequestModeImpl) then) =
+      __$$PostmanCollectionRequestModeImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String mode, String? raw, Map<String, dynamic>? options});
+}
+
+/// @nodoc
+class __$$PostmanCollectionRequestModeImplCopyWithImpl<$Res>
+    extends _$PostmanCollectionRequestModeCopyWithImpl<$Res,
+        _$PostmanCollectionRequestModeImpl>
+    implements _$$PostmanCollectionRequestModeImplCopyWith<$Res> {
+  __$$PostmanCollectionRequestModeImplCopyWithImpl(
+      _$PostmanCollectionRequestModeImpl _value,
+      $Res Function(_$PostmanCollectionRequestModeImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PostmanCollectionRequestMode
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? mode = null,
+    Object? raw = freezed,
+    Object? options = freezed,
+  }) {
+    return _then(_$PostmanCollectionRequestModeImpl(
+      mode: null == mode
+          ? _value.mode
+          : mode // ignore: cast_nullable_to_non_nullable
+              as String,
+      raw: freezed == raw
+          ? _value.raw
+          : raw // ignore: cast_nullable_to_non_nullable
+              as String?,
+      options: freezed == options
+          ? _value._options
+          : options // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PostmanCollectionRequestModeImpl
+    implements _PostmanCollectionRequestMode {
+  const _$PostmanCollectionRequestModeImpl(
+      {required this.mode, this.raw, final Map<String, dynamic>? options})
+      : _options = options;
+
+  factory _$PostmanCollectionRequestModeImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$PostmanCollectionRequestModeImplFromJson(json);
+
+  @override
+  final String mode;
+  @override
+  final String? raw;
+  final Map<String, dynamic>? _options;
+  @override
+  Map<String, dynamic>? get options {
+    final value = _options;
+    if (value == null) return null;
+    if (_options is EqualUnmodifiableMapView) return _options;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @override
+  String toString() {
+    return 'PostmanCollectionRequestMode(mode: $mode, raw: $raw, options: $options)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PostmanCollectionRequestModeImpl &&
+            (identical(other.mode, mode) || other.mode == mode) &&
+            (identical(other.raw, raw) || other.raw == raw) &&
+            const DeepCollectionEquality().equals(other._options, _options));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, mode, raw, const DeepCollectionEquality().hash(_options));
+
+  /// Create a copy of PostmanCollectionRequestMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PostmanCollectionRequestModeImplCopyWith<
+          _$PostmanCollectionRequestModeImpl>
+      get copyWith => __$$PostmanCollectionRequestModeImplCopyWithImpl<
+          _$PostmanCollectionRequestModeImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(String mode, String? raw, Map<String, dynamic>? options)
+        $default,
+  ) {
+    return $default(mode, raw, options);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(String mode, String? raw, Map<String, dynamic>? options)?
+        $default,
+  ) {
+    return $default?.call(mode, raw, options);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String mode, String? raw, Map<String, dynamic>? options)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(mode, raw, options);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_PostmanCollectionRequestMode value) $default,
+  ) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_PostmanCollectionRequestMode value)? $default,
+  ) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_PostmanCollectionRequestMode value)? $default, {
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PostmanCollectionRequestModeImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PostmanCollectionRequestMode
+    implements PostmanCollectionRequestMode {
+  const factory _PostmanCollectionRequestMode(
+          {required final String mode,
+          final String? raw,
+          final Map<String, dynamic>? options}) =
+      _$PostmanCollectionRequestModeImpl;
+
+  factory _PostmanCollectionRequestMode.fromJson(Map<String, dynamic> json) =
+      _$PostmanCollectionRequestModeImpl.fromJson;
+
+  @override
+  String get mode;
+  @override
+  String? get raw;
+  @override
+  Map<String, dynamic>? get options;
+
+  /// Create a copy of PostmanCollectionRequestMode
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PostmanCollectionRequestModeImplCopyWith<
+          _$PostmanCollectionRequestModeImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 

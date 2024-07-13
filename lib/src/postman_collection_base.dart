@@ -147,7 +147,7 @@ class PostmanCollectionRequest with _$PostmanCollectionRequest {
     PostmanCollectionProxyConfig? proxy,
     PostmanCollectionCertificate? certificate,
     List<PostmanCollectionHeader>? header,
-    Object? body,
+    PostmanCollectionRequestMode? body,
     PostmanCollectionUrl? url,
     String? description,
   }) = _PostmanCollectionRequest;
@@ -167,7 +167,13 @@ class PostmanCollectionRequest with _$PostmanCollectionRequest {
               );
             }).toList(),
       description: options.method,
-      body: options.data,
+      body: PostmanCollectionRequestMode(
+        mode: 'raw',
+        raw: options.data,
+        options: {
+          'raw': {'language': 'json'},
+        },
+      ),
       url: PostmanCollectionUrl(
         raw: options.uri.toString(),
         // protocol: options.uri.scheme,
@@ -185,6 +191,18 @@ class PostmanCollectionRequest with _$PostmanCollectionRequest {
       ),
     );
   }
+}
+
+@freezed
+class PostmanCollectionRequestMode with _$PostmanCollectionRequestMode {
+  const factory PostmanCollectionRequestMode({
+    required String mode,
+    String? raw,
+    Map<String, dynamic>? options,
+  }) = _PostmanCollectionRequestMode;
+
+  factory PostmanCollectionRequestMode.fromJson(Map<String, dynamic> json) =>
+      _$PostmanCollectionRequestModeFromJson(json);
 }
 
 @freezed
