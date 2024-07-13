@@ -19,3 +19,9 @@ dev_dependencies:
 
   build_runner: ^2.4.11
   retrofit_generator: ^8.1.2
+
+
+
+scripts:
+  doc:
+    postman: dart run ./lib/main.dart
