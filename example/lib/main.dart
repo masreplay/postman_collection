@@ -106,11 +106,9 @@ class UserClientDoc with PostmanCollectionDocumentationMixin {
           name: 'Default',
           status: '200',
           postmanPreviewLanguage: 'json',
-          body: jsonEncode(
-            [
-              UserResponse(name: 'John Doe', email: 'johndoe@email.com'),
-            ].map((e) => e.toJson()).toList(),
-          ),
+          body: jsonEncode([
+            UserResponse(name: 'John Doe', email: 'johndoe@email.com'),
+          ].map((e) => e.toJson()).toList()),
         )
       ],
     );
