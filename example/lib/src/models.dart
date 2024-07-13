@@ -53,3 +53,27 @@ class MessageResponse {
     };
   }
 }
+
+class UserResponse {
+  final String name;
+  final String email;
+
+  const UserResponse({
+    required this.name,
+    required this.email,
+  });
+
+  factory UserResponse.fromJson(Map<String, dynamic> map) {
+    return UserResponse(
+      name: map['name'] as String,
+      email: map['email'] as String,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'name': name,
+      'email': email,
+    };
+  }
+}

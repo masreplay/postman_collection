@@ -16,6 +16,7 @@ abstract class AppClient {
   @GET('/app/{platform}')
   Future<HttpResponse<AppResponse>> getAppData({
     @Path() required String platform,
+    @Header('Accept-Language') required String language,
     @Query('version') required String version,
     @Body() required AppDataRequestBody body,
   });
@@ -36,6 +37,7 @@ class AppClientDoc {
           () => function(
             platform: 'android',
             version: '1.0.1',
+            language: 'en',
             body: AppDataRequestBody(
               date: DateTime.now(),
             ),
@@ -74,6 +76,81 @@ class AppClientDoc {
   }
 }
 
+@RestApi()
+abstract class UserClient {
+  factory UserClient(Dio dio, {String baseUrl}) = _UserClient;
+
+  @GET('/users/')
+  Future<HttpResponse<List<UserResponse>>> get();
+
+  @GET('/users/{id}')
+  Future<HttpResponse<UserResponse>> getDetail(@Path() String id);
+}
+
+class UserClientDoc {
+  UserClientDoc(this._client);
+
+  final UserClient _client;
+
+  Future<PostmanCollectionItem> getDoc() async {
+    final function = _client.get;
+
+    return PostmanCollectionItem(
+      name: PostmanCollectionItem.getNameFromFunction(function),
+      request: PostmanCollectionRequest.fromRequestOptions(
+        await getRequestOptionsFromRetrofit(function),
+      ),
+      response: [
+        PostmanCollectionResponse(
+          name: 'Default',
+          status: '200',
+          postmanPreviewLanguage: 'json',
+          body: jsonEncode(
+            [
+              UserResponse(name: 'John Doe', email: 'johndoe@email.com'),
+            ].map((e) => e.toJson()).toList(),
+          ),
+        )
+      ],
+    );
+  }
+
+  Future<PostmanCollectionItem> getDetailDoc() async {
+    final function = _client.getDetail;
+
+    return PostmanCollectionItem(
+      name: PostmanCollectionItem.getNameFromFunction(function),
+      request: PostmanCollectionRequest.fromRequestOptions(
+        await getRequestOptionsFromRetrofit(() => function('1')),
+      ),
+      response: [
+        PostmanCollectionResponse(
+          name: 'Default',
+          status: '200',
+          postmanPreviewLanguage: 'json',
+          body: jsonEncode(
+            UserResponse(
+              name: 'John Doe',
+              email: 'johndoe@email.com',
+            ).toJson(),
+          ),
+        )
+      ],
+    );
+  }
+
+  // doc
+  Future<PostmanCollectionItem> doc() async {
+    return PostmanCollectionItem(
+      name: PostmanCollectionItem.getNameFromClass(runtimeType),
+      item: await Future.wait([
+        getDoc(),
+        getDetailDoc(),
+      ]),
+    );
+  }
+}
+
 Future<void> main() async {
   final dio = getDocumentationDio();
 
@@ -84,6 +161,7 @@ Future<void> main() async {
     ),
     item: await Future.wait([
       AppClientDoc(AppClient(dio)).doc(),
+      UserClientDoc(UserClient(dio)).doc(),
     ]),
   );
 
