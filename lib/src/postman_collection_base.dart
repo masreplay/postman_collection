@@ -62,6 +62,21 @@ class PostmanCollectionVersion with _$PostmanCollectionVersion {
     Object? meta,
   }) = _PostmanCollectionVersion;
 
+  // 0.0.1+1-beta
+  factory PostmanCollectionVersion.fromString(String value) {
+    final parts = value.split('+');
+    final version = parts[0].split('-')[0];
+    final preRelease = parts.length > 1 ? parts[1] : null;
+    final versionParts = version.split('.');
+
+    return PostmanCollectionVersion(
+      major: int.parse(versionParts[0]),
+      minor: int.parse(versionParts[1]),
+      patch: int.parse(versionParts[2]),
+      identifier: preRelease,
+    );
+  }
+
   factory PostmanCollectionVersion.fromJson(Map<String, dynamic> json) =>
       _$PostmanCollectionVersionFromJson(json);
 }

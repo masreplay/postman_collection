@@ -16,5 +16,9 @@
 ## 0.0.5
 - Fix query data type
 
-## 0.0.5
+## 0.0.6
 - Fix request body type
+  
+## 0.0.7
+- Read version from string for example 1.0.0
+- Read version from pubspec.yaml

@@ -159,6 +159,7 @@ Future<void> main() async {
     info: PostmanCollectionInfo(
       name: projectName,
       schema: PostmanCollectionInfo.schemaV210,
+      version: PostmanCollectionVersion.fromString('1.0.0'),
     ),
     item: await Future.wait([
       AppClientDoc(AppClient(dio)),
