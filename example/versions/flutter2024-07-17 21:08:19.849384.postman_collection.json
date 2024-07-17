@@ -1,6 +1,6 @@
 {
   "info": {
-    "name": "flutter2024-07-16 12:54:55.541045",
+    "name": "flutter2024-07-17 21:08:19.849384",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "version": {
       "major": 1,
@@ -32,7 +32,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"date\": \"2024-07-16T12:54:55.547519\"\n}",
+              "raw": "{\n  \"date\": \"2024-07-17T21:08:19.852633\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -128,6 +128,127 @@
               "name": "Default",
               "_postman_previewlanguage": "json",
               "body": "{\n  \"name\": \"John Doe\",\n  \"email\": \"johndoe@email.com\"\n}",
+              "status": "200"
+            }
+          ]
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "content-type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "content-length",
+                "value": "61"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "src": "file.png",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "src": "file.png",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "src": "file.png",
+                  "type": "file"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://baseurl.com/users/",
+              "host": "https://baseurl.com",
+              "path": "/users/",
+              "query": []
+            },
+            "description": "POST"
+          },
+          "response": [
+            {
+              "name": "Default",
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"name\": \"John Doe\",\n  \"email\": \"asd\"\n}",
+              "status": "200"
+            }
+          ]
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "content-type",
+                "value": "application/json"
+              },
+              {
+                "key": "content-length",
+                "value": "33"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"asd\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://baseurl.com/users/1",
+              "host": "https://baseurl.com",
+              "path": "/users/1",
+              "query": []
+            },
+            "description": "PUT"
+          },
+          "response": [
+            {
+              "name": "Default",
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"name\": \"John Doe\",\n  \"email\": \"asd\"\n}",
+              "status": "200"
+            }
+          ]
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://baseurl.com/users/1",
+              "host": "https://baseurl.com",
+              "path": "/users/1",
+              "query": []
+            },
+            "description": "DELETE"
+          },
+          "response": [
+            {
+              "name": "Default",
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"name\": \"John Doe\",\n  \"email\": \"asd\"\n}",
               "status": "200"
             }
           ]

@@ -1,3 +1,7 @@
+import 'dart:io';
+
+import 'package:dio/dio.dart';
+
 class AppResponse {
   final String name;
   final String version;
@@ -69,6 +73,46 @@ class UserResponse {
       email: map['email'] as String,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'name': name,
+      'email': email,
+    };
+  }
+}
+
+class CreateUserRequestBody {
+  final String name;
+  final String email;
+  final File image;
+
+  CreateUserRequestBody({
+    required this.name,
+    required this.email,
+    required this.image,
+  });
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'name': name,
+      'email': email,
+      "image": MultipartFile.fromFileSync(
+        image.path,
+        filename: image.path.split(Platform.pathSeparator).last,
+      )
+    };
+  }
+}
+
+class UpdateUserRequestBody {
+  final String name;
+  final String email;
+
+  UpdateUserRequestBody({
+    required this.name,
+    required this.email,
+  });
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
