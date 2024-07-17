@@ -184,17 +184,30 @@ class PostmanCollectionRequest with _$PostmanCollectionRequest {
               );
             }).toList(),
       description: options.method,
-      body: PostmanCollectionRequestMode(
-        mode: 'raw',
-        raw: options.data == null
-            ? null
-            : options.data is Map<String, dynamic>
-                ? JsonEncoder.withIndent('  ').convert(options.data)
-                : options.data?.toString(),
-        options: {
-          'raw': {'language': 'json'},
-        },
-      ),
+      body: switch (options.contentType) {
+        'multipart/form-data' => PostmanCollectionRequestMode.formdata(
+            mode: 'formdata',
+            formdata:
+                (options.data as Map<String, dynamic>).entries.map((entry) {
+              return PostmanFormDataEntry(
+                key: entry.key,
+                type: entry.value is MultipartFile ? 'file' : 'text',
+                src: 'file.png',
+              );
+            }).toList(),
+          ),
+        _ => PostmanCollectionRequestMode.raw(
+            mode: 'raw',
+            raw: options.data == null
+                ? null
+                : options.data is Map<String, dynamic>
+                    ? JsonEncoder.withIndent('  ').convert(options.data)
+                    : options.data?.toString(),
+            options: {
+              'raw': {'language': 'json'},
+            },
+          ),
+      },
       url: PostmanCollectionUrl(
         raw: options.uri.toString(),
         // protocol: options.uri.scheme,
@@ -214,16 +227,36 @@ class PostmanCollectionRequest with _$PostmanCollectionRequest {
   }
 }
 
-@freezed
+@Freezed(
+  unionKey: 'mode',
+  fallbackUnion: 'raw',
+)
 class PostmanCollectionRequestMode with _$PostmanCollectionRequestMode {
-  const factory PostmanCollectionRequestMode({
+  const factory PostmanCollectionRequestMode.raw({
     required String mode,
     String? raw,
     Map<String, dynamic>? options,
   }) = _PostmanCollectionRequestMode;
 
+  const factory PostmanCollectionRequestMode.formdata({
+    required String mode,
+    List<PostmanFormDataEntry>? formdata,
+  }) = _PostmanCollectionRequestModeFormdata;
+
   factory PostmanCollectionRequestMode.fromJson(Map<String, dynamic> json) =>
       _$PostmanCollectionRequestModeFromJson(json);
+}
+
+@freezed
+class PostmanFormDataEntry with _$PostmanFormDataEntry {
+  factory PostmanFormDataEntry({
+    required String key,
+    required String src,
+    String? type,
+  }) = _PostmanFormDataEntry;
+
+  factory PostmanFormDataEntry.fromJson(Map<String, dynamic> json) =>
+      _$PostmanFormDataEntryFromJson(json);
 }
 
 @freezed
