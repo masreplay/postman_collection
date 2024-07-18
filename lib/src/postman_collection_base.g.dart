@@ -335,16 +335,14 @@ Map<String, dynamic> _$$PostmanCollectionRequestImplToJson(
 _$PostmanCollectionRequestModeImpl _$$PostmanCollectionRequestModeImplFromJson(
         Map<String, dynamic> json) =>
     _$PostmanCollectionRequestModeImpl(
-      mode: json['mode'] as String,
       raw: json['raw'] as String?,
       options: json['options'] as Map<String, dynamic>?,
+      $type: json['mode'] as String?,
     );
 
 Map<String, dynamic> _$$PostmanCollectionRequestModeImplToJson(
     _$PostmanCollectionRequestModeImpl instance) {
-  final val = <String, dynamic>{
-    'mode': instance.mode,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -354,6 +352,58 @@ Map<String, dynamic> _$$PostmanCollectionRequestModeImplToJson(
 
   writeNotNull('raw', instance.raw);
   writeNotNull('options', instance.options);
+  val['mode'] = instance.$type;
+  return val;
+}
+
+_$PostmanCollectionRequestModeFormdataImpl
+    _$$PostmanCollectionRequestModeFormdataImplFromJson(
+            Map<String, dynamic> json) =>
+        _$PostmanCollectionRequestModeFormdataImpl(
+          formdata: (json['formdata'] as List<dynamic>?)
+              ?.map((e) =>
+                  PostmanFormDataEntry.fromJson(e as Map<String, dynamic>))
+              .toList(),
+          $type: json['mode'] as String?,
+        );
+
+Map<String, dynamic> _$$PostmanCollectionRequestModeFormdataImplToJson(
+    _$PostmanCollectionRequestModeFormdataImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('formdata', instance.formdata?.map((e) => e.toJson()).toList());
+  val['mode'] = instance.$type;
+  return val;
+}
+
+_$PostmanFormDataEntryImpl _$$PostmanFormDataEntryImplFromJson(
+        Map<String, dynamic> json) =>
+    _$PostmanFormDataEntryImpl(
+      key: json['key'] as String,
+      src: json['src'] as String,
+      type: json['type'] as String?,
+    );
+
+Map<String, dynamic> _$$PostmanFormDataEntryImplToJson(
+    _$PostmanFormDataEntryImpl instance) {
+  final val = <String, dynamic>{
+    'key': instance.key,
+    'src': instance.src,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('type', instance.type);
   return val;
 }
 

@@ -86,6 +86,19 @@ abstract class UserClient {
 
   @GET('/users/{id}')
   Future<HttpResponse<UserResponse>> getDetail(@Path() String id);
+
+  @POST('/users/')
+  @MultiPart() // Add this annotation to mark it as form-data
+  Future<HttpResponse<UserResponse>> create(@Body() CreateUserRequestBody body);
+
+  @PUT('/users/{id}')
+  Future<HttpResponse<UserResponse>> update(
+    @Path() String id,
+    @Body() UpdateUserRequestBody body,
+  );
+
+  @DELETE('/users/{id}')
+  Future<HttpResponse<UserResponse>> delete(@Path() String id);
 }
 
 class UserClientDoc with PostmanCollectionDocumentationMixin {
@@ -138,6 +151,94 @@ class UserClientDoc with PostmanCollectionDocumentationMixin {
     );
   }
 
+  Future<PostmanCollectionItem> createDoc() async {
+    final function = _client.create;
+
+    return PostmanCollectionItem(
+      name: PostmanCollectionItem.getNameFromFunction(function),
+      request: PostmanCollectionRequest.fromRequestOptions(
+        await getRequestOptionsFromRetrofit(
+          () => function(
+            CreateUserRequestBody(
+              name: 'John Doe',
+              email: 'asd',
+              image: File("${Directory.current.path}/lib/src/dio.dart"),
+            ),
+          ),
+        ),
+      ),
+      response: [
+        PostmanCollectionResponse(
+          name: 'Default',
+          status: '200',
+          postmanPreviewLanguage: 'json',
+          body: jsonEncode(
+            UserResponse(
+              name: 'John Doe',
+              email: 'asd',
+            ).toJson(),
+          ),
+        )
+      ],
+    );
+  }
+
+  Future<PostmanCollectionItem> updateDoc() async {
+    final function = _client.update;
+
+    return PostmanCollectionItem(
+      name: PostmanCollectionItem.getNameFromFunction(function),
+      request: PostmanCollectionRequest.fromRequestOptions(
+        await getRequestOptionsFromRetrofit(
+          () => function(
+            '1',
+            UpdateUserRequestBody(
+              name: 'John Doe',
+              email: 'asd',
+            ),
+          ),
+        ),
+      ),
+      response: [
+        PostmanCollectionResponse(
+          name: 'Default',
+          status: '200',
+          postmanPreviewLanguage: 'json',
+          body: jsonEncode(
+            UserResponse(
+              name: 'John Doe',
+              email: 'asd',
+            ).toJson(),
+          ),
+        )
+      ],
+    );
+  }
+
+  Future<PostmanCollectionItem> deleteDoc() async {
+    final function = _client.delete;
+
+    return PostmanCollectionItem(
+      name: PostmanCollectionItem.getNameFromFunction(function),
+      request: PostmanCollectionRequest.fromRequestOptions(
+        await getRequestOptionsFromRetrofit(() => function('1')),
+      ),
+      response: [
+        PostmanCollectionResponse(
+          name: 'Default',
+          status: '200',
+          postmanPreviewLanguage: 'json',
+          body: jsonEncode(
+            UserResponse(
+              name: 'John Doe',
+              email: 'asd',
+            ).toJson(),
+          ),
+        )
+      ],
+    );
+  }
+
   @override
   Future<PostmanCollectionItem> doc() async {
     return PostmanCollectionItem(
@@ -145,6 +246,9 @@ class UserClientDoc with PostmanCollectionDocumentationMixin {
       item: await Future.wait([
         getDoc(),
         getDetailDoc(),
+        createDoc(),
+        updateDoc(),
+        deleteDoc(),
       ]),
     );
   }
