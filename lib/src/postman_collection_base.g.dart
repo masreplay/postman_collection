@@ -386,7 +386,8 @@ _$PostmanFormDataEntryImpl _$$PostmanFormDataEntryImplFromJson(
         Map<String, dynamic> json) =>
     _$PostmanFormDataEntryImpl(
       key: json['key'] as String,
-      src: json['src'] as String,
+      src: json['src'] as String?,
+      value: json['value'] as String?,
       type: json['type'] as String?,
     );
 
@@ -394,7 +395,6 @@ Map<String, dynamic> _$$PostmanFormDataEntryImplToJson(
     _$PostmanFormDataEntryImpl instance) {
   final val = <String, dynamic>{
     'key': instance.key,
-    'src': instance.src,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -403,6 +403,8 @@ Map<String, dynamic> _$$PostmanFormDataEntryImplToJson(
     }
   }
 
+  writeNotNull('src', instance.src);
+  writeNotNull('value', instance.value);
   writeNotNull('type', instance.type);
   return val;
 }

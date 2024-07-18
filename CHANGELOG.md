@@ -25,3 +25,6 @@
 
 ## 0.0.8
 - Add support for multipart formdata
+
+## 0.0.9
+- fix multipart formdata issue
