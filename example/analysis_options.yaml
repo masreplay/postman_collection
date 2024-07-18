@@ -3,10 +3,7 @@ include: package:lints/recommended.yaml
 analyzer:
   exclude:
     - "**/*.g.dart"
-    - "lib/l10n/gen/**"
-    - "**/*.gen.dart"
     - "**/*.freezed.dart"
-    - "**/*.fields.dart"
 
   errors:
     invalid_annotation_target: ignore

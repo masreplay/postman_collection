@@ -3316,58 +3316,59 @@ abstract class _PostmanCollectionRequest extends PostmanCollectionRequest {
 
 PostmanCollectionRequestMode _$PostmanCollectionRequestModeFromJson(
     Map<String, dynamic> json) {
-  return _PostmanCollectionRequestMode.fromJson(json);
+  switch (json['mode']) {
+    case 'formdata':
+      return _PostmanCollectionRequestModeFormdata.fromJson(json);
+
+    default:
+      return _PostmanCollectionRequestMode.fromJson(json);
+  }
 }
 
 /// @nodoc
 mixin _$PostmanCollectionRequestMode {
-  String get mode => throw _privateConstructorUsedError;
-  String? get raw => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get options => throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String mode, String? raw, Map<String, dynamic>? options)
-        $default,
-  ) =>
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? raw, Map<String, dynamic>? options) raw,
+    required TResult Function(List<PostmanFormDataEntry>? formdata) formdata,
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String mode, String? raw, Map<String, dynamic>? options)?
-        $default,
-  ) =>
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? raw, Map<String, dynamic>? options)? raw,
+    TResult? Function(List<PostmanFormDataEntry>? formdata)? formdata,
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String mode, String? raw, Map<String, dynamic>? options)?
-        $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? raw, Map<String, dynamic>? options)? raw,
+    TResult Function(List<PostmanFormDataEntry>? formdata)? formdata,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_PostmanCollectionRequestMode value) $default,
-  ) =>
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PostmanCollectionRequestMode value) raw,
+    required TResult Function(_PostmanCollectionRequestModeFormdata value)
+        formdata,
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_PostmanCollectionRequestMode value)? $default,
-  ) =>
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PostmanCollectionRequestMode value)? raw,
+    TResult? Function(_PostmanCollectionRequestModeFormdata value)? formdata,
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PostmanCollectionRequestMode value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PostmanCollectionRequestMode value)? raw,
+    TResult Function(_PostmanCollectionRequestModeFormdata value)? formdata,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 
   /// Serializes this PostmanCollectionRequestMode to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of PostmanCollectionRequestMode
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $PostmanCollectionRequestModeCopyWith<PostmanCollectionRequestMode>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3377,8 +3378,6 @@ abstract class $PostmanCollectionRequestModeCopyWith<$Res> {
           $Res Function(PostmanCollectionRequestMode) then) =
       _$PostmanCollectionRequestModeCopyWithImpl<$Res,
           PostmanCollectionRequestMode>;
-  @useResult
-  $Res call({String mode, String? raw, Map<String, dynamic>? options});
 }
 
 /// @nodoc
@@ -3394,40 +3393,16 @@ class _$PostmanCollectionRequestModeCopyWithImpl<$Res,
 
   /// Create a copy of PostmanCollectionRequestMode
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? mode = null,
-    Object? raw = freezed,
-    Object? options = freezed,
-  }) {
-    return _then(_value.copyWith(
-      mode: null == mode
-          ? _value.mode
-          : mode // ignore: cast_nullable_to_non_nullable
-              as String,
-      raw: freezed == raw
-          ? _value.raw
-          : raw // ignore: cast_nullable_to_non_nullable
-              as String?,
-      options: freezed == options
-          ? _value.options
-          : options // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$PostmanCollectionRequestModeImplCopyWith<$Res>
-    implements $PostmanCollectionRequestModeCopyWith<$Res> {
+abstract class _$$PostmanCollectionRequestModeImplCopyWith<$Res> {
   factory _$$PostmanCollectionRequestModeImplCopyWith(
           _$PostmanCollectionRequestModeImpl value,
           $Res Function(_$PostmanCollectionRequestModeImpl) then) =
       __$$PostmanCollectionRequestModeImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({String mode, String? raw, Map<String, dynamic>? options});
+  $Res call({String? raw, Map<String, dynamic>? options});
 }
 
 /// @nodoc
@@ -3445,15 +3420,10 @@ class __$$PostmanCollectionRequestModeImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? mode = null,
     Object? raw = freezed,
     Object? options = freezed,
   }) {
     return _then(_$PostmanCollectionRequestModeImpl(
-      mode: null == mode
-          ? _value.mode
-          : mode // ignore: cast_nullable_to_non_nullable
-              as String,
       raw: freezed == raw
           ? _value.raw
           : raw // ignore: cast_nullable_to_non_nullable
@@ -3468,18 +3438,17 @@ class __$$PostmanCollectionRequestModeImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PostmanCollectionRequestModeImpl
-    implements _PostmanCollectionRequestMode {
+class _$PostmanCollectionRequestModeImpl extends _PostmanCollectionRequestMode {
   const _$PostmanCollectionRequestModeImpl(
-      {required this.mode, this.raw, final Map<String, dynamic>? options})
-      : _options = options;
+      {this.raw, final Map<String, dynamic>? options, final String? $type})
+      : _options = options,
+        $type = $type ?? 'raw',
+        super._();
 
   factory _$PostmanCollectionRequestModeImpl.fromJson(
           Map<String, dynamic> json) =>
       _$$PostmanCollectionRequestModeImplFromJson(json);
 
-  @override
-  final String mode;
   @override
   final String? raw;
   final Map<String, dynamic>? _options;
@@ -3492,9 +3461,12 @@ class _$PostmanCollectionRequestModeImpl
     return EqualUnmodifiableMapView(value);
   }
 
+  @JsonKey(name: 'mode')
+  final String $type;
+
   @override
   String toString() {
-    return 'PostmanCollectionRequestMode(mode: $mode, raw: $raw, options: $options)';
+    return 'PostmanCollectionRequestMode.raw(raw: $raw, options: $options)';
   }
 
   @override
@@ -3502,7 +3474,6 @@ class _$PostmanCollectionRequestModeImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PostmanCollectionRequestModeImpl &&
-            (identical(other.mode, mode) || other.mode == mode) &&
             (identical(other.raw, raw) || other.raw == raw) &&
             const DeepCollectionEquality().equals(other._options, _options));
   }
@@ -3510,7 +3481,7 @@ class _$PostmanCollectionRequestModeImpl
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, mode, raw, const DeepCollectionEquality().hash(_options));
+      runtimeType, raw, const DeepCollectionEquality().hash(_options));
 
   /// Create a copy of PostmanCollectionRequestMode
   /// with the given fields replaced by the non-null parameter values.
@@ -3524,59 +3495,63 @@ class _$PostmanCollectionRequestModeImpl
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String mode, String? raw, Map<String, dynamic>? options)
-        $default,
-  ) {
-    return $default(mode, raw, options);
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? raw, Map<String, dynamic>? options) raw,
+    required TResult Function(List<PostmanFormDataEntry>? formdata) formdata,
+  }) {
+    return raw(this.raw, options);
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String mode, String? raw, Map<String, dynamic>? options)?
-        $default,
-  ) {
-    return $default?.call(mode, raw, options);
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? raw, Map<String, dynamic>? options)? raw,
+    TResult? Function(List<PostmanFormDataEntry>? formdata)? formdata,
+  }) {
+    return raw?.call(this.raw, options);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String mode, String? raw, Map<String, dynamic>? options)?
-        $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? raw, Map<String, dynamic>? options)? raw,
+    TResult Function(List<PostmanFormDataEntry>? formdata)? formdata,
     required TResult orElse(),
   }) {
-    if ($default != null) {
-      return $default(mode, raw, options);
+    if (raw != null) {
+      return raw(this.raw, options);
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_PostmanCollectionRequestMode value) $default,
-  ) {
-    return $default(this);
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PostmanCollectionRequestMode value) raw,
+    required TResult Function(_PostmanCollectionRequestModeFormdata value)
+        formdata,
+  }) {
+    return raw(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_PostmanCollectionRequestMode value)? $default,
-  ) {
-    return $default?.call(this);
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PostmanCollectionRequestMode value)? raw,
+    TResult? Function(_PostmanCollectionRequestModeFormdata value)? formdata,
+  }) {
+    return raw?.call(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PostmanCollectionRequestMode value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PostmanCollectionRequestMode value)? raw,
+    TResult Function(_PostmanCollectionRequestModeFormdata value)? formdata,
     required TResult orElse(),
   }) {
-    if ($default != null) {
-      return $default(this);
+    if (raw != null) {
+      return raw(this);
     }
     return orElse();
   }
@@ -3590,29 +3565,484 @@ class _$PostmanCollectionRequestModeImpl
 }
 
 abstract class _PostmanCollectionRequestMode
-    implements PostmanCollectionRequestMode {
+    extends PostmanCollectionRequestMode {
   const factory _PostmanCollectionRequestMode(
-          {required final String mode,
-          final String? raw,
-          final Map<String, dynamic>? options}) =
+          {final String? raw, final Map<String, dynamic>? options}) =
       _$PostmanCollectionRequestModeImpl;
+  const _PostmanCollectionRequestMode._() : super._();
 
   factory _PostmanCollectionRequestMode.fromJson(Map<String, dynamic> json) =
       _$PostmanCollectionRequestModeImpl.fromJson;
 
-  @override
-  String get mode;
-  @override
   String? get raw;
-  @override
   Map<String, dynamic>? get options;
 
   /// Create a copy of PostmanCollectionRequestMode
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PostmanCollectionRequestModeImplCopyWith<
           _$PostmanCollectionRequestModeImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PostmanCollectionRequestModeFormdataImplCopyWith<$Res> {
+  factory _$$PostmanCollectionRequestModeFormdataImplCopyWith(
+          _$PostmanCollectionRequestModeFormdataImpl value,
+          $Res Function(_$PostmanCollectionRequestModeFormdataImpl) then) =
+      __$$PostmanCollectionRequestModeFormdataImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<PostmanFormDataEntry>? formdata});
+}
+
+/// @nodoc
+class __$$PostmanCollectionRequestModeFormdataImplCopyWithImpl<$Res>
+    extends _$PostmanCollectionRequestModeCopyWithImpl<$Res,
+        _$PostmanCollectionRequestModeFormdataImpl>
+    implements _$$PostmanCollectionRequestModeFormdataImplCopyWith<$Res> {
+  __$$PostmanCollectionRequestModeFormdataImplCopyWithImpl(
+      _$PostmanCollectionRequestModeFormdataImpl _value,
+      $Res Function(_$PostmanCollectionRequestModeFormdataImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PostmanCollectionRequestMode
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? formdata = freezed,
+  }) {
+    return _then(_$PostmanCollectionRequestModeFormdataImpl(
+      formdata: freezed == formdata
+          ? _value._formdata
+          : formdata // ignore: cast_nullable_to_non_nullable
+              as List<PostmanFormDataEntry>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PostmanCollectionRequestModeFormdataImpl
+    extends _PostmanCollectionRequestModeFormdata {
+  const _$PostmanCollectionRequestModeFormdataImpl(
+      {final List<PostmanFormDataEntry>? formdata, final String? $type})
+      : _formdata = formdata,
+        $type = $type ?? 'formdata',
+        super._();
+
+  factory _$PostmanCollectionRequestModeFormdataImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$PostmanCollectionRequestModeFormdataImplFromJson(json);
+
+  final List<PostmanFormDataEntry>? _formdata;
+  @override
+  List<PostmanFormDataEntry>? get formdata {
+    final value = _formdata;
+    if (value == null) return null;
+    if (_formdata is EqualUnmodifiableListView) return _formdata;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @JsonKey(name: 'mode')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'PostmanCollectionRequestMode.formdata(formdata: $formdata)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PostmanCollectionRequestModeFormdataImpl &&
+            const DeepCollectionEquality().equals(other._formdata, _formdata));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_formdata));
+
+  /// Create a copy of PostmanCollectionRequestMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PostmanCollectionRequestModeFormdataImplCopyWith<
+          _$PostmanCollectionRequestModeFormdataImpl>
+      get copyWith => __$$PostmanCollectionRequestModeFormdataImplCopyWithImpl<
+          _$PostmanCollectionRequestModeFormdataImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? raw, Map<String, dynamic>? options) raw,
+    required TResult Function(List<PostmanFormDataEntry>? formdata) formdata,
+  }) {
+    return formdata(this.formdata);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? raw, Map<String, dynamic>? options)? raw,
+    TResult? Function(List<PostmanFormDataEntry>? formdata)? formdata,
+  }) {
+    return formdata?.call(this.formdata);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? raw, Map<String, dynamic>? options)? raw,
+    TResult Function(List<PostmanFormDataEntry>? formdata)? formdata,
+    required TResult orElse(),
+  }) {
+    if (formdata != null) {
+      return formdata(this.formdata);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PostmanCollectionRequestMode value) raw,
+    required TResult Function(_PostmanCollectionRequestModeFormdata value)
+        formdata,
+  }) {
+    return formdata(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_PostmanCollectionRequestMode value)? raw,
+    TResult? Function(_PostmanCollectionRequestModeFormdata value)? formdata,
+  }) {
+    return formdata?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PostmanCollectionRequestMode value)? raw,
+    TResult Function(_PostmanCollectionRequestModeFormdata value)? formdata,
+    required TResult orElse(),
+  }) {
+    if (formdata != null) {
+      return formdata(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PostmanCollectionRequestModeFormdataImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PostmanCollectionRequestModeFormdata
+    extends PostmanCollectionRequestMode {
+  const factory _PostmanCollectionRequestModeFormdata(
+          {final List<PostmanFormDataEntry>? formdata}) =
+      _$PostmanCollectionRequestModeFormdataImpl;
+  const _PostmanCollectionRequestModeFormdata._() : super._();
+
+  factory _PostmanCollectionRequestModeFormdata.fromJson(
+          Map<String, dynamic> json) =
+      _$PostmanCollectionRequestModeFormdataImpl.fromJson;
+
+  List<PostmanFormDataEntry>? get formdata;
+
+  /// Create a copy of PostmanCollectionRequestMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PostmanCollectionRequestModeFormdataImplCopyWith<
+          _$PostmanCollectionRequestModeFormdataImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+PostmanFormDataEntry _$PostmanFormDataEntryFromJson(Map<String, dynamic> json) {
+  return _PostmanFormDataEntry.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PostmanFormDataEntry {
+  String get key => throw _privateConstructorUsedError;
+  String get src => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(String key, String src, String? type) $default,
+  ) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(String key, String src, String? type)? $default,
+  ) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String key, String src, String? type)? $default, {
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_PostmanFormDataEntry value) $default,
+  ) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_PostmanFormDataEntry value)? $default,
+  ) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_PostmanFormDataEntry value)? $default, {
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+
+  /// Serializes this PostmanFormDataEntry to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of PostmanFormDataEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PostmanFormDataEntryCopyWith<PostmanFormDataEntry> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PostmanFormDataEntryCopyWith<$Res> {
+  factory $PostmanFormDataEntryCopyWith(PostmanFormDataEntry value,
+          $Res Function(PostmanFormDataEntry) then) =
+      _$PostmanFormDataEntryCopyWithImpl<$Res, PostmanFormDataEntry>;
+  @useResult
+  $Res call({String key, String src, String? type});
+}
+
+/// @nodoc
+class _$PostmanFormDataEntryCopyWithImpl<$Res,
+        $Val extends PostmanFormDataEntry>
+    implements $PostmanFormDataEntryCopyWith<$Res> {
+  _$PostmanFormDataEntryCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of PostmanFormDataEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? key = null,
+    Object? src = null,
+    Object? type = freezed,
+  }) {
+    return _then(_value.copyWith(
+      key: null == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
+      src: null == src
+          ? _value.src
+          : src // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PostmanFormDataEntryImplCopyWith<$Res>
+    implements $PostmanFormDataEntryCopyWith<$Res> {
+  factory _$$PostmanFormDataEntryImplCopyWith(_$PostmanFormDataEntryImpl value,
+          $Res Function(_$PostmanFormDataEntryImpl) then) =
+      __$$PostmanFormDataEntryImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String key, String src, String? type});
+}
+
+/// @nodoc
+class __$$PostmanFormDataEntryImplCopyWithImpl<$Res>
+    extends _$PostmanFormDataEntryCopyWithImpl<$Res, _$PostmanFormDataEntryImpl>
+    implements _$$PostmanFormDataEntryImplCopyWith<$Res> {
+  __$$PostmanFormDataEntryImplCopyWithImpl(_$PostmanFormDataEntryImpl _value,
+      $Res Function(_$PostmanFormDataEntryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PostmanFormDataEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? key = null,
+    Object? src = null,
+    Object? type = freezed,
+  }) {
+    return _then(_$PostmanFormDataEntryImpl(
+      key: null == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
+      src: null == src
+          ? _value.src
+          : src // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PostmanFormDataEntryImpl extends _PostmanFormDataEntry {
+  const _$PostmanFormDataEntryImpl(
+      {required this.key, required this.src, this.type})
+      : super._();
+
+  factory _$PostmanFormDataEntryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostmanFormDataEntryImplFromJson(json);
+
+  @override
+  final String key;
+  @override
+  final String src;
+  @override
+  final String? type;
+
+  @override
+  String toString() {
+    return 'PostmanFormDataEntry(key: $key, src: $src, type: $type)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PostmanFormDataEntryImpl &&
+            (identical(other.key, key) || other.key == key) &&
+            (identical(other.src, src) || other.src == src) &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, key, src, type);
+
+  /// Create a copy of PostmanFormDataEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PostmanFormDataEntryImplCopyWith<_$PostmanFormDataEntryImpl>
+      get copyWith =>
+          __$$PostmanFormDataEntryImplCopyWithImpl<_$PostmanFormDataEntryImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(String key, String src, String? type) $default,
+  ) {
+    return $default(key, src, type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(String key, String src, String? type)? $default,
+  ) {
+    return $default?.call(key, src, type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String key, String src, String? type)? $default, {
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(key, src, type);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_PostmanFormDataEntry value) $default,
+  ) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_PostmanFormDataEntry value)? $default,
+  ) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_PostmanFormDataEntry value)? $default, {
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PostmanFormDataEntryImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PostmanFormDataEntry extends PostmanFormDataEntry {
+  const factory _PostmanFormDataEntry(
+      {required final String key,
+      required final String src,
+      final String? type}) = _$PostmanFormDataEntryImpl;
+  const _PostmanFormDataEntry._() : super._();
+
+  factory _PostmanFormDataEntry.fromJson(Map<String, dynamic> json) =
+      _$PostmanFormDataEntryImpl.fromJson;
+
+  @override
+  String get key;
+  @override
+  String get src;
+  @override
+  String? get type;
+
+  /// Create a copy of PostmanFormDataEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PostmanFormDataEntryImplCopyWith<_$PostmanFormDataEntryImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
