@@ -185,19 +185,27 @@ class PostmanCollectionRequest with _$PostmanCollectionRequest {
             }).toList(),
       description: options.method,
       body: switch (options.contentType) {
-        'multipart/form-data' => PostmanCollectionRequestMode.formdata(
-            mode: 'formdata',
+        Headers.multipartFormDataContentType =>
+          PostmanCollectionRequestMode.formdata(
             formdata:
                 (options.data as Map<String, dynamic>).entries.map((entry) {
-              return PostmanFormDataEntry(
-                key: entry.key,
-                type: entry.value is MultipartFile ? 'file' : 'text',
-                src: 'file.png',
-              );
+              switch (entry.value) {
+                case MultipartFile file:
+                  return PostmanFormDataEntry(
+                    key: entry.key,
+                    type: 'file',
+                    src: file.filename ?? '',
+                  );
+                default:
+                  return PostmanFormDataEntry(
+                    key: entry.key,
+                    type: 'text',
+                    src: entry.value.toString(),
+                  );
+              }
             }).toList(),
           ),
         _ => PostmanCollectionRequestMode.raw(
-            mode: 'raw',
             raw: options.data == null
                 ? null
                 : options.data is Map<String, dynamic>
@@ -232,14 +240,16 @@ class PostmanCollectionRequest with _$PostmanCollectionRequest {
   fallbackUnion: 'raw',
 )
 class PostmanCollectionRequestMode with _$PostmanCollectionRequestMode {
+  const PostmanCollectionRequestMode._();
+
+  @FreezedUnionValue('raw')
   const factory PostmanCollectionRequestMode.raw({
-    required String mode,
     String? raw,
     Map<String, dynamic>? options,
   }) = _PostmanCollectionRequestMode;
 
+  @FreezedUnionValue('formdata')
   const factory PostmanCollectionRequestMode.formdata({
-    required String mode,
     List<PostmanFormDataEntry>? formdata,
   }) = _PostmanCollectionRequestModeFormdata;
 
@@ -249,7 +259,9 @@ class PostmanCollectionRequestMode with _$PostmanCollectionRequestMode {
 
 @freezed
 class PostmanFormDataEntry with _$PostmanFormDataEntry {
-  factory PostmanFormDataEntry({
+  const PostmanFormDataEntry._();
+
+  const factory PostmanFormDataEntry({
     required String key,
     required String src,
     String? type,

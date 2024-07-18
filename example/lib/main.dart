@@ -88,7 +88,7 @@ abstract class UserClient {
   Future<HttpResponse<UserResponse>> getDetail(@Path() String id);
 
   @POST('/users/')
-  @MultiPart() //Don't forget to add this annotation
+  @MultiPart() // Add this annotation to mark it as form-data
   Future<HttpResponse<UserResponse>> create(@Body() CreateUserRequestBody body);
 
   @PUT('/users/{id}')
