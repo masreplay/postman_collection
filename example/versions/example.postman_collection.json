@@ -31,13 +31,13 @@
               }
             ],
             "body": {
-              "mode": "raw",
-              "raw": "{\n  \"date\": \"2024-07-18T11:54:02.624780\"\n}",
+              "raw": "{\n  \"date\": \"2024-07-18T11:55:48.296591\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
                 }
-              }
+              },
+              "mode": "raw"
             },
             "url": {
               "raw": "https://baseurl.com/app/android?version=1.0.1",
@@ -78,12 +78,12 @@
             "method": "GET",
             "header": [],
             "body": {
-              "mode": "raw",
               "options": {
                 "raw": {
                   "language": "json"
                 }
-              }
+              },
+              "mode": "raw"
             },
             "url": {
               "raw": "https://baseurl.com/users/",
@@ -108,12 +108,12 @@
             "method": "GET",
             "header": [],
             "body": {
-              "mode": "raw",
               "options": {
                 "raw": {
                   "language": "json"
                 }
-              }
+              },
+              "mode": "raw"
             },
             "url": {
               "raw": "https://baseurl.com/users/1",
@@ -128,6 +128,127 @@
               "name": "Default",
               "_postman_previewlanguage": "json",
               "body": "{\n  \"name\": \"John Doe\",\n  \"email\": \"johndoe@email.com\"\n}",
+              "status": "200"
+            }
+          ]
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "content-type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "content-length",
+                "value": "61"
+              }
+            ],
+            "body": {
+              "formdata": [
+                {
+                  "key": "name",
+                  "src": "John Doe",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "src": "asd",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "src": "dio.dart",
+                  "type": "file"
+                }
+              ],
+              "mode": "formdata"
+            },
+            "url": {
+              "raw": "https://baseurl.com/users/",
+              "host": "https://baseurl.com",
+              "path": "/users/",
+              "query": []
+            },
+            "description": "POST"
+          },
+          "response": [
+            {
+              "name": "Default",
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"name\": \"John Doe\",\n  \"email\": \"asd\"\n}",
+              "status": "200"
+            }
+          ]
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "content-type",
+                "value": "application/json"
+              },
+              {
+                "key": "content-length",
+                "value": "33"
+              }
+            ],
+            "body": {
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"asd\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "mode": "raw"
+            },
+            "url": {
+              "raw": "https://baseurl.com/users/1",
+              "host": "https://baseurl.com",
+              "path": "/users/1",
+              "query": []
+            },
+            "description": "PUT"
+          },
+          "response": [
+            {
+              "name": "Default",
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"name\": \"John Doe\",\n  \"email\": \"asd\"\n}",
+              "status": "200"
+            }
+          ]
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "mode": "raw"
+            },
+            "url": {
+              "raw": "https://baseurl.com/users/1",
+              "host": "https://baseurl.com",
+              "path": "/users/1",
+              "query": []
+            },
+            "description": "DELETE"
+          },
+          "response": [
+            {
+              "name": "Default",
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"name\": \"John Doe\",\n  \"email\": \"asd\"\n}",
               "status": "200"
             }
           ]
