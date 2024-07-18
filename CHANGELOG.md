@@ -22,3 +22,6 @@
 ## 0.0.7
 - Read version from string for example 1.0.0
 - Read version from pubspec.yaml
+
+## 0.0.8
+- Add support for multipart formdata
