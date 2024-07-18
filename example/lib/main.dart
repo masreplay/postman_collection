@@ -10,9 +10,33 @@ import 'package:retrofit/retrofit.dart';
 
 part 'main.g.dart';
 
+class UploadFileResponse {
+  final String url;
+
+  UploadFileResponse({required this.url});
+
+  factory UploadFileResponse.fromJson(Map<String, dynamic> json) {
+    return UploadFileResponse(
+      url: json['url'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'url': url,
+    };
+  }
+}
+
 @RestApi()
 abstract class AppClient {
   factory AppClient(Dio dio, {String baseUrl}) = _AppClient;
+
+  @POST('/upload')
+  @MultiPart()
+  Future<HttpResponse<UploadFileResponse>> uploadFile(
+    @Part() File file,
+  );
 
   @GET('/app/{platform}')
   Future<HttpResponse<AppResponse>> getAppData({
@@ -27,6 +51,18 @@ class AppClientDoc with PostmanCollectionDocumentationMixin {
   AppClientDoc(this._client);
 
   final AppClient _client;
+
+  @override
+  Future<PostmanCollectionItem> doc() async {
+    return PostmanCollectionItem(
+      name: PostmanCollectionItem.getNameFromClass(runtimeType),
+      item: await Future.wait([
+        getAppDataDoc(),
+        getUploadFileDoc(),
+
+      ]),
+    );
+  }
 
   Future<PostmanCollectionItem> getAppDataDoc() async {
     final function = _client.getAppData;
@@ -67,13 +103,32 @@ class AppClientDoc with PostmanCollectionDocumentationMixin {
     );
   }
 
-  @override
-  Future<PostmanCollectionItem> doc() async {
+  Future<PostmanCollectionItem> getUploadFileDoc() async {
+    final function = _client.uploadFile;
+
     return PostmanCollectionItem(
-      name: PostmanCollectionItem.getNameFromClass(runtimeType),
-      item: await Future.wait([
-        getAppDataDoc(),
-      ]),
+      name: PostmanCollectionItem.getNameFromFunction(function),
+      request: PostmanCollectionRequest.fromRequestOptions(
+        await getRequestOptionsFromRetrofit(
+          () => function(File('pubspec.yaml')),
+        ),
+      ),
+      response: [
+        PostmanCollectionResponse(
+          name: 'Default',
+          status: '200',
+          postmanPreviewLanguage: 'json',
+          body: jsonEncode({
+            'url': 'https://example.com/test.txt',
+          }),
+        ),
+        PostmanCollectionResponse(
+          name: 'Error',
+          status: '400',
+          postmanPreviewLanguage: 'json',
+          body: jsonEncode(MessageResponse().toJson()),
+        ),
+      ],
     );
   }
 }

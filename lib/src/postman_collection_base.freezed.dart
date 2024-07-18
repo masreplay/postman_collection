@@ -3775,21 +3775,25 @@ PostmanFormDataEntry _$PostmanFormDataEntryFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PostmanFormDataEntry {
   String get key => throw _privateConstructorUsedError;
-  String get src => throw _privateConstructorUsedError;
+  String? get src => throw _privateConstructorUsedError;
+  String? get value => throw _privateConstructorUsedError;
   String? get type => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String key, String src, String? type) $default,
+    TResult Function(String key, String? src, String? value, String? type)
+        $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String key, String src, String? type)? $default,
+    TResult? Function(String key, String? src, String? value, String? type)?
+        $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String key, String src, String? type)? $default, {
+    TResult Function(String key, String? src, String? value, String? type)?
+        $default, {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -3826,7 +3830,7 @@ abstract class $PostmanFormDataEntryCopyWith<$Res> {
           $Res Function(PostmanFormDataEntry) then) =
       _$PostmanFormDataEntryCopyWithImpl<$Res, PostmanFormDataEntry>;
   @useResult
-  $Res call({String key, String src, String? type});
+  $Res call({String key, String? src, String? value, String? type});
 }
 
 /// @nodoc
@@ -3846,7 +3850,8 @@ class _$PostmanFormDataEntryCopyWithImpl<$Res,
   @override
   $Res call({
     Object? key = null,
-    Object? src = null,
+    Object? src = freezed,
+    Object? value = freezed,
     Object? type = freezed,
   }) {
     return _then(_value.copyWith(
@@ -3854,10 +3859,14 @@ class _$PostmanFormDataEntryCopyWithImpl<$Res,
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as String,
-      src: null == src
+      src: freezed == src
           ? _value.src
           : src // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      value: freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String?,
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -3874,7 +3883,7 @@ abstract class _$$PostmanFormDataEntryImplCopyWith<$Res>
       __$$PostmanFormDataEntryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String key, String src, String? type});
+  $Res call({String key, String? src, String? value, String? type});
 }
 
 /// @nodoc
@@ -3891,7 +3900,8 @@ class __$$PostmanFormDataEntryImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? key = null,
-    Object? src = null,
+    Object? src = freezed,
+    Object? value = freezed,
     Object? type = freezed,
   }) {
     return _then(_$PostmanFormDataEntryImpl(
@@ -3899,10 +3909,14 @@ class __$$PostmanFormDataEntryImplCopyWithImpl<$Res>
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
               as String,
-      src: null == src
+      src: freezed == src
           ? _value.src
           : src // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      value: freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String?,
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -3915,7 +3929,7 @@ class __$$PostmanFormDataEntryImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PostmanFormDataEntryImpl extends _PostmanFormDataEntry {
   const _$PostmanFormDataEntryImpl(
-      {required this.key, required this.src, this.type})
+      {required this.key, this.src, this.value, this.type})
       : super._();
 
   factory _$PostmanFormDataEntryImpl.fromJson(Map<String, dynamic> json) =>
@@ -3924,13 +3938,15 @@ class _$PostmanFormDataEntryImpl extends _PostmanFormDataEntry {
   @override
   final String key;
   @override
-  final String src;
+  final String? src;
+  @override
+  final String? value;
   @override
   final String? type;
 
   @override
   String toString() {
-    return 'PostmanFormDataEntry(key: $key, src: $src, type: $type)';
+    return 'PostmanFormDataEntry(key: $key, src: $src, value: $value, type: $type)';
   }
 
   @override
@@ -3940,12 +3956,13 @@ class _$PostmanFormDataEntryImpl extends _PostmanFormDataEntry {
             other is _$PostmanFormDataEntryImpl &&
             (identical(other.key, key) || other.key == key) &&
             (identical(other.src, src) || other.src == src) &&
+            (identical(other.value, value) || other.value == value) &&
             (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, key, src, type);
+  int get hashCode => Object.hash(runtimeType, key, src, value, type);
 
   /// Create a copy of PostmanFormDataEntry
   /// with the given fields replaced by the non-null parameter values.
@@ -3960,27 +3977,30 @@ class _$PostmanFormDataEntryImpl extends _PostmanFormDataEntry {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String key, String src, String? type) $default,
+    TResult Function(String key, String? src, String? value, String? type)
+        $default,
   ) {
-    return $default(key, src, type);
+    return $default(key, src, value, type);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String key, String src, String? type)? $default,
+    TResult? Function(String key, String? src, String? value, String? type)?
+        $default,
   ) {
-    return $default?.call(key, src, type);
+    return $default?.call(key, src, value, type);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String key, String src, String? type)? $default, {
+    TResult Function(String key, String? src, String? value, String? type)?
+        $default, {
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(key, src, type);
+      return $default(key, src, value, type);
     }
     return orElse();
   }
@@ -4024,7 +4044,8 @@ class _$PostmanFormDataEntryImpl extends _PostmanFormDataEntry {
 abstract class _PostmanFormDataEntry extends PostmanFormDataEntry {
   const factory _PostmanFormDataEntry(
       {required final String key,
-      required final String src,
+      final String? src,
+      final String? value,
       final String? type}) = _$PostmanFormDataEntryImpl;
   const _PostmanFormDataEntry._() : super._();
 
@@ -4034,7 +4055,9 @@ abstract class _PostmanFormDataEntry extends PostmanFormDataEntry {
   @override
   String get key;
   @override
-  String get src;
+  String? get src;
+  @override
+  String? get value;
   @override
   String? get type;
 

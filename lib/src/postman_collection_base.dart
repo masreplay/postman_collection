@@ -184,38 +184,7 @@ class PostmanCollectionRequest with _$PostmanCollectionRequest {
               );
             }).toList(),
       description: options.method,
-      body: switch (options.contentType) {
-        Headers.multipartFormDataContentType =>
-          PostmanCollectionRequestMode.formdata(
-            formdata:
-                (options.data as Map<String, dynamic>).entries.map((entry) {
-              switch (entry.value) {
-                case MultipartFile file:
-                  return PostmanFormDataEntry(
-                    key: entry.key,
-                    type: 'file',
-                    src: file.filename ?? '',
-                  );
-                default:
-                  return PostmanFormDataEntry(
-                    key: entry.key,
-                    type: 'text',
-                    src: entry.value.toString(),
-                  );
-              }
-            }).toList(),
-          ),
-        _ => PostmanCollectionRequestMode.raw(
-            raw: options.data == null
-                ? null
-                : options.data is Map<String, dynamic>
-                    ? JsonEncoder.withIndent('  ').convert(options.data)
-                    : options.data?.toString(),
-            options: {
-              'raw': {'language': 'json'},
-            },
-          ),
-      },
+      body: _body(options),
       url: PostmanCollectionUrl(
         raw: options.uri.toString(),
         // protocol: options.uri.scheme,
@@ -232,6 +201,53 @@ class PostmanCollectionRequest with _$PostmanCollectionRequest {
               }).toList(),
       ),
     );
+  }
+
+  static PostmanCollectionRequestMode _body(RequestOptions options) {
+    PostmanCollectionRequestMode formData(Map<String, dynamic> data) {
+      return PostmanCollectionRequestMode.formdata(
+        formdata: data.entries.map((entry) {
+          switch (entry.value) {
+            case MultipartFile file:
+              return PostmanFormDataEntry(
+                key: entry.key,
+                type: 'file',
+                src: file.filename ?? '',
+              );
+            default:
+              return PostmanFormDataEntry(
+                key: entry.key,
+                type: 'text',
+                value: entry.value.toString(),
+              );
+          }
+        }).toList(),
+      );
+    }
+
+    final data = options.data;
+
+    if (data is FormData) {
+      return formData(
+        Map<String, dynamic>.fromEntries(
+          [...data.fields, ...data.files],
+        ),
+      );
+    }
+
+    return switch (options.contentType) {
+      Headers.multipartFormDataContentType => formData(options.data),
+      _ => PostmanCollectionRequestMode.raw(
+          raw: options.data == null
+              ? null
+              : options.data is Map<String, dynamic>
+                  ? JsonEncoder.withIndent('  ').convert(options.data)
+                  : options.data?.toString(),
+          options: {
+            'raw': {'language': 'json'},
+          },
+        ),
+    };
   }
 }
 
@@ -263,7 +279,8 @@ class PostmanFormDataEntry with _$PostmanFormDataEntry {
 
   const factory PostmanFormDataEntry({
     required String key,
-    required String src,
+    String? src,
+    String? value,
     String? type,
   }) = _PostmanFormDataEntry;
 
