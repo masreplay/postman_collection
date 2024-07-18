@@ -12,6 +12,7 @@ dependencies:
 
   postman_collection:
     path: ../
+  yaml: ^3.1.2
 
 dev_dependencies:
   test: ^1.24.0

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:yaml/yaml.dart';
 import 'package:example/src/dio.dart';
 import 'package:example/src/models.dart';
 import 'package:postman_collection/postman_collection.dart';
@@ -153,7 +154,11 @@ class UserClientDoc with PostmanCollectionDocumentationMixin {
 Future<void> main() async {
   final dio = getDocumentationDio();
 
-  final projectName = 'flutter${DateTime.now()}';
+  final pubspecYaml = loadYaml(File('pubspec.yaml').readAsStringSync());
+
+  final projectName = pubspecYaml['name'];
+
+  print('Generating Postman Collection for $projectName');
 
   final collection = PostmanCollection(
     info: PostmanCollectionInfo(
@@ -168,7 +173,9 @@ Future<void> main() async {
   );
 
   final file = File('versions/${PostmanCollection.filename(projectName)}');
-  file.writeAsStringSync(jsonEncode(collection.toJson()));
+
+  await file.writeAsString(jsonEncode(collection.toJson()));
+  print('Postman Collection generated at ${file.path}');
 }
 
 String jsonEncode(Object? object) {
